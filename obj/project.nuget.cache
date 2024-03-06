@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OYOvqhO83yw960RzyNj82km2WI3iHPtthPbHlrMR+LGEXOvDTHGkNfRkJkezFWT2/DFywOWdNRX/qze8nPe8bA==",
+  "dgSpecHash": "P4KG7uXCSNJ5Aycagys5Duzz59Rq+K1ZKqQcwIzdTEWOWbVPQNkLp0FirSY9kMIUdxfz/JbW9Ik8DPW2lWUDgg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Legion\\Documents\\ASP_Project\\ASP_Project.csproj",
+  "projectFilePath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Legion\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Legion\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

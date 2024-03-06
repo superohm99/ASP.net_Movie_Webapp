@@ -10,8 +10,14 @@ namespace ASP_Project.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+            
 
         }
-
+        public DbSet<CinemaEntity> CinemaEntities {get;set;}
+        public DbSet<PlaceEntity> PlaceEntities {get; set;}
+        public DbSet<MovieEntity> MovieEntities {get;set;}
+        public DbSet<ChatEntity> ChatEntities {get;set;}
+        public DbSet<CreateChatEntity> CreateChatEntities {get;set;}
+        public DbSet<ReportEntity> ReportEntities {get;set;}
     }
 }

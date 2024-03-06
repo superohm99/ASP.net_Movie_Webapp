@@ -3,6 +3,7 @@ using System;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240305094830_Initial6")]
+    partial class Initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,33 +134,6 @@ namespace ASP_Project.Migrations
                     b.ToTable("ChatEntities");
                 });
 
-            modelBuilder.Entity("ASP_Project.Models.ChatRecordEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("CreateChatEntityId")
-                        .HasColumnType("integer");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("CreateChatEntityId");
-
-                    b.ToTable("ChatRecordEntity");
-                });
-
             modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>
                 {
                     b.Property<int?>("Id")
@@ -249,34 +225,6 @@ namespace ASP_Project.Migrations
                     b.HasIndex("CinemaEntityId");
 
                     b.ToTable("PlaceEntities");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.ReportEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Sendtime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("ReportEntities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -422,25 +370,6 @@ namespace ASP_Project.Migrations
                     b.Navigation("MovieEntity");
                 });
 
-            modelBuilder.Entity("ASP_Project.Models.ChatRecordEntity", b =>
-                {
-                    b.HasOne("ASP_Project.Models.AppUser", "AppUser")
-                        .WithMany("ChatRecordEntities")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ASP_Project.Models.CreateChatEntity", "CreateChatEntity")
-                        .WithMany()
-                        .HasForeignKey("CreateChatEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("CreateChatEntity");
-                });
-
             modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>
                 {
                     b.HasOne("ASP_Project.Models.MovieEntity", "MovieEntity")
@@ -478,15 +407,6 @@ namespace ASP_Project.Migrations
                         .IsRequired();
 
                     b.Navigation("CinemaEntity");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.ReportEntity", b =>
-                {
-                    b.HasOne("ASP_Project.Models.AppUser", "AppUser")
-                        .WithMany("ReportEntities")
-                        .HasForeignKey("AppUserId");
-
-                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -538,13 +458,6 @@ namespace ASP_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.AppUser", b =>
-                {
-                    b.Navigation("ChatRecordEntities");
-
-                    b.Navigation("ReportEntities");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>

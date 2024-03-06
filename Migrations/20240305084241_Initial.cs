@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,11 @@ namespace ASP_Project.Migrations
                     Id = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     Address = table.Column<string>(type: "text", nullable: true),
+                    Rating = table.Column<int>(type: "integer", nullable: false),
+                    Image = table.Column<string>(type: "text", nullable: true),
+                    IG = table.Column<string>(type: "text", nullable: true),
+                    Facebook = table.Column<string>(type: "text", nullable: true),
+                    ChatEntityId = table.Column<int>(type: "integer", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -51,6 +56,21 @@ namespace ASP_Project.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChatEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    startAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    endAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    duration = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatEntities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,6 +179,70 @@ namespace ASP_Project.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MovieEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Rating = table.Column<string>(type: "text", nullable: true),
+                    Showtime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ChatEntityId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovieEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MovieEntities_ChatEntities_ChatEntityId",
+                        column: x => x.ChatEntityId,
+                        principalTable: "ChatEntities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CinemaEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Enterprise = table.Column<string>(type: "text", nullable: true),
+                    MovieEntityId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CinemaEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CinemaEntities_MovieEntities_MovieEntityId",
+                        column: x => x.MovieEntityId,
+                        principalTable: "MovieEntities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PlaceEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    County = table.Column<string>(type: "text", nullable: true),
+                    Canton = table.Column<string>(type: "text", nullable: true),
+                    CinemaEntityId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlaceEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlaceEntities_CinemaEntities_CinemaEntityId",
+                        column: x => x.CinemaEntityId,
+                        principalTable: "CinemaEntities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -195,6 +279,21 @@ namespace ASP_Project.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CinemaEntities_MovieEntityId",
+                table: "CinemaEntities",
+                column: "MovieEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MovieEntities_ChatEntityId",
+                table: "MovieEntities",
+                column: "ChatEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlaceEntities_CinemaEntityId",
+                table: "PlaceEntities",
+                column: "CinemaEntityId");
         }
 
         /// <inheritdoc />
@@ -216,10 +315,22 @@ namespace ASP_Project.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "PlaceEntities");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "CinemaEntities");
+
+            migrationBuilder.DropTable(
+                name: "MovieEntities");
+
+            migrationBuilder.DropTable(
+                name: "ChatEntities");
         }
     }
 }
