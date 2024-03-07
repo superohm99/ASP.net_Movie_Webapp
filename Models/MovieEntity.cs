@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 namespace ASP_Project.Models
 {
     public class MovieEntity
@@ -8,7 +9,9 @@ namespace ASP_Project.Models
         public string? Rating {get; set;}
         public DateTime? Showtime {get; set;}
 
-        public List<ChatEntity> ChatEntities {get;set;}
-        public List<CinemaEntity> CinemaEntities {get;set;}
+        // public ChatEntity ChatEntity {get;set;}
+        public int CinemaId {get;set;}
+        [ForeignKey("CinemaId")]
+        public CinemaEntity CinemaEntity {get;set;}
     }
 }

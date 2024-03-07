@@ -1,13 +1,13 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ASP_Project.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASP_Project.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
+    // private readonly UserManager<AppUser> _userManager;
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;

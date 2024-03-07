@@ -3,47 +3,41 @@ using ASP_Project.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ASP_Project.Controllers
-{
-    public class AccountController : Controller
+namespace ASP_Project.Controllers;
+    public class AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager) : Controller
     {
-        private readonly SignInManager<AppUser> signInManager;
-        private readonly UserManager<AppUser> userManager;
-
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
+    
+        public IActionResult Login(string? returnUrl = null)
         {
-            this.signInManager = signInManager;
-            this.userManager = userManager;
-        }
-        public IActionResult Login()
-        {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM model)
+        public async Task<IActionResult> Login(LoginVM model, string? returnUrl = null)
         {
+            returnUrl ??= Url.Content("~/");
             if (ModelState.IsValid)
             {
                 var result = await signInManager.PasswordSignInAsync(model.Username!, model.Password!, model.RememberMe, false);
-
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "home");
                 }
 
                 ModelState.AddModelError("", "Invalid login attempt");
-                return View(model);
             }
             return View(model);
         }
-        public IActionResult Register()
+        public IActionResult Register(string? returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
         
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterVM model)
+        public async Task<IActionResult> Register(RegisterVM model,string? returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
                 AppUser user= new()
@@ -60,7 +54,7 @@ namespace ASP_Project.Controllers
                 {
                     await signInManager.SignInAsync(user, false);
 
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction(returnUrl);
                 }
                 foreach (var error in result.Errors)
                 {
@@ -74,7 +68,14 @@ namespace ASP_Project.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction(nameof(HomeController.Index));
+            return RedirectToAction("Index", "Home");
+        }
+
+        private IActionResult RedirectToLocal(string? returnUrl)
+        {
+            Console.WriteLine("show redirect");
+            return !string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)
+            ? Redirect(returnUrl)
+            : RedirectToAction(nameof(HomeController.Index), nameof(HomeController));
         }
     }
-}

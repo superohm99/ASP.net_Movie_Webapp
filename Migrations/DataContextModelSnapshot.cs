@@ -140,7 +140,6 @@ namespace ASP_Project.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("CreateChatEntityId")
@@ -155,7 +154,7 @@ namespace ASP_Project.Migrations
 
                     b.HasIndex("CreateChatEntityId");
 
-                    b.ToTable("ChatRecordEntity");
+                    b.ToTable("ChatRecordEntities");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>
@@ -169,12 +168,7 @@ namespace ASP_Project.Migrations
                     b.Property<string>("Enterprise")
                         .HasColumnType("text");
 
-                    b.Property<int>("MovieEntityId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieEntityId");
 
                     b.ToTable("CinemaEntities");
                 });
@@ -210,6 +204,9 @@ namespace ASP_Project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
+                    b.Property<int>("CinemaId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
@@ -223,6 +220,8 @@ namespace ASP_Project.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CinemaId");
 
                     b.ToTable("MovieEntities");
                 });
@@ -260,6 +259,7 @@ namespace ASP_Project.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AppUserId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Description")
@@ -271,6 +271,10 @@ namespace ASP_Project.Migrations
 
                     b.Property<bool>("Status")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -414,7 +418,7 @@ namespace ASP_Project.Migrations
             modelBuilder.Entity("ASP_Project.Models.ChatEntity", b =>
                 {
                     b.HasOne("ASP_Project.Models.MovieEntity", "MovieEntity")
-                        .WithMany("ChatEntities")
+                        .WithMany()
                         .HasForeignKey("MovieEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -426,9 +430,7 @@ namespace ASP_Project.Migrations
                 {
                     b.HasOne("ASP_Project.Models.AppUser", "AppUser")
                         .WithMany("ChatRecordEntities")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("ASP_Project.Models.CreateChatEntity", "CreateChatEntity")
                         .WithMany()
@@ -439,17 +441,6 @@ namespace ASP_Project.Migrations
                     b.Navigation("AppUser");
 
                     b.Navigation("CreateChatEntity");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>
-                {
-                    b.HasOne("ASP_Project.Models.MovieEntity", "MovieEntity")
-                        .WithMany("CinemaEntities")
-                        .HasForeignKey("MovieEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MovieEntity");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.CreateChatEntity", b =>
@@ -469,6 +460,17 @@ namespace ASP_Project.Migrations
                     b.Navigation("ChatEntity");
                 });
 
+            modelBuilder.Entity("ASP_Project.Models.MovieEntity", b =>
+                {
+                    b.HasOne("ASP_Project.Models.CinemaEntity", "CinemaEntity")
+                        .WithMany("MovieEntities")
+                        .HasForeignKey("CinemaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CinemaEntity");
+                });
+
             modelBuilder.Entity("ASP_Project.Models.PlaceEntity", b =>
                 {
                     b.HasOne("ASP_Project.Models.CinemaEntity", "CinemaEntity")
@@ -484,7 +486,9 @@ namespace ASP_Project.Migrations
                 {
                     b.HasOne("ASP_Project.Models.AppUser", "AppUser")
                         .WithMany("ReportEntities")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AppUser");
                 });
@@ -549,14 +553,9 @@ namespace ASP_Project.Migrations
 
             modelBuilder.Entity("ASP_Project.Models.CinemaEntity", b =>
                 {
+                    b.Navigation("MovieEntities");
+
                     b.Navigation("PlaceEntities");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.MovieEntity", b =>
-                {
-                    b.Navigation("ChatEntities");
-
-                    b.Navigation("CinemaEntities");
                 });
 #pragma warning restore 612, 618
         }

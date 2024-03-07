@@ -1,0 +1,33 @@
+@model AddmovieVM
+@using ASP_Project.ViewModel;
+
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-3 card p-3">
+        <h2 class="text-center text-info">Admin</h2>
+        <form asp-action="Edit" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Title" class="control-label">Name Movie</label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class="mb-1">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+            <div class="mb-1">
+                <label asp-for="Cinema" class="control-label"></label>
+                <input asp-for="Cinema" class="form-control" />
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <input type="submit" value="Edit" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

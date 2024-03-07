@@ -9,7 +9,6 @@ namespace ASP_Project.Models
         public DateTime startAt {get;set;}
         public DateTime endAt {get;set;}
         public int duration {get;set;}
-
         public MovieEntity MovieEntity {get;set;}
         // public AppUser AppUser {get; set;}
     }

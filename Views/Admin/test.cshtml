@@ -1,0 +1,25 @@
+@model IEnumerable<MovieEntity>
+
+@{
+    ViewData["Title"] = "List of Movies";
+}
+
+<div class="row">
+        <tbody>
+    @foreach (var item in Model)
+            {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+            </tr>
+             <tr><td colspan="3"><br /></td></tr>
+            }
+        </tbody>
+</div>
