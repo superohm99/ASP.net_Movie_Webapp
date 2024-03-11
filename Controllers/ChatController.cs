@@ -3,15 +3,17 @@ using ASP_Project.Models;
 using ASP_Project.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using ASP_Project.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASP_Project.Controllers;
 public class ChatController : Controller
 {
-
+    private readonly UserManager<AppUser> _userManager;
     private readonly DataContext _context;
-    public ChatController(DataContext context)
+    public ChatController(DataContext context,UserManager<AppUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
     public IActionResult Index()
     {
@@ -40,8 +42,22 @@ public class ChatController : Controller
             ProgramMovieEntityId = model.Showtime,
             duration = duration_time
         };
+
         var result = await _context.ChatEntities.AddAsync(chat);
         if (result != null)
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        ChatRecordEntity chatrecord = new()
+        {
+            Status = true,
+            ChatId = chat.Id,
+            AppUserId = _userManager.GetUserId(HttpContext.User)
+        };
+
+        var result_record = await _context.ChatRecordEntities.AddAsync(chatrecord);
+        if (result_record != null)
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
