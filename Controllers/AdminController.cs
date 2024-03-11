@@ -3,6 +3,9 @@ using ASP_Project.Models;
 using ASP_Project.ViewModel;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+
+
 
 namespace ASP_Project.Controllers;
 public class AdminController : Controller
@@ -12,9 +15,18 @@ public class AdminController : Controller
     {
           _context = context;
     }
+
     public IActionResult Index()
     {
+        ViewBag.Enterprise =_context.CinemaEntities.ToList();
+        ViewBag.Place = _context.PlaceEntities.ToList();
         return View();
+    }
+
+    public async Task<IActionResult> list()
+    {
+        var gets = await _context.MovieEntities.Include("CinemaEntity").ToListAsync();
+        return View(gets);
     }
 
     public async Task<IActionResult> test()
@@ -24,23 +36,12 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(AddmovieVM model)
+    public async Task<IActionResult> Addmovie(AddmovieVM model)
     {
-        int cinema;
-        if (model.Cinema == "Major")
-        {
-            cinema = 2;
-        }
-        else
-        {
-            cinema = 1;
-        }
         MovieEntity movie = new ()
         {
             Title = model.Title,
             Description = model.Description, 
-            Showtime = model.Showtime,
-            CinemaId = cinema
         };
         var result = await _context.MovieEntities.AddAsync(movie);
         if (result != null)
@@ -51,5 +52,92 @@ public class AdminController : Controller
         }
         return RedirectToAction("Index", "admin");
     }
+
+    public IActionResult Addlocate()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Addlocate(AddlocationVM model)
+    {
+        PlaceEntity place = new ()
+        {
+            County = model.county ,
+            Canton = model.canton
+        };
+        var result = await _context.PlaceEntities.AddAsync(place);
+        if (result != null)
+        {
+            // Console.WriteLine(dateTime);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Addlocate", "admin");
+        }
+        return RedirectToAction("Addlocate","admin");
+    }
+
+    public IActionResult Addcinema()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Addcinema(AddcinemaVM model)
+    {
+        CinemaEntity cinema = new ()
+        {
+            Enterprise = model.Enterprise
+        };
+        var result = await _context.CinemaEntities.AddAsync(cinema);
+        if (result != null)
+        {
+            // Console.WriteLine(dateTime);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Addcinema", "admin");
+        }
+        return RedirectToAction("Addcinema","admin");
+    }
+
+    public IActionResult Addprogram()
+    {
+        ViewBag.movie =_context.MovieEntities.ToList();
+        ViewBag.place = _context.PlaceEntities.ToList();
+        ViewBag.cinema = _context.CinemaEntities.ToList();
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Addprogram(AddprogramVM model)
+    {
+
+        Console.WriteLine(model.Canton);
+        DateTime dateTime = model.Showtime.ToUniversalTime();
+        ProgramMovieEntity program = new ()
+        {
+            MovieId = model.Titlemovie,
+            PlaceId = model.Canton,
+            CinemaId = model.Cinema,
+            Showtime = dateTime
+            // Showtime = dateTime
+            // PlaceId = 
+        };
+        var result = await _context.ProgramMovieEntities.AddAsync(program);
+        if (result != null)
+        {
+            // Console.WriteLine(dateTime);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("index", "admin");
+        }
+        return RedirectToAction("index","admin");
+    }
+
+    [HttpGet]
+    public IActionResult Loadcanton(string county)
+    {
+        var cantons = _context.PlaceEntities.Where(p => p.County == county).Select(p => new { p.Id, p.Canton}).Distinct().ToList();
+        Console.WriteLine(cantons);
+        return Json(cantons);
+    }
+
 
 }

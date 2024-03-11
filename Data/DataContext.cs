@@ -19,8 +19,9 @@ namespace ASP_Project.Data
         public DbSet<PlaceEntity> PlaceEntities {get; set;}
         public DbSet<MovieEntity> MovieEntities {get;set;}
         public DbSet<ChatEntity> ChatEntities {get;set;}
-        public DbSet<CreateChatEntity> CreateChatEntities {get;set;}
         public DbSet<ReportEntity> ReportEntities {get;set;}
         public DbSet<ChatRecordEntity> ChatRecordEntities {get;set;}
+        public DbSet<ProgramMovieEntity> ProgramMovieEntities {get;set;}
+        public DbSet<MessageRecordEntity> MessageRecordEntities {get;set;}
     }
 }

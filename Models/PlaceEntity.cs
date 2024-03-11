@@ -7,6 +7,5 @@ namespace ASP_Project.Models
         public string? County {get; set;}
         public string? Canton {get; set;}
 
-        public CinemaEntity CinemaEntity {get; set;}
     }
 }

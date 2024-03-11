@@ -3,6 +3,7 @@ using System;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240311060415_retime")]
+    partial class retime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,7 +145,7 @@ namespace ASP_Project.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("text");
 
-                    b.Property<int>("ChatEntityId")
+                    b.Property<int>("CreateChatEntityId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("Status")
@@ -152,7 +155,7 @@ namespace ASP_Project.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.HasIndex("ChatEntityId");
+                    b.HasIndex("CreateChatEntityId");
 
                     b.ToTable("ChatRecordEntities");
                 });
@@ -173,7 +176,7 @@ namespace ASP_Project.Migrations
                     b.ToTable("CinemaEntities");
                 });
 
-            modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
+            modelBuilder.Entity("ASP_Project.Models.CreateChatEntity", b =>
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
@@ -181,20 +184,19 @@ namespace ASP_Project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
-                    b.Property<int>("ChatRecordEntityId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Messagetext")
+                    b.Property<string>("AppUsersId")
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("Sendtime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<int>("ChatEntityId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatRecordEntityId");
+                    b.HasIndex("AppUsersId");
 
-                    b.ToTable("MessageRecordEntities");
+                    b.HasIndex("ChatEntityId");
+
+                    b.ToTable("CreateChatEntities");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.MovieEntity", b =>
@@ -451,26 +453,32 @@ namespace ASP_Project.Migrations
                         .WithMany("ChatRecordEntities")
                         .HasForeignKey("AppUserId");
 
+                    b.HasOne("ASP_Project.Models.CreateChatEntity", "CreateChatEntity")
+                        .WithMany()
+                        .HasForeignKey("CreateChatEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("CreateChatEntity");
+                });
+
+            modelBuilder.Entity("ASP_Project.Models.CreateChatEntity", b =>
+                {
+                    b.HasOne("ASP_Project.Models.AppUser", "AppUsers")
+                        .WithMany()
+                        .HasForeignKey("AppUsersId");
+
                     b.HasOne("ASP_Project.Models.ChatEntity", "ChatEntity")
                         .WithMany()
                         .HasForeignKey("ChatEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("AppUsers");
 
                     b.Navigation("ChatEntity");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
-                {
-                    b.HasOne("ASP_Project.Models.ChatRecordEntity", "ChatRecordEntity")
-                        .WithMany("MessageRecordEntities")
-                        .HasForeignKey("ChatRecordEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChatRecordEntity");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.ProgramMovieEntity", b =>
@@ -561,11 +569,6 @@ namespace ASP_Project.Migrations
                     b.Navigation("ChatRecordEntities");
 
                     b.Navigation("ReportEntities");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.ChatRecordEntity", b =>
-                {
-                    b.Navigation("MessageRecordEntities");
                 });
 #pragma warning restore 612, 618
         }

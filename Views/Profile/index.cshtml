@@ -1,7 +1,13 @@
+@using Microsoft.AspNetCore.Identity;
+@model ASP_Project.Models.AppUser
 @{
     ViewData["Title"] = "Profile Page";
 }
 
 <div class="text-center">
    <h1>Profile Page</h1>
+   <a class="float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+   </h1>
+   <h2>@Html.DisplayFor(model => model.Name)</h2>
+   <h2>@Html.DisplayFor(model => model.Email)</h2>
 </div>

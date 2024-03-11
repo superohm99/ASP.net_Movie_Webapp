@@ -1,0 +1,123 @@
+@model AddprogramVM
+@using ASP_Project.ViewModel;
+@using ASP_Project.Data;
+
+@using System;
+@using System.Collections.Generic;
+@using System.ComponentModel.DataAnnotations;
+@using System.ComponentModel.DataAnnotations.Schema;
+@using System.Linq;
+@using System.Threading.Tasks;
+
+
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-3 card p-3">
+        <h2 class="text-center text-info">Addprogram</h2>
+        <form asp-action="Addprogram" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Titlemovie" class="control-label"></label>
+                <select asp-for="Titlemovie" class="form-control" >
+                @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
+                {
+                <option value="@i.Id">@i.Title</option>
+                }
+                </select>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Cinema" class="control-label"></label>
+            <select asp-for="Cinema" id="cinemaSelect"class="form-control" >
+              @foreach (var i in (IEnumerable<CinemaEntity>)ViewBag.cinema)
+                {
+                <option value="@i.Id">@i.Enterprise</option>
+                }
+            </select>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="County" class="control-label"></label>
+                <select id="countySelect" asp-for="County" class="form-control" >
+                @{
+                    
+                var uniqueCounties = ((IEnumerable<PlaceEntity>)ViewBag.place)
+                                        .GroupBy(x => x.County)
+                                        .Select(g => g.First());
+                }
+                @foreach (var item in uniqueCounties)
+                {
+                    <option value="@item.County">@item.County</option>
+                }
+                @* @foreach (var i in (IEnumerable<PlaceEntity>)ViewBag.place)
+                {
+                <option value="@i.Id">@i.County</option>
+                } *@
+                @* <option>Please select cinema</option> *@
+                </select>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Canton" class="control-label"></label>
+                <select id="cantonSelect" asp-for="Canton" class="form-control">
+                    <option>Please select a county first</option>
+                </select>
+            </div>
+
+            @* <div class="form-group">
+                <label asp-for="Showtime">DateTime (UTC):</label>
+                <input asp-for="Showtime" type="datetime-local" id="dateTimeUtc" name="dateTimeUtc" class="form-control" />
+            </div> *@
+            
+            <div class="mb-1">
+                <label asp-for="Showtime">ShowTime</label>
+            @Html.TextBoxFor(x => x.Showtime, "{yyyy-MM-ddTHH:mm:ss}", new
+                    {
+                        @class = "form-control",
+                        required = "required",
+                        @type = "datetime-local"
+                    })
+            </div>
+
+
+            <div class="row">
+                <div class="col-4">
+                    <input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+     $('#countySelect').change(function() {
+        var county = $(this).val();
+        loadCantonData(county);
+    })
+
+    });
+        function loadCantonData(county) {
+            $.ajax({
+                url: '@Url.Action("Loadcanton", "Admin")',
+                type: 'GET',
+                data: { county: county },
+                success: function(response) {
+                    var cantonSelect = $('#cantonSelect');
+                    cantonSelect.empty();
+                    $.each(response, function(index, item) {
+                        cantonSelect.append($('<option>').val(item.id).text(item.canton));
+                    });
+
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    </script>
+}

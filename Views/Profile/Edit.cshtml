@@ -1,0 +1,38 @@
+@using ASP_Project.ViewModel;
+@model EditprofileVM
+@{
+    ViewData["Title"] = "Edit Page";
+}
+
+<div class="text-center">
+   <h1>Edit Page</h1>
+   
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-3 card p-3">
+        <form asp-action="Edit" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="@ViewBag.username"/>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="IG" class="control-label">IG</label>
+                <input asp-for="IG" class="form-control" placeholder="@ViewBag.ig"/>
+            </div>
+
+             <div class="mb-1">
+                <label asp-for="Facebook" class="control-label">Facebook</label>
+                <input asp-for="Facebook" class="form-control" placeholder="@ViewBag.facebook"/>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <input type="submit" value="Edit" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>

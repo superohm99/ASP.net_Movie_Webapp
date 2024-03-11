@@ -26,15 +26,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
 
 
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-});
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

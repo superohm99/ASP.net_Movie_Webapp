@@ -3,6 +3,7 @@ using System;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240311072844_retime4")]
+    partial class retime4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,18 +184,18 @@ namespace ASP_Project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
-                    b.Property<int>("ChatRecordEntityId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Messagetext")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("Sendtime")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("chatRecordEntityId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatRecordEntityId");
+                    b.HasIndex("chatRecordEntityId");
 
                     b.ToTable("MessageRecordEntities");
                 });
@@ -464,13 +467,13 @@ namespace ASP_Project.Migrations
 
             modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
                 {
-                    b.HasOne("ASP_Project.Models.ChatRecordEntity", "ChatRecordEntity")
+                    b.HasOne("ASP_Project.Models.ChatRecordEntity", "chatRecordEntity")
                         .WithMany("MessageRecordEntities")
-                        .HasForeignKey("ChatRecordEntityId")
+                        .HasForeignKey("chatRecordEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ChatRecordEntity");
+                    b.Navigation("chatRecordEntity");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.ProgramMovieEntity", b =>
