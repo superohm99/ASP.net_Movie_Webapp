@@ -1,0 +1,94 @@
+.profile-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 76.8rem;
+    height: 60rem;
+    border-radius: 1rem;  
+}
+
+.profile-container > form.profile-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(95%, 76.8rem);
+    height: 100%;
+
+}
+
+.profile-container > form.profile-content > .profile-image > img{
+    vertical-align: middle;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}
+
+.profile-container > form.profile-content > .profile-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-container > form.profile-content > .profile-details > input[type="text"], input[type="email"], input[type="password"]{
+    height: 3.5rem;
+    padding-inline: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: 1.6rem;
+}
+
+.profile-container > form.profile-content > .profile-details > input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus{
+    outline: none;
+    border: .2rem solid var(--secondary-color);
+}
+
+.profile-container > form.profile-content > .profile-details .social{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-block: .5rem;
+    gap: 1rem;
+}
+
+.profile-container > form.profile-content > .profile-details .social > input[type="text"]{
+    height: 3.5rem;
+    padding-inline: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    width: 100%;
+}
+
+.profile-container > form.profile-content > .profile-details .social > input[type="text"]:focus{
+    outline: none;
+    border: .2rem solid var(--secondary-color);
+}
+
+.profile-container > form.profile-content > .submit-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px){
+    .profile-container{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}

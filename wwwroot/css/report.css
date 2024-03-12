@@ -1,0 +1,103 @@
+.main-container{
+    width: min(100%, var(--max-width-content));
+    background: var(--dark-color);
+    border-radius: 6px;
+    padding: 20px 60px 30px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-inline: auto;
+    margin-bottom: 10rem;
+  }
+  .main-container .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main-container .content .left-side{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+  }
+  .content .left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+  }
+  .content .left-side .details{
+    margin: 14px;
+    text-align: center;
+  }
+  .content .left-side .details i{
+    font-size: 30px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+  }
+  .content .left-side .details .topic{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondary-color);
+  }
+  .content .left-side .details .text-one,
+  .content .left-side .details .text-two{
+    font-size: 14px;
+    color: #afafb6;
+  }
+  .main-container .content .right-side{
+    width: 75%;
+    margin-left: 75px;
+  }
+  .content .right-side .topic-text{
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  .right-side .input-box{
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+  }
+  .right-side .input-box input,
+  .right-side .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+  }
+  .right-side .message-box{
+    min-height: 200px;
+  }
+  .right-side .input-box textarea{
+    padding-top: 6px;
+  }
+  .right-side .button{
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .right-side .button input[type="button"]{
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .button input[type="button"]:hover{
+    background: #2183c4;
+  }
