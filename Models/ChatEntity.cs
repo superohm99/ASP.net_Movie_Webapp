@@ -10,7 +10,8 @@ namespace ASP_Project.Models
         public DateTime? startAt {get;set;}
         public DateTime? endAt {get;set;}
         public TimeSpan? duration {get;set;}
-        
+        public int maxNumber {get;set;}
+        public int remainNumber {get;set;} = 1;
         public int ProgramMovieEntityId {get;set;}
         [ForeignKey("ProgramMovieEntityId")]
         public ProgramMovieEntity ProgramMovieEntity {get;set;}

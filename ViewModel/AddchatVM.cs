@@ -9,5 +9,6 @@ namespace ASP_Project.ViewModel
         public int County {get;set;}
         public int Canton {get;set;} 
         public int Showtime {get;set;}
+        public int MaxNumber {get;set;}
     }
 }

@@ -1,0 +1,47 @@
+@using ASP_Project.ViewModel;
+@model JoinchatVM
+
+@{
+    var result = ViewBag.Result as List<dynamic>;
+}
+
+
+
+    @if (result != null)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Chat ID</th>
+                    <th>RemainNUM</th>
+                    <th>MaxNUM</th>
+                    <th>ImageUser</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @foreach (var item in result)
+                {
+                    var chat = item.chat;
+                    <tr>
+                        <td>@chat.Id</td>
+                        <td>@chat.remainNumber</td>
+                        <td>@chat.maxNumber</td>
+                        <td>@item.image_user</td>
+                            <div class="mb-1">
+                               
+                                <input type="hidden" asp-for="chatid" value="@chat.Id" />
+                                <button type="submit" class="form-control">Your Button Text</button>
+                                <span asp-validation-for="chatid" class="text-danger"></span>
+                            </div>
+                    </tr>
+                }
+                </form>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No chat results found.</p>
+    }

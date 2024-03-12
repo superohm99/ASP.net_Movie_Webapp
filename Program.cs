@@ -28,6 +28,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
 
 var app = builder.Build();
 
+
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -39,9 +42,11 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
 app.UseRouting();
 
 app.UseAuthorization();
+// app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
