@@ -11,5 +11,12 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-   
+   <div class="mb-1">
+                    @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
+                    {
+                    <h1>@i.Title</h1>
+                    <h1>@i.Description</h1>
+                    <h1>@i.Rating</h1>
+                    }
+    </div>
 </div>

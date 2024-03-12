@@ -7,6 +7,8 @@ namespace ASP_Project.Models
         public string? Title {get;set;}
         public string? Description {get;set;}
         public int? Rating {get; set;} = 0;
+
+        public string? Image {get; set;}  = "https://www.w3schools.com/howto/img_avatar.png";
         // public DateTime? Showtime {get; set;}
 
     }

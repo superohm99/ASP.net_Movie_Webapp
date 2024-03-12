@@ -16,5 +16,7 @@ namespace ASP_Project.ViewModel
         [Compare("Password", ErrorMessage = "Passwords dont Match")]
         public string? ConfirmPassword {get; set;}
         public string? Address {get; set;}
+
+        public string Role {get; set;}
     }
 }

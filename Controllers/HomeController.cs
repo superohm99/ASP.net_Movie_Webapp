@@ -2,19 +2,24 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ASP_Project.Models;
 using Microsoft.AspNetCore.Identity;
+using ASP_Project.Data;
 
 namespace ASP_Project.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+
+    private readonly DataContext _context;
     // private readonly UserManager<AppUser> _userManager;
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(DataContext context,ILogger<HomeController> logger)
     {
+        _context = context;
         _logger = logger;
     }
 
     public IActionResult Index()
     {
+        ViewBag.movie = _context.MovieEntities.ToList();
         return View();
     }
 
