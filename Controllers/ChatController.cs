@@ -62,9 +62,10 @@ public class ChatController : Controller
                     .FirstOrDefaultAsync();
 
                 AppUser user = await _userManager.FindByIdAsync(userid);
-                var image_user = user.Image;
+                
+                // var image_user = user.Image;
 
-                result.Add(new { chat, image_user, chatrecordid });
+                result.Add(new { chat, chatrecordid });
                 }
             
             // var chat = await _context.ChatEntities.Where(p => p.ProgramMovieEntityId == program).Select(c => new {c.Id,c.remainNumber,c.maxNumber}).FirstOrDefaultAsync();

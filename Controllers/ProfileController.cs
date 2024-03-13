@@ -152,7 +152,7 @@ public class ProfileController : Controller
         var res = new List<object>();
         foreach (var favor in favors)
         {
-            var movie = _dbContext.MovieEntities.Where(p => p.Id == favor.MovieId).Select(c => new {c.Image,c.Title}).FirstOrDefault();
+            var movie = _dbContext.MovieEntities.Where(p => p.Id == favor.MovieId).Select(c => new {c.Id,c.Image,c.Title}).FirstOrDefault();
             res.Add(new {movie});
         }
         ViewBag.likemovie = res;
@@ -162,7 +162,10 @@ public class ProfileController : Controller
     [HttpPost]
     public async Task<IActionResult> LikeMovie(int movieid)
     {
-        Console.WriteLine("fuckyou :"+movieid);
+        if (_dbContext.FavoriteEntities.Any(p => p.MovieId == movieid && p.AppUserId ==  _userManager.GetUserId(HttpContext.User)))
+        {
+            return RedirectToAction("Showmovie", "home");;
+        }
         FavoriteEntity favor = new()
         {
             AppUserId = _userManager.GetUserId(HttpContext.User),
@@ -177,4 +180,105 @@ public class ProfileController : Controller
         }
         return View();
     }
+
+    public async Task<IActionResult> Dellike(int movieId)
+    {
+        var favor = await _dbContext.FavoriteEntities.Where(p => p.MovieId == movieId && p.AppUserId == _userManager.GetUserId(HttpContext.User)).FirstOrDefaultAsync();
+        if (favor != null)
+        {
+            _dbContext.FavoriteEntities.Remove(favor);
+            _dbContext.SaveChanges();
+            Console.WriteLine("Success Delete");
+            return RedirectToAction("LikeMovie", "profile");
+        }
+
+        return RedirectToAction("LikeMovie", "profile");
+    }
+
+    public IActionResult Group()
+    {
+        var chatrecordsID = _dbContext.ChatRecordEntities.Where(p => p.AppUserId ==  _userManager.GetUserId(HttpContext.User)).ToList();
+        var res = new List<object>();
+        Console.WriteLine("asfkhaskfa5");
+        foreach (var chatrecordId in chatrecordsID)
+        {
+                Console.WriteLine("asfkhaskfa4" + chatrecordId.Id);
+                var hostrecordId = _dbContext.ChatRecordEntities.Where(p => p.ChatId == chatrecordId.ChatId && p.Status == true).FirstOrDefaultAsync().Result;
+                Console.WriteLine("asfkhaskfa3" + hostrecordId.Id);
+                if (hostrecordId != null)
+                {
+                var chatId =  hostrecordId.ChatId;
+                var chat =  _dbContext.ChatEntities.Where(p => p.Id == chatId).FirstOrDefault();
+                if (chat != null)
+                {
+                    Console.WriteLine("asfkhaskfa2");
+                var programId = chat.ProgramMovieEntityId;
+                var movieId = _dbContext.ProgramMovieEntities.Where(p => p.Id == programId).Select(c => c.MovieId).FirstOrDefault();
+                if (movieId != null)
+                {
+                Console.WriteLine("asfkhaskfa" + movieId);
+                var movie = _dbContext.MovieEntities.Where(p => p.Id == movieId).FirstOrDefaultAsync().Result;
+                var hostuserId = hostrecordId.AppUserId;
+                var hostuser = _userManager.FindByIdAsync(hostuserId).Result;
+                var hostuserimage = hostuser.Image;
+                var movietitle = movie.Title;
+                var movieimage = movie.Image;
+                res.Add(new {hostuserimage,hostuser.Name,movieimage,movietitle});
+                }
+                }
+                }
+                
+        }
+        // // foreach (var chatrecord in chatrecords)
+        // // {
+        // //     var movie = _dbContext.ChatEntities.Where(p => p.Id == chatrecord).Select(c => new {c.Id,c.ProgramMovieEntityId,c.}).FirstOrDefault();
+        // //     res.Add(new {movie});
+        // // }
+        ViewBag.groups = res;   
+        
+        return View();
+    }
+
+
+    
+
+    // [HttpPost]
+    // public async Task<IActionResult> Group()
+    // {
+    //     var chatrecords = _dbContext.ChatRecordEntities.Where(p => p.AppUserId ==  _userManager.GetUserId(HttpContext.User)).Select(c => c.ChatId).ToList();
+    //     var chatrecordsID = _dbContext.ChatRecordEntities.Where(p => p.AppUserId ==  _userManager.GetUserId(HttpContext.User)).Select(c => c.Id).ToList();
+    //     var res = new List<object>();
+    //     foreach (var chatrecordId in chatrecordsID)
+    //     {
+    //             var hostrecordId = _dbContext.ChatRecordEntities.Where(p => p.Id == chatrecordId && p.Status == true).FirstOrDefaultAsync().Result;
+    //             if (hostrecordId != null)
+    //             {
+    //             var chatId =  hostrecordId.ChatId;
+    //             var chat =  _dbContext.ChatEntities.Where(p => p.Id == chatId).FirstOrDefaultAsync().Result;
+    //             if (chat != null)
+    //             {
+    //             var programId = chat.ProgramMovieEntityId;
+    //             var movieId = _dbContext.ProgramMovieEntities.Where(p => p.Id == programId).Select(c => c.MovieId).FirstOrDefault();
+    //             if (movieId != null)
+    //             {
+    //             var movie = _dbContext.MovieEntities.Where(p => p.Id == movieId).FirstOrDefaultAsync().Result;
+    //             var hostuserId = hostrecordId.AppUserId;
+    //             var hostuser = _userManager.FindByIdAsync(hostuserId).Result;
+    //             var hostuserimage = hostuser.Image;
+    //             res.Add(new {hostuserimage,hostuser.Name,movie.Image,movie.Title});
+    //             }
+    //             }
+    //             }
+                
+    //     }
+    //     // foreach (var chatrecord in chatrecords)
+    //     // {
+    //     //     var movie = _dbContext.ChatEntities.Where(p => p.Id == chatrecord).Select(c => new {c.Id,c.ProgramMovieEntityId,c.}).FirstOrDefault();
+    //     //     res.Add(new {movie});
+    //     // }
+    //     ViewBag.groups = res;   
+    //     return View();
+    // }
+
+
 }

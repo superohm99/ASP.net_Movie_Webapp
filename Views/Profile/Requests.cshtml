@@ -1,7 +1,7 @@
 @* @using ASP_Project.ViewModel;
 @model AddrequestVM *@
 
-<table>
+<table  >
             <thead>
                 <tr>
                     <th>Request ID</th>
@@ -12,15 +12,16 @@
             <tbody>
                 @foreach (var item in ViewBag.Result)
                 {
-                    <tr>
+                    <tr id="@item.req.Id">
                         <td>@item.req.Id</td>
                         <td>@item.req.Status</td>
                         <td>@item.user_select.Name</td> 
     
-                       <div class="mb-1">
-                            <button type="submit" class="submit-button" data-req-iid="@item.req.Id" data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Submit</button>
+                       <div class="mb-1" id="@item.req.ChatRecordId">
+                            <button  type="submit" class="submit-button" data-req-iid="@item.req.Id" data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Submit</button>
                             @* <span asp-validation-for="chatrecordid" class="text-danger"></span> *@
                         </div>
+                    
                     </tr>
                 }
             </tbody>
@@ -28,7 +29,9 @@
 
 @section Scripts {
 <script>
-    $(document).ready(function() {
+    //$(document).ready(function() {
+
+
         $('.submit-button').click(function() {
             var reqiid = $(this).data('req-iid')
             var reqid = $(this).data('req-id');
@@ -46,7 +49,9 @@
                 },
                 success: function(response) {
                     // Handle success response here
-                    console.log(reqid);
+                    $("#" + reqiid).empty();
+                    $("#" + reqid).empty();
+                    
                 },
                 error: function(xhr, status, error) {
                     // Handle error here
@@ -54,6 +59,6 @@
                 }
             });
         });
-    });
+    //});
 </script>
 }

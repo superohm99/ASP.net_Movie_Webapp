@@ -5,9 +5,10 @@
 @foreach (var item in ViewBag.likemovie)
 {
     var movie = item.movie;
-    <div>
+    <div id="@movie.Id">
         <img src="@movie.Image" alt="@movie.Title" />
         <p>@movie.Title</p> 
+        <button  type="submit" class="submit-button"  data-movie-id="@movie.Id">Submit</button>                    
     </div>
 }
 }
@@ -16,4 +17,31 @@ else
     <p>No movies liked.</p>
 }
 
+@section Scripts {
+<script>
+    //$(document).ready(function() {
+
+
+        $('.submit-button').click(function() {
+            var movieid= $(this).data('movie-id')
+            
+            $.ajax({
+                url: '@Url.Action("Dellike", "Profile")',
+                type: 'POST',
+                data: {
+                    movieId: movieid
+                },
+                success: function(response) {
+                    // Handle success response here
+                    $("#" + movieid).empty();
+                },
+                error: function(xhr, status, error) {
+                    // Handle error here
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    //});
+</script>
+}
 
