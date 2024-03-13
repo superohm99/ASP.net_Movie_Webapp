@@ -251,29 +251,18 @@ public class AdminController : Controller
             return RedirectToAction("movies", "admin");
         }
 
-
-        // select only date
         var placesIDs = await _context.ProgramMovieEntities.Where(p => p.MovieId == id && p.Showtime.Date == date.Date).Select(p => p.PlaceId).Distinct().ToListAsync();
-        // return Json(placesIDs);
         var res = new List<object>();
-        // get placesName from the placesID
         foreach (var placeid in placesIDs)
         {
 
-            // var places = await _context.PlaceEntities.Where(p => p.Id == placeid).Select(p => new { p.Id, p.Canton, p.County }).ToListAsync();
             var places = await _context.PlaceEntities.Where(p => p.Id == placeid).Select(p => new { p.Id, p.Canton, p.County }).FirstOrDefaultAsync();
 
-
-            // var showtimes = await _context.ProgramMovieEntities.Where(p => p.MovieId == id && p.PlaceId == placeid && p.Showtime.Date == date.Date).Select(p => p.Showtime.TimeOfDay).Distinct().ToListAsync();
             var showtimes = await _context.ProgramMovieEntities
                                 .Where(p => p.MovieId == id && p.PlaceId == placeid && p.Showtime.Date == date.Date)
                                 .Select(p => p.Showtime.TimeOfDay.ToString(@"hh\:mm"))
                                 .Distinct()
                                 .ToListAsync();
-            // if (places.Count > 0)
-            // {
-            //     res.Add(new { id = places[0].Id, canton = places[0].Canton, county = places[0].County, showtimes = showtimes });
-            // }
 
             if (places != null)
             {

@@ -115,50 +115,12 @@ const createDateElement = (date) => {
 
 
 
-
-// <div class="cinema-container">
-//             <div class="cinema-name">
-//                 <h2>Mega Cineplex</h2>
-//             </div>
-//             <div class="showtime">
-//                 <div class="add-showtime-container">
-//                     <div class="add-showtime-title">
-//                         <p>Add Showtime</p>
-//                         <button type="button" title="add-showtime-btn" class="add-showtime"><i
-//                                 class="fa-solid fa-plus"></i></button>
-//                     </div>
-//                     <div class="add-showtime-input-container">
-//                         <div class="add-showtime-input">
-//                             <label>Select a Time</label>
-//                             <input type="time" id="showtime" value="@DateTime.Now.ToString("HH:mm")">
-//                         </div>
-//                         <div class="add-showtime-submit">
-//                             <button class="cancel-showtime">Cancel</button>
-//                             <button class="submit-showtime">Submit</button>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <div class="showtime-container">
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-//                     <span>10:00</span>
-
-//                 </div>
-//             </div>
-//         </div>
-
 // https://localhost:7290/Admin/getplaces?id=1&date=2024-03-12T00:00:00Z
 const getPlaces = async (id, date) => {
     console.log(`https://localhost:7290/Admin/getplaces?id=${id}&date=${date}`)
     const response = await fetch(`https://localhost:7290/Admin/getplaces?id=${id}&date=${date}`);
     const data = await response.json();
-    
+
     // console.log(data);
     if (data.length === 0) {
         console.log('no showtime');
@@ -182,7 +144,7 @@ const getPlaces = async (id, date) => {
 
 getPlaces(id, date);
 
-dateContainer.addEventListener('click', async (e) => {
+dateContainer.addEventListener('click', (e) => {
     // child of date-container that is clicked
     console.log(e.target.closest('.date'));
     cinemaShowtime.innerHTML = '';
@@ -198,7 +160,7 @@ dateContainer.addEventListener('click', async (e) => {
         // convert to this datetime format 2024-03-12T00:00:00Z as datetime type
         // format date to 2024-03-12T00:00:00Z
         date = new Date(currentDate).getFullYear() + '-' + (new Date(currentDate).getMonth() + 1) + '-' + new Date(currentDate).getDate() + 'T00:00:00Z';
-        await getPlaces(id, date);
+        getPlaces(id, date);
     }
 });
 
@@ -246,6 +208,10 @@ const deleteShowtime = async (id) => {
         console.log(data);
     } catch (error) {
         console.error(error);
+    }
+    finally {
+        console.log('deleted');
+        getPlaces(id, date);
     }
 };
 
@@ -302,15 +268,12 @@ const createCinemaShowtime = (placeName, showtimes) => {
     showtimes.forEach(showtime => {
         let span = document.createElement('span');
         span.textContent = showtime;
-        // to check span is hover and click
         span.addEventListener('click', (e) => {
-            // parent element of span is previousElementSibling
             let countyCanton = e.target.parentElement.parentElement.previousElementSibling;
             let tmpCounty = countyCanton.querySelector('h2').textContent.split(' ')[0];
             let tmpCanton = countyCanton.querySelector('h2').textContent.split(' ')[1];
-            console.log(tmpCounty, tmpCanton, e.target.textContent);
-            getPlaceID(id, tmpCanton, tmpCounty, e.target.textContent);
-
+            getPlaceID(id, tmpCanton, tmpCounty, showtime);
+            console.log(tmpCounty, tmpCanton, showtime, e.target.textContent);
         });
         showtimeContainer.appendChild(span);
     });
@@ -320,7 +283,6 @@ const createCinemaShowtime = (placeName, showtimes) => {
     cinemaShowtime.appendChild(cinemaContainer);
 
 };
-
 
 const initialDate = () => {
     // generate date for the next 21 days
@@ -335,7 +297,6 @@ const initialDate = () => {
         let tmpDate = `${dateParts[1]} ${dateParts[2]} ${dateParts[3]}`;
         createDateElement({ date: tmpDate, dayOfWeek: tmpDayOfWeek });
     }
-
 };
 
 initialDate();
