@@ -9,147 +9,155 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASP_Project
 build_property.RootNamespace = ASP_Project
-build_property.ProjectDir = C:\Users\Legion\Documents\WEBAPP\ASP.net_Movie_Webapp\
+build_property.ProjectDir = D:\PETCH\KMITL\Year2\WebApp\project-webapp\project-v1\ASP.net_Movie_Webapp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Legion\Documents\WEBAPP\ASP.net_Movie_Webapp
+build_property.MSBuildProjectDirectory = D:\PETCH\KMITL\Year2\WebApp\project-webapp\project-v1\ASP.net_Movie_Webapp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Account/Login.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Account/Register.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/Addcinema.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/Addcinema.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkY2luZW1hLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/Addlocate.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/Addlocate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkbG9jYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/Addprogram.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/Addprogram.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkcHJvZ3JhbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/Edit.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/Index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/list.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/list.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cbGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Admin/test.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Admin/test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cdGVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Chat/Create.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Chat/ChatRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDaGF0Um9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Chat/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Chat/Filterjoin.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Chat/Filterjoin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxGaWx0ZXJqb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Chat/index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Chat/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Chat/Join.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Chat/Join.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxKb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Home/Index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Home/Privacy.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Home/Showmovie.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Home/Showmovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93bW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/Edit.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/GetUserByUsername.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/GetUserByUsername.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxHZXRVc2VyQnlVc2VybmFtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Group.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxHcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/LikeMovie.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/LikeMovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxMaWtlTW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/Oneuser.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Oneuser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxPbmV1c2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/Requests.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Requests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZXF1ZXN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/Submitquest.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Submitquest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxTdWJtaXRxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Profile/Users.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Profile/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Report/index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Report/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Report/report.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Report/report.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XHJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Role/Create.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Role/Index.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Shared/Error.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Shared/_LoginPartial.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/_ViewImports.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/_ViewStart.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Legion/Documents/WEBAPP/ASP.net_Movie_Webapp/Views/Shared/_Layout.cshtml]
+[D:/PETCH/KMITL/Year2/WebApp/project-webapp/project-v1/ASP.net_Movie_Webapp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-d9rqvnerjl

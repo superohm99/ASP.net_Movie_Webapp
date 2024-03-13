@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 
 namespace ASP_Project.Controllers;
-[Authorize(Roles = "Admin")]
+// [Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
     private readonly DataContext _context;

@@ -1,0 +1,97 @@
+@model List<MessageRecordEntity>
+
+@{
+    ViewData["Title"] = "ChatRoom";
+    ViewData["Styles"] ="~/css/chat.css";
+}
+
+<section class="chat-box">
+    <div class="chat">
+        <div class="header-chat">
+            <a onclick="window.location.href = '/profile/group'" class="clickable"><i class="fa-solid fa-angle-left"></i></a>
+            <i class="fa-solid fa-user-group"></i>
+            <p class="group-name">Room @ViewBag.chatID</p>
+        </div>
+        <div class="message-chat" id=message-chat>
+            <div class="message" id="status"></div>
+            @foreach (var message in Model)
+            {
+                <div class="message">
+                    <p class="text">@message.Messagetext - @message.Sendtime</p>
+                </div>
+            }
+        </div>
+        <div class="footer-chat">
+            <input type="text" id="message" placeholder="Type your message here" />
+            <a class="sendmessage clickable" id="sendmessage"><i class="fa-solid fa-paper-plane"></i></a>
+        </div>
+    </div> 
+</section>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@7.0.2/dist/browser/signalr.min.js"></script>
+
+    <script>
+
+        let con;
+        var chatId = @Html.Raw(Json.Serialize(ViewBag.chatID));
+        console.log(chatId);
+
+        const sendMessage = async (message) => {
+            try {
+                if (con && con.state === signalR.HubConnectionState.Connected) {
+                    await con.invoke("SendMessage", message);
+                } else {
+                    console.error("SignalR connection is not established.");
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        const joinChatRoom = async (chatId) => {
+            try {
+                con = new signalR.HubConnectionBuilder()
+                    .withUrl("/chatting")
+                    .configureLogging(signalR.LogLevel.Information)
+                    .build();
+
+                con.on("JoinSpecificChatRoom", (msg) => {
+                    console.log(msg);
+                });
+
+                con.on("ReceiveSpecificMessage", async (msg) => {
+                    var div = document.createElement("div");
+                    var textp = document.createElement("p");
+                    var timep = document.createElement("p");
+                    
+                    console.log(msg);
+                    textp.textContent = msg;
+                    timep.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    div.appendChild(textp);
+                    div.appendChild(timep);
+                    div.style.display = "flex";
+                    div.style.gap = "0.5rem";
+                    document.getElementById("message-chat").appendChild(div);
+                    location.reload();
+                });
+            
+                await con.start();
+                await con.invoke("JoinSpecificChatRoom", chatId);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        
+        joinChatRoom(chatId);
+
+        document.getElementById("sendmessage").addEventListener("click", function(e) {
+            e.preventDefault();
+
+            var message = document.getElementById("message");
+            sendMessage(message.value);
+            message.value = "";
+        });
+        
+    </script>
+}

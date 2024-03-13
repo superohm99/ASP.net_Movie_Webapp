@@ -212,7 +212,7 @@ namespace ASP_Project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
-                    b.Property<int>("ChatRecordEntityId")
+                    b.Property<int?>("ChatRecordEntityId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Messagetext")
@@ -544,9 +544,7 @@ namespace ASP_Project.Migrations
                 {
                     b.HasOne("ASP_Project.Models.ChatRecordEntity", "ChatRecordEntity")
                         .WithMany("MessageRecordEntities")
-                        .HasForeignKey("ChatRecordEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ChatRecordEntityId");
 
                     b.Navigation("ChatRecordEntity");
                 });

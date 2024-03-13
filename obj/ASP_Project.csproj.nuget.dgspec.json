@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {}
+    "D:\\PETCH\\KMITL\\Year2\\WebApp\\project-webapp\\project-v1\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {
+    "D:\\PETCH\\KMITL\\Year2\\WebApp\\project-webapp\\project-v1\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+        "projectUniqueName": "D:\\PETCH\\KMITL\\Year2\\WebApp\\project-webapp\\project-v1\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
         "projectName": "ASP_Project",
-        "projectPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
-        "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\obj\\",
+        "projectPath": "D:\\PETCH\\KMITL\\Year2\\WebApp\\project-webapp\\project-v1\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\PETCH\\KMITL\\Year2\\WebApp\\project-webapp\\project-v1\\ASP.net_Movie_Webapp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://nuget.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -45,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "JSON": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -56,6 +64,14 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Common": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -72,6 +88,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

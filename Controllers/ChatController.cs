@@ -6,6 +6,7 @@ using ASP_Project.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json;
 using System.Text;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ASP_Project.Controllers;
 public class ChatController : Controller
@@ -32,7 +33,6 @@ public class ChatController : Controller
     {
         return View();
     }
-    
 
 
     [HttpPost]
@@ -81,8 +81,8 @@ public class ChatController : Controller
         }
             // ส่งค่า result ไปที่ View ชื่อ "Filter" โดยส่งผ่าน ViewBag
         ViewBag.Result = result;
-    
-         return View("Filterjoin");
+
+        return View();
     }
 
     [HttpPost]
@@ -95,7 +95,7 @@ public class ChatController : Controller
         }
         if (_context.ChatRecordEntities.Any(p => p.ChatId == model.chatid && p.AppUserId == _userManager.GetUserId(HttpContext.User)))
         {
-            return RedirectToAction("join","chat");
+            return RedirectToAction("ChatRoom","chat");
         }
         RequestEntity request = new()
         {
@@ -105,7 +105,7 @@ public class ChatController : Controller
         };
         var result_record = await _context.RequestEntities.AddAsync(request);
         await _context.SaveChangesAsync();
-        return RedirectToAction("index", "profile");
+        return RedirectToAction("ChatRoom", "chat");
         // ChatRecordEntity chatrecord = new()
         // {
         //     Status = false,
@@ -172,7 +172,7 @@ public class ChatController : Controller
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
-            return RedirectToAction("create", "Chat");
+            return RedirectToAction("ChatRoom", "Chat");
         }
 
         return RedirectToAction("Index","Chat");
@@ -263,5 +263,15 @@ public class ChatController : Controller
         Console.WriteLine("place"+placeId);
         var programs = _context.ProgramMovieEntities.Where(p => p.MovieId == movieId && p.CinemaId == cinemaId && p.PlaceId == placeId).Select(p => new{p.Id, p.Showtime}).ToList();
         return Json(programs);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> ChatRoom(int? chatID)
+    {
+        ViewBag.chatID = chatID;
+        var messages = await _context.MessageRecordEntities
+                                .Where(p => p.ChatRecordEntityId == chatID)
+                                .ToListAsync();
+        return View(messages);
     }
 }
