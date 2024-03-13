@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ASP_Project.Data;
 
 namespace ASP_Project.Models
 {
@@ -16,5 +17,6 @@ namespace ASP_Project.Models
         [ForeignKey("ProgramMovieEntityId")]
         public ProgramMovieEntity ProgramMovieEntity {get;set;}
         // public AppUser AppUser {get; set;}
+
     }
 }

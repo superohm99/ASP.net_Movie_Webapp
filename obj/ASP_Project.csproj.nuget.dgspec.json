@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Legion\\Documents\\ASP_Project\\ASP_Project.csproj": {}
+    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Legion\\Documents\\ASP_Project\\ASP_Project.csproj": {
+    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Legion\\Documents\\ASP_Project\\ASP_Project.csproj",
+        "projectUniqueName": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
         "projectName": "ASP_Project",
-        "projectPath": "C:\\Users\\Legion\\Documents\\ASP_Project\\ASP_Project.csproj",
+        "projectPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
         "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Legion\\Documents\\ASP_Project\\obj\\",
+        "outputPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",

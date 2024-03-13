@@ -160,6 +160,21 @@ public class ProfileController : Controller
     }
 
     [HttpPost]
+    public async Task<IActionResult> Cancelreq(string userid, int chatrecordid)
+    {
+        var req = _dbContext.RequestEntities.Where(r => r.AppUserId == userid && r.ChatRecordEntity.Id == chatrecordid).FirstOrDefault();
+        if (req != null)
+        {
+            _dbContext.RequestEntities.Remove(req);
+            _dbContext.SaveChanges();
+            Console.WriteLine("Success Cancel");
+            return RedirectToAction("LikeMovie", "profile");
+        }
+
+        return RedirectToAction("likemovie","profile");
+    }
+
+    [HttpPost]
     public async Task<IActionResult> LikeMovie(int movieid)
     {
         if (_dbContext.FavoriteEntities.Any(p => p.MovieId == movieid && p.AppUserId ==  _userManager.GetUserId(HttpContext.User)))
@@ -199,24 +214,24 @@ public class ProfileController : Controller
     {
         var chatrecordsID = _dbContext.ChatRecordEntities.Where(p => p.AppUserId ==  _userManager.GetUserId(HttpContext.User)).ToList();
         var res = new List<object>();
-        Console.WriteLine("asfkhaskfa5");
+        // Console.WriteLine("asfkhaskfa5");
         foreach (var chatrecordId in chatrecordsID)
         {
-                Console.WriteLine("asfkhaskfa4" + chatrecordId.Id);
+                // Console.WriteLine("asfkhaskfa4" + chatrecordId.Id);
                 var hostrecordId = _dbContext.ChatRecordEntities.Where(p => p.ChatId == chatrecordId.ChatId && p.Status == true).FirstOrDefaultAsync().Result;
-                Console.WriteLine("asfkhaskfa3" + hostrecordId.Id);
+                // Console.WriteLine("asfkhaskfa3" + hostrecordId.Id);
                 if (hostrecordId != null)
                 {
                 var chatId =  hostrecordId.ChatId;
                 var chat =  _dbContext.ChatEntities.Where(p => p.Id == chatId).FirstOrDefault();
                 if (chat != null)
                 {
-                    Console.WriteLine("asfkhaskfa2");
+                    // Console.WriteLine("asfkhaskfa2");
                 var programId = chat.ProgramMovieEntityId;
                 var movieId = _dbContext.ProgramMovieEntities.Where(p => p.Id == programId).Select(c => c.MovieId).FirstOrDefault();
                 if (movieId != null)
                 {
-                Console.WriteLine("asfkhaskfa" + movieId);
+                // Console.WriteLine("asfkhaskfa" + movieId);
                 var movie = _dbContext.MovieEntities.Where(p => p.Id == movieId).FirstOrDefaultAsync().Result;
                 var hostuserId = hostrecordId.AppUserId;
                 var hostuser = _userManager.FindByIdAsync(hostuserId).Result;

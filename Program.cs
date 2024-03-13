@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ASP_Project.Models;
+using ASP_Project;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
     .AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
 
 
+builder.Services.AddHostedService<BgService>();
 
 var app = builder.Build();
 
