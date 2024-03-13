@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Movies";
+    ViewData["Styles"] = "~/css/movies.css";
+    ViewData["Scripts"] = "~/js/movies.js";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model IEnumerable<MovieEntity>
+
+<div class="main-container">
+    <div class="add-movie">
+        <a class="btn btn-success" href="/admin/addmovie">Add Movie</a>
+        <a class="btn btn-success" href="/admin/addlocate">Add Location</a>
+        <a class="btn btn-success" href="/admin/addcinema">Add Cinema</a>
+        <a class="btn btn-success" href="/admin/addprogram">Add Program</a>
+    </div>
+    @foreach (var movie in Model)
+    {
+        <div class="info">
+            <span>@movie.Id</span>
+            <h2>@movie.Title</h2>
+            <img src=@movie.Image alt="image" />
+            <a asp-action="EditMovie" asp-route-id="@movie.Id" class="edit-movie-btn">Edit</a>
+            <a asp-action="DeleteMovie" asp-route-id="@movie.Id" class="delete-movie-btn">Delete</a>
+        </div>
+    }
+</div>

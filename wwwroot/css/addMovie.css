@@ -1,0 +1,65 @@
+.section > nav.sidebar-responsive > ul > li:nth-child(3), aside > nav.sidebar > ul li:nth-child(3){
+    background-color: var(--danger-color);
+}
+
+.movie-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 2rem;
+}
+
+.movie-title, .movie-description, .movie-image{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 2rem;
+}
+
+.movie-title label, .movie-description label, .movie-image label{
+    font-weight: 700;
+}
+
+.movie-title input, .movie-description textarea{
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.movie-title{
+    width: 95%;
+    max-width: 40rem;
+}
+
+.movie-title input{
+    height: 5rem;
+}
+
+.preview-image{
+    background-image: url('https://via.placeholder.com/150');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 2rem;
+    width: 15rem;
+    height: 15rem;
+}
+
+.movie-description textarea{
+    resize: none;
+    height: 15rem;
+}
+
+.movie-description{
+    width: 95%;
+    max-width: 60rem;
+}
+
+input[type="submit"]{
+    margin-inline: 2rem;
+    border-radius: 1rem;
+}

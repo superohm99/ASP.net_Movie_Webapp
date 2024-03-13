@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = "Reports";
+    ViewData["Styles"] = "~/css/reports.css";
+    ViewData["Scripts"] = "~/js/reports.js";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<ReportEntity>;
+
+<div class="main-container">
+    @for (var i = 0; i < @ViewBag.Users.Count; i++)
+    {
+    <div class="card">
+        <div class="report-title">
+            <h2>@Model[i].Title</h2>
+        </div>
+        <div class="header-info">
+            <img src=@ViewBag.Users[i].Image alt="Avatar" class="avatar">
+            <div class="personal-info">
+                <span>@ViewBag.Users[i].Name</span>
+                <span>&lt;@ViewBag.Users[i].Email&gt;</span>
+            </div>
+            <div class="date-info">
+                <span>@Model[i].Sendtime</span>
+            </div>
+        </div>
+        <div class="report-description">
+            <p>@Model[i].Description</p>
+        </div>
+    </div>
+    }
+    <div class="card">
+        <div class="report-title">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos est, assumenda totam minima maiores
+                ipsa,
+                quo unde facere pariatur quia laboriosam veritatis animi quidem, fugiat a optio nemo? Ullam quidem
+                delectus
+                temporibus. Labore quo aliquid consequuntur, blanditiis corrupti voluptatum et consequatur ea dolores
+                excepturi,
+                dolorum numquam nihil, inventore harum impedit.
+            </h2>
+        </div>
+        <div class="header-info">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <div class="personal-info">
+                <span>John Doe</span>
+                <span>&lt;john.doe@mail.com&gt;</span>
+            </div>
+            <div class="date-info">
+                <span>2021-01-01</span>
+                <span>12:00</span>
+            </div>
+        </div>
+        <div class="report-description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos est, assumenda totam minima maiores
+                ipsa,
+                quo unde facere pariatur quia laboriosam veritatis animi quidem, fugiat a optio nemo? Ullam quidem
+                delectus
+                temporibus. Labore quo aliquid consequuntur, blanditiis corrupti voluptatum et consequatur ea dolores
+                excepturi,
+                dolorum numquam nihil, inventore harum impedit.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="report-title">
+            <h2>Lorem ipsum</h2>
+        </div>
+        <div class="header-info">
+            <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+            <div class="personal-info">
+                <span>John Doe</span>
+                <span>&lt;john.doe@mail.com&gt;</span>
+            </div>
+            <div class="date-info">
+                <span>2021-01-01</span>
+                <span>12:00</span>
+            </div>
+        </div>
+        <div class="report-description">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores unde totam, dolorum quam debitis quas
+                iste,
+                quo ex nisi consequuntur porro odio enim, aperiam ab voluptatibus molestias! Quaerat accusantium
+                incidunt facere
+                voluptate in explicabo ex qui quasi delectus, voluptatibus accusamus hic minus velit vero tempora ut
+                soluta
+                officiis. Sint maiores et temporibus enim quos ipsa quo, consequatur, ut at nemo, ratione tempore. Quis
+                illum
+                molestiae sunt a architecto nemo rerum consectetur voluptate explicabo voluptatem voluptatibus
+                laboriosam
+                corporis officiis, ad impedit animi velit, dolorem amet? Ut exercitationem dolorum delectus vero minima
+                perferendis, a iusto neque aut beatae saepe? Porro, magni corporis!</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="report-title">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos est, assumenda totam minima maiores
+                ipsa,
+                quo unde facere pariatur quia laboriosam veritatis animi quidem, fugiat a optio nemo? Ullam quidem
+                delectus
+                temporibus. Labore quo aliquid consequuntur, blanditiis corrupti voluptatum et consequatur ea dolores
+                excepturi,
+                dolorum numquam nihil, inventore harum impedit.
+            </h2>
+        </div>
+        <div class="header-info">
+            <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="avatar">
+            <div class="personal-info">
+                <span>John Doe</span>
+                <span>&lt;john.doe@mail.com&gt;</span>
+            </div>
+            <div class="date-info">
+                <span>2021-01-01</span>
+                <span>12:00</span>
+            </div>
+        </div>
+        <div class="report-description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos est, assumenda totam minima maiores
+                ipsa,
+                quo unde facere pariatur quia laboriosam veritatis animi quidem, fugiat a optio nemo? Ullam quidem
+                delectus
+                temporibus. Labore quo aliquid consequuntur, blanditiis corrupti voluptatum et consequatur ea dolores
+                excepturi,
+                dolorum numquam nihil, inventore harum impedit.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="report-title">
+            <h2>Lorem ipsum</h2>
+        </div>
+        <div class="header-info">
+            <img src="https://www.w3schools.com/w3images/avatar5.png" alt="Avatar" class="avatar">
+            <div class="personal-info">
+                <span>John Doe</span>
+                <span>&lt;john.doe@mail.com&gt;</span>
+            </div>
+            <div class="date-info">
+                <span>2021-01-01</span>
+                <span>12:00</span>
+            </div>
+        </div>
+        <div class="report-description">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores unde totam, dolorum quam debitis quas
+                iste,
+                quo ex nisi consequuntur porro odio enim, aperiam ab voluptatibus molestias! Quaerat accusantium
+                incidunt facere
+            </p>
+        </div>
+    </div>
+
+
+</div>

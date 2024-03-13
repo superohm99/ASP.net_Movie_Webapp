@@ -5,8 +5,24 @@
       "PackagePath": "staticwebassets\\ASP_Project.bundle.scp.css"
     },
     {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\addLocate.css",
+      "PackagePath": "staticwebassets\\css\\addLocate.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\addMovie.css",
+      "PackagePath": "staticwebassets\\css\\addMovie.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\adminSite.css",
+      "PackagePath": "staticwebassets\\css\\adminSite.css"
+    },
+    {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\createRoom.css",
       "PackagePath": "staticwebassets\\css\\createRoom.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\editMovie.css",
+      "PackagePath": "staticwebassets\\css\\editMovie.css"
     },
     {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\home.css",
@@ -17,12 +33,28 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\movies.css",
+      "PackagePath": "staticwebassets\\css\\movies.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\profileUpdate.css",
+      "PackagePath": "staticwebassets\\css\\profileUpdate.css"
+    },
+    {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\register.css",
       "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\report.css",
       "PackagePath": "staticwebassets\\css\\report.css"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\reports.css",
+      "PackagePath": "staticwebassets\\css\\reports.css"
     },
     {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\css\\site.css",
@@ -41,12 +73,32 @@
       "PackagePath": "staticwebassets\\js\\addMovie.js"
     },
     {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\adminSite.js",
+      "PackagePath": "staticwebassets\\js\\adminSite.js"
+    },
+    {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\createRoom.js",
       "PackagePath": "staticwebassets\\js\\createRoom.js"
     },
     {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\editMovie.js",
+      "PackagePath": "staticwebassets\\js\\editMovie.js"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\profile.js",
+      "PackagePath": "staticwebassets\\js\\profile.js"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\profileUpdate.js",
+      "PackagePath": "staticwebassets\\js\\profileUpdate.js"
+    },
+    {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\report.js",
       "PackagePath": "staticwebassets\\js\\report.js"
+    },
+    {
+      "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\reports.js",
+      "PackagePath": "staticwebassets\\js\\reports.js"
     },
     {
       "Id": "D:\\ASP.net_Movie_Webapp\\wwwroot\\js\\site.js",

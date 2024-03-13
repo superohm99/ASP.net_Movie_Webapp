@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 2rem;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.form-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-detail label{
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.form-detail input, .form-detail select{
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.form-detail input[type="submit"]{
+    border-radius: 1rem;
+}

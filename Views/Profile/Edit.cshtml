@@ -2,37 +2,57 @@
 @model EditprofileVM
 @{
     ViewData["Title"] = "Edit Page";
+    ViewData["Styles"] = "/css/profileUpdate.css";
+    ViewData["Scripts"] = "~/js/profileUpdate.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<div class="text-center">
-   <h1>Edit Page</h1>
-   
-<div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-3 card p-3">
-        <form asp-action="Edit" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-1">
-                <label asp-for="Name" class="control-label">Name</label>
-                <input asp-for="Name" class="form-control" placeholder="@ViewBag.username"/>
-            </div>
-
-            <div class="mb-1">
-                <label asp-for="IG" class="control-label">IG</label>
-                <input asp-for="IG" class="form-control" placeholder="@ViewBag.ig"/>
-            </div>
-
-             <div class="mb-1">
-                <label asp-for="Facebook" class="control-label">Facebook</label>
-                <input asp-for="Facebook" class="form-control" placeholder="@ViewBag.facebook"/>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <input type="submit" value="Edit" class="btn btn-primary btn-sm float-end" />
-                </div>
-            </div>
-        </form>
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Profile</h1>
     </div>
-</div>
+    <form class="profile-content" asp-action="Edit" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+        <div class="profile-image">
+            <img src="@ViewBag.Image" alt="Avatar" />
+        </div>
+
+        <div class="form-group" style="display:none">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" id="imageUrl" type="text" />
+        </div>
+
+        <div class="profile-details">
+            <label>Change Profile Picture</label>
+            <input type="file" id="file" />
+        </div>
+
+        <div class="profile-details">
+            <label asp-for="Name" class="control-label">Name</label>
+            <input asp-for="Name" class="form-control" value="@ViewBag.name" />
+        </div>
+
+        <div class="profile-details">
+            <label for="Email">Email</label>
+            <input type="text" id="email" name="email" value="@ViewBag.email" readonly />
+        </div>
+
+        <div class="profile-details">
+            <label for="socials">Social</label>
+            <div class="social">
+                <i class="fa-brands fa-facebook"></i>
+                <input asp-for="Facebook" class="form-control" value="@ViewBag.facebook" />
+            </div>
+            <div class="social">
+                <i class="fa-brands fa-instagram"></i>
+                <input asp-for="IG" class="form-control" value="@ViewBag.ig" />
+            </div>
+        </div>
+
+        <div class="submit-btn">
+            <a class="btn btn-danger" href="@Url.Action("Index", "Profile")">Cancel</a>
+            <input class="btn btn-success" type="submit" value="Update" />
+        </div>
+    </form>
 </div>
