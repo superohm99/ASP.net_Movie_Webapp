@@ -21,7 +21,7 @@
             <h2>@movie.Title</h2>
             <img src=@movie.Image alt="image" />
             <a asp-action="EditMovie" asp-route-id="@movie.Id" class="edit-movie-btn">Edit</a>
-            <a asp-action="DeleteMovie" asp-route-id="@movie.Id" class="delete-movie-btn">Delete</a>
+            <a class="delete-movie-btn" onclick="deleteMovie(@movie.Id)">Delete</a>
         </div>
     }
 </div>

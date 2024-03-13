@@ -18,9 +18,7 @@
     <div class="container">
         <header class="header">
             <div class="banner">
-                <ul class="preview">
-
-                </ul>
+                <ul class="preview"></ul>
             </div>
         </header>
 
@@ -32,51 +30,52 @@
                     <li class="nav-items"><a href="/chat/join">Join Room</a></li>
                     <li class="nav-items"><a href="/Report/report" data-link>Report</a></li>
                 </ul>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="profile">
-                <a href="/profile"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar"></a>
-            </div>
-            <div class="caret-down">
-                <i class="fas fa-caret-down"></i>
-                <ul class="navlist navlist-responsive">
-                    <li class="nav-items"><a href="/profile">Profile</a></li>
-                    <li class="nav-items"><a href="/logout">Logout</a></li>
-                </ul>
-            </div>
-        }
-        else
-        {
-            <ul class="navlist auth-navlist">
-                <li class="nav-items"><a href="/Account/Login">Sign In</a></li>
-                <li class="nav-items btn-signin"><a href="/Account/Register">Sign Up</a></li>
-            </ul>
-        }
-
-                @* <ul class="navlist auth-navlist">
-                    <li class="nav-items"><a href="/Account/Login">Sign In</a></li>
-                    <li class="nav-items btn-signin"><a href="/Account/Register">Sign Up</a></li>
-                </ul>
-                <div class="profile">
-                    <a href="/profile"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"
-                            class="avatar"></a>
-                </div>
                 <div class="caret-down">
                     <i class="fas fa-caret-down"></i>
-                    <ul class="navlist navlist-responsive">
-                        <li class="nav-items"><a href="/profile">Profile</a></li>
-                        @* <li class="nav-items"><a href="/auth/signin">Sign In</a></li>
-                        <li class="nav-items btn-signin"><a href="/auth/signup">Sign Up</a></li> 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navlist navlist-responsive">
+                            <li class="nav-items"><a href="/profile">Profile</a></li>
+                            <li class="nav-items"><a href="/account/logout">Logout</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navlist navlist-responsive">
+                            <li class="nav-items"><a href="/account/login">Login</a></li>
+                            <li class="nav-items btn-signin"><a href="/account/register">Register</a></li>
+                        </ul>
+                    }
+
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="navlist auth-navlist">
+                        <li class="nav-items"><a href="/account/logout">Logout</a></li>
                     </ul>
-                </div> *@
+                    <div class="profile">
+                        <a href="/profile"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"
+                                class="avatar"></a>
+                    </div>
+                }
+                else
+                {
+                    <ul class="navlist auth-navlist">
+                        <li class="nav-items"><a href="/account/login">Sign In</a></li>
+                        <li class="nav-items btn-signin"><a href="/account/register">Sign Up</a></li>
+                    </ul>
+                }
+
             </div>
         </nav>
 
         <main class="main">
             @RenderBody()
+            <input type="hidden" id="user" value="@User.Identity.IsAuthenticated" />
         </main>
 
-        <footer class="footer fotter-content">
+        <footer class="footer footer-content">
             <p>&copy; 2023 - Web Application Development</p>
         </footer>
     </div>
@@ -84,7 +83,6 @@
     <script src="~/js/site.js" asp-append-version="true" async></script>
     <script src="~/js/userSite.js" asp-append-version="true" async></script>
     <script src=@ViewData["Scripts"] asp-append-version="true" async></script>
-    @* @await RenderSectionAsync("Scripts", required: true) *@
 </body>
 
 </html>

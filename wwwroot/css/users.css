@@ -1,0 +1,18 @@
+
+.user{
+    display: grid;
+    grid-template-columns: 40rem 1fr 1fr;
+    background-color: var(--info-color);
+    padding-block: 1rem;
+    margin-bottom: 1rem;
+    place-items: center;
+}
+
+.delete-user-btn{
+    background-color: var(--danger-color);
+    color: var(--light-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+

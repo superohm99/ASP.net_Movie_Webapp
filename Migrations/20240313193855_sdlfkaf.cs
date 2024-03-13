@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class Test4 : Migration
+    public partial class sdlfkaf : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -230,31 +230,6 @@ namespace ASP_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FavoriteEntities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    AppUserId = table.Column<string>(type: "text", nullable: false),
-                    MovieId = table.Column<int>(type: "integer", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FavoriteEntities", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_FavoriteEntities_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FavoriteEntities_MovieEntities_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "MovieEntities",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProgramMovieEntities",
                 columns: table => new
                 {
@@ -435,16 +410,6 @@ namespace ASP_Project.Migrations
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FavoriteEntities_AppUserId",
-                table: "FavoriteEntities",
-                column: "AppUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FavoriteEntities_MovieId",
-                table: "FavoriteEntities",
-                column: "MovieId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MessageRecordEntities_ChatRecordEntityId",
                 table: "MessageRecordEntities",
                 column: "ChatRecordEntityId");
@@ -497,9 +462,6 @@ namespace ASP_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "FavoriteEntities");
 
             migrationBuilder.DropTable(
                 name: "MessageRecordEntities");

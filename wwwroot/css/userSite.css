@@ -1,5 +1,3 @@
-/* import css */
-@import url('~/css/site.css');
 
 .container{
     display: grid;
@@ -111,6 +109,7 @@ nav.nav-container{
     flex-direction: column;
     background-color: var(--light-color);
     width: 12rem;
+    z-index: 10;
 }
 
 .navlist-responsive > .nav-items{
@@ -167,10 +166,16 @@ nav.nav-container{
     bottom: 0;
 }
 
-.fotter-content{
+.footer-content{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 1024px){
+    .nav-items{
+        padding: 0.5rem;
+    }
 }
 
 @media (max-width: 768px){

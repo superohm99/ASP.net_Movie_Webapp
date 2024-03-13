@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240313073504_Test4")]
-    partial class Test4
+    [Migration("20240313193855_sdlfkaf")]
+    partial class sdlfkaf
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -181,30 +181,6 @@ namespace ASP_Project.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CinemaEntities");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.FavoriteEntity", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int?>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("FavoriteEntities");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
@@ -524,23 +500,6 @@ namespace ASP_Project.Migrations
                     b.Navigation("AppUser");
 
                     b.Navigation("ChatEntity");
-                });
-
-            modelBuilder.Entity("ASP_Project.Models.FavoriteEntity", b =>
-                {
-                    b.HasOne("ASP_Project.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ASP_Project.Models.MovieEntity", "MovieEntity")
-                        .WithMany()
-                        .HasForeignKey("MovieId");
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("MovieEntity");
                 });
 
             modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>

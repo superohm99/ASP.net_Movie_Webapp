@@ -13,7 +13,7 @@ a{
     background-color: #161b22;
     width: min(100%, 40rem);
     height: max-content;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 1.5rem;
 }
 
@@ -22,7 +22,7 @@ a{
 }
 
 .card .header h2{
-    font-size: clamp(2.5rem, 2.5vw, 3rem);
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
 }
 
 .card form.register-form{
@@ -32,7 +32,7 @@ a{
 
 .card form.register-form > .input-group{
     position: relative;
-    margin: 1rem 0;
+    margin: 3rem 0;
     border: 2px solid var(--dark-color);
     border-radius: 1rem;
     margin-inline: auto;
@@ -44,7 +44,7 @@ a{
 .card form.register-form .input-group input{
     width: 90%;
     padding: 1rem;
-    font-size: clamp(1.6rem, 2vw, 1.8rem);
+    font-size: clamp(1.rem, 2vw, 1.8rem);
     border: none;
     border-radius: 1rem;
     outline: none;
@@ -68,7 +68,7 @@ a{
     top: -2.5rem;
     left: 0;
     color: #2f81f7;
-    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 .card form.register-form .input-group i{
@@ -80,7 +80,7 @@ a{
 }
 
 .card form.register-form button{
-    padding: 1rem 0.5rem;
+    padding: .5rem 0;
     width: 90%;
     transform: translateX(5%);
     border: none;

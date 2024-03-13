@@ -15,7 +15,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
+    position: relative;
+    transition: .3s;
 }
 
 .card:hover{
@@ -31,4 +32,26 @@
     height: 20rem;
     object-fit: cover;
     vertical-align: middle;
+}
+
+.fa-heart{
+    color: var(--light-color);
+    font-size: 3.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+}
+
+.fa-heart:hover{
+    color: var(--secondary-color);
+}
+
+.fa-heart.active{
+    color: var(--secondary-color);
+}
+
+.fa-heart.active:hover{
+    color: var(--light-color);
 }

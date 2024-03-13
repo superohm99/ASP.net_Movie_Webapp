@@ -22,8 +22,8 @@ a{
     text-align: center;
 }
 
-.card .header h2{
-    font-size: clamp(2.5rem, 2.5vw, 3rem);
+.card .header h3{
+    font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
 .card form.login-form{

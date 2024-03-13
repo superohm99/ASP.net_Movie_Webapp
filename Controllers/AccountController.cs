@@ -56,7 +56,7 @@ namespace ASP_Project.Controllers;
                 {
                     await signInManager.SignInAsync(user, false);
                     await userManager.AddToRoleAsync(user, "User");
-                    return RedirectToAction(returnUrl);
+                    return RedirectToAction("Index", "Home");
                 }
                 foreach (var error in result.Errors)
                 {

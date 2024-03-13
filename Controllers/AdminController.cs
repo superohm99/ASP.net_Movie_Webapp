@@ -345,6 +345,86 @@ public class AdminController : Controller
         return RedirectToAction("movies", "admin");
     }
 
+ [HttpPost]
+    public async Task<IActionResult> Delmovie(int? movieID)
+    {
+    var movie = _context.MovieEntities.Where( p => p.Id == movieID).FirstOrDefault();
+    if (movie != null)
+    {
+    
+        var programs = await _context.ProgramMovieEntities.Where(p => p.MovieId == movieID).ToListAsync();
+        var favors = await _context.FavoriteEntities.Where(f => f.MovieId == movieID).ToListAsync();
+        foreach (var program in programs)
+        {
+            var chats = await _context.ChatEntities.Where(c => c.ProgramMovieEntityId == program.Id).ToListAsync();
+            foreach (var chat in chats)
+            {
+             
+                var chatRecords = await _context.ChatRecordEntities.Where(cr => cr.ChatId == chat.Id).ToListAsync();
 
+                foreach (var chatrecord in chatRecords)
+                {
+                    var messages = await _context.MessageRecordEntities.Where(m => m.ChatRecordEntity.Id == chatrecord.Id).ToListAsync();
+                    var request = await _context.RequestEntities.Where(r => r.ChatRecordId == chatrecord.Id).ToListAsync();
+
+                    _context.RequestEntities.RemoveRange(request);
+                    _context.MessageRecordEntities.RemoveRange(messages);
+                }
+
+                _context.ChatRecordEntities.RemoveRange(chatRecords);
+            }
+
+            _context.ChatEntities.RemoveRange(chats);
+        }
+
+        _context.FavoriteEntities.RemoveRange(favors);
+        _context.ProgramMovieEntities.RemoveRange(programs);
+        _context.MovieEntities.Remove(movie); 
+
+
+        await _context.SaveChangesAsync();
+    }
+        return Json("success");
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Deluser(string userID)
+    {
+         var user = await _userManager.FindByIdAsync(userID);
+        if (user != null)
+        {
+        var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                await _context.SaveChangesAsync();
+                return RedirectToAction("movies", "Home");
+            }
+        else
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+        }
+        else
+        {
+            ModelState.AddModelError(string.Empty, "No Found User");
+        }
+    
+    return RedirectToAction("movies", "Home");
+    }
+
+    public IActionResult Users()
+    {
+        return View();
+    }
+
+    public async Task<IActionResult> GetUsers()
+    {
+        var users = await _userManager.Users.Select(u => new { u.Id, u.Name, u.Email, u.Image }).ToListAsync();
+        return Json(users);
+    }
 
 }

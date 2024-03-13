@@ -43,6 +43,7 @@ a.edit-movie-btn, a.delete-movie-btn{
     display: inline-block;
     text-align: center;
     width: 70%;
+    cursor: pointer;
 
 }
 

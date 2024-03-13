@@ -202,47 +202,47 @@ public class ProfileController : Controller
         return RedirectToAction("LikeMovie", "profile");
     }
 
-    public IActionResult Groups()
-    {
-        var chatrecordsID = _dbContext.ChatRecordEntities.Where(p => p.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
-        var res = new List<object>();
-        Console.WriteLine("asfkhaskfa5");
-        foreach (var chatrecordId in chatrecordsID)
-        {
-            Console.WriteLine("asfkhaskfa4" + chatrecordId.Id);
-            var hostrecordId = _dbContext.ChatRecordEntities.Where(p => p.ChatId == chatrecordId.ChatId && p.Status == true).FirstOrDefaultAsync().Result;
-            Console.WriteLine("asfkhaskfa3" + hostrecordId.Id);
-            if (hostrecordId != null)
-            {
-                var chatId = hostrecordId.ChatId;
-                var chat = _dbContext.ChatEntities.Where(p => p.Id == chatId).FirstOrDefault();
-                if (chat != null)
-                {
-                    Console.WriteLine("asfkhaskfa2");
-                    var programId = chat.ProgramMovieEntityId;
-                    var movieId = _dbContext.ProgramMovieEntities.Where(p => p.Id == programId).Select(c => c.MovieId).FirstOrDefault();
-                    if (movieId != null)
-                    {
-                        Console.WriteLine("asfkhaskfa" + movieId);
-                        var movie = _dbContext.MovieEntities.Where(p => p.Id == movieId).FirstOrDefaultAsync().Result;
-                        var hostuserId = hostrecordId.AppUserId;
-                        var hostuser = _userManager.FindByIdAsync(hostuserId).Result;
-                        var hostuserimage = hostuser.Image;
-                        var movietitle = movie.Title;
-                        var movieimage = movie.Image;
-                        res.Add(new { hostuserimage, hostuser.Name, movieimage, movietitle });
-                    }
-                }
-            }
+    // public IActionResult Groups()
+    // {
+    //     var chatrecordsID = _dbContext.ChatRecordEntities.Where(p => p.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
+    //     var res = new List<object>();
+    //     Console.WriteLine("asfkhaskfa5");
+    //     foreach (var chatrecordId in chatrecordsID)
+    //     {
+    //         Console.WriteLine("asfkhaskfa4" + chatrecordId.Id);
+    //         var hostrecordId = _dbContext.ChatRecordEntities.Where(p => p.ChatId == chatrecordId.ChatId && p.Status == true).FirstOrDefaultAsync().Result;
+    //         Console.WriteLine("asfkhaskfa3" + hostrecordId.Id);
+    //         if (hostrecordId != null)
+    //         {
+    //             var chatId = hostrecordId.ChatId;
+    //             var chat = _dbContext.ChatEntities.Where(p => p.Id == chatId).FirstOrDefault();
+    //             if (chat != null)
+    //             {
+    //                 Console.WriteLine("asfkhaskfa2");
+    //                 var programId = chat.ProgramMovieEntityId;
+    //                 var movieId = _dbContext.ProgramMovieEntities.Where(p => p.Id == programId).Select(c => c.MovieId).FirstOrDefault();
+    //                 if (movieId != null)
+    //                 {
+    //                     Console.WriteLine("asfkhaskfa" + movieId);
+    //                     var movie = _dbContext.MovieEntities.Where(p => p.Id == movieId).FirstOrDefaultAsync().Result;
+    //                     var hostuserId = hostrecordId.AppUserId;
+    //                     var hostuser = _userManager.FindByIdAsync(hostuserId).Result;
+    //                     var hostuserimage = hostuser.Image;
+    //                     var movietitle = movie.Title;
+    //                     var movieimage = movie.Image;
+    //                     res.Add(new { hostuserimage, hostuser.Name, movieimage, movietitle });
+    //                 }
+    //             }
+    //         }
 
-        }
-        // // foreach (var chatrecord in chatrecords)
-        // // {
-        // //     var movie = _dbContext.ChatEntities.Where(p => p.Id == chatrecord).Select(c => new {c.Id,c.ProgramMovieEntityId,c.}).FirstOrDefault();
-        // //     res.Add(new {movie});
-        // // }
-        ViewBag.groups = res;
+    //     }
+    //     foreach (var chatrecord in chatrecords)
+    //     {
+    //         var movie = _dbContext.ChatEntities.Where(p => p.Id == chatrecord).Select(c => new {c.Id,c.ProgramMovieEntityId,c.}).FirstOrDefault();
+    //         res.Add(new {movie});
+    //     }
+    //     ViewBag.groups = res;
 
-        return View();
-    }
+    //     return View();
+    // }
 }
