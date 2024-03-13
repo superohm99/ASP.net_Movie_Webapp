@@ -54,7 +54,7 @@ namespace ASP_Project.Controllers;
                 {
                     await signInManager.SignInAsync(user, false);
 
-                    return RedirectToAction(returnUrl);
+                    return RedirectToAction("Index", "Home");
                 }
                 foreach (var error in result.Errors)
                 {
@@ -76,6 +76,13 @@ namespace ASP_Project.Controllers;
             Console.WriteLine("show redirect");
             return !string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)
             ? Redirect(returnUrl)
-            : RedirectToAction(nameof(HomeController.Index), nameof(HomeController));
+            : 
+            RedirectToAction(nameof(HomeController.Index), nameof(HomeController));
         }
+
+
+
+        
     }
+
+

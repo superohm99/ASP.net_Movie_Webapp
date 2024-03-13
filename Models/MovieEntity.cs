@@ -8,6 +8,7 @@ namespace ASP_Project.Models
         public string? Description {get;set;}
         public int? Rating {get; set;} = 0;
         // public DateTime? Showtime {get; set;}
+        public string? Image {get; set;}
 
     }
 }

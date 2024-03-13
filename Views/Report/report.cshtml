@@ -3,8 +3,85 @@
 
 @{
     ViewData["Title"]="Report";
+    ViewData["Styles"] = "/css/report.css";
+    ViewData["Scripts"] = "~/js/report.js";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
 }
 
+@* <link rel="stylesheet" href="/css/report_style.css"/> *@
+<!-- Fontawesome CDN Link -->
+@* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
+
+
+<div class="main-container">
+    <div class="content">
+        <!-- Left side -->
+        <div class="left-side">
+        <!-- Address -->
+        <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Location</div>
+            <div class="text-one">King Mongkut's Institute of Technology Ladkrabang</div>
+            <div class="text-two">1 Soi Chalongkrung 1, Lat Krabang, Bangkok 10520</div>
+        </div>
+        <!-- Phone -->
+        <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one">0946372853</div>
+        </div>
+        <!-- Email -->
+        <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">teeruth@gmail.com</div>
+        </div>
+        </div>
+        <!-- Rigth side -->
+        <div class="right-side">
+        <div class="topic-text">Contact Us</div>
+        <p>Wheather you have a question or problem about features, usage, or anything else, our team is ready to answer all your questions.</p>
+        @* <form asp-action="Report" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class="mb-1">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <input type="submit" value="Report" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form> *@
+
+        <form asp-action="Report" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]"> 
+            @* <div asp-validation-summary="ModelOnly"></div> *@
+            @*  form asp -action ไปที่ Controller  *@
+            <div class="input-box name-box">
+                <input asp-for="Title" placeholder="Title" class="form-control" />
+            </div>
+            <div class="input-box message-box">
+                <textarea asp-for="Description" placeholder="Write something.." style="height:150px" class="form-control"></textarea>
+            <!-- <span id="charCount"></span> -->
+            </div>
+            <div class="button">
+                <input type="submit" class="btn btn-secondary btn-secondary__light" id="sendMessageBtn" type="button" value="Send Message" >
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+@* 
 <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-3 card p-3">
         <h2 class="text-center text-info">Report</h2>
@@ -33,4 +110,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+} *@

@@ -4,6 +4,8 @@ using ASP_Project.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using ASP_Project.Data;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
+using System.Text;
 
 namespace ASP_Project.Controllers;
 public class ChatController : Controller
@@ -19,6 +21,79 @@ public class ChatController : Controller
     {
         return View();
     }
+
+    public IActionResult Join()
+    {
+        ViewBag.movie =_context.MovieEntities.ToList();
+        return View();
+    }
+
+    public IActionResult Filterjoin()
+    {
+        return View();
+    }
+    
+
+
+    [HttpPost]
+    public async Task<IActionResult> Filterjoin(FilterchatVM model)
+    {
+        var programs = await _context.ProgramMovieEntities.Where(p => p.MovieId == model.movieid && p.CinemaId == model.cinemaid && p.PlaceId == model.placeid && p.Showtime == model.showtime).Select(p => p.Id).ToListAsync();
+        
+        var result = new List<object>();
+        foreach (var program in programs)
+        {
+            var chat = await _context.ChatEntities.Where(p => p.ProgramMovieEntityId == program).Select(c => new {c.Id,c.remainNumber,c.maxNumber}).FirstOrDefaultAsync();
+            if (chat != null)
+            {
+                var userid = await _context.ChatRecordEntities.Where(p => p.ChatId == chat.Id).Select(c => c.AppUserId).FirstOrDefaultAsync();
+                AppUser user = await _userManager.FindByIdAsync(userid);
+                var image_user = user.Image;
+                // var image_user = await _context.
+                result.Add(new { chat,image_user });
+            }
+        }
+            // ส่งค่า result ไปที่ View ชื่อ "Filter" โดยส่งผ่าน ViewBag
+        ViewBag.Result = result;
+    
+         return View("Filterjoin");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Joinchat(JoinchatVM model)
+    {
+        Console.WriteLine("as45fs5af"+model.chatid);
+        if (_userManager.GetUserId(HttpContext.User) == null)
+        {
+            return RedirectToAction("login","account");
+        }
+        if (_context.ChatRecordEntities.Any(p => p.ChatId == model.chatid && p.AppUserId == _userManager.GetUserId(HttpContext.User)))
+        {
+            return RedirectToAction("join","chat");
+        }
+        ChatRecordEntity chatrecord = new()
+        {
+            Status = false,
+            ChatId = model.chatid,
+            AppUserId = _userManager.GetUserId(HttpContext.User)
+        };
+        var result_record = await _context.ChatRecordEntities.AddAsync(chatrecord);
+        if (result_record != null)
+        {
+            var chat = _context.ChatEntities.Where(p => p.Id == model.chatid).FirstOrDefault();
+            if (chat != null)
+            {
+            chat.remainNumber++;
+            _context.Update(chat);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("index", "profile");
+            }
+        }
+
+
+        return View("join","chat");
+    }
+
 
     public IActionResult Create()
     {
@@ -40,7 +115,8 @@ public class ChatController : Controller
             startAt = date,
             endAt = showtime,
             ProgramMovieEntityId = model.Showtime,
-            duration = duration_time
+            duration = duration_time,
+            maxNumber = model.MaxNumber
         };
 
         var result = await _context.ChatEntities.AddAsync(chat);
@@ -63,6 +139,7 @@ public class ChatController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction("create", "Chat");
         }
+
         return RedirectToAction("Index","Chat");
     }
 
@@ -152,4 +229,9 @@ public class ChatController : Controller
         var programs = _context.ProgramMovieEntities.Where(p => p.MovieId == movieId && p.CinemaId == cinemaId && p.PlaceId == placeId).Select(p => new{p.Id, p.Showtime}).ToList();
         return Json(programs);
     }
+
+
+  
+  
+
 }

@@ -24,7 +24,6 @@ public class ReportController : Controller
 
     }
 
-
     public IActionResult Report()
     {
         return View();
@@ -36,7 +35,7 @@ public class ReportController : Controller
         // DateTime dateTime = new DateTime();
         if (_signInManager.IsSignedIn(User))
         {
-        DateTime date = DateTime.UtcNow; 
+        DateTime date = DateTime.UtcNow;
         ReportEntity report = new()
         {
             Title = model.Title,
@@ -44,12 +43,14 @@ public class ReportController : Controller
             Sendtime = date,
             AppUserId = _userManager.GetUserId(HttpContext.User)
         };
+
+        Console.WriteLine("5646466544");
         var result = await _context.ReportEntities.AddAsync(report);
         if (result != null)
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Report");
+            return RedirectToAction("Index", "Home");
         }
         }
         return View(model);

@@ -121,6 +121,12 @@ namespace ASP_Project.Migrations
                     b.Property<DateTime?>("endAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("maxNumber")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("remainNumber")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("startAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -207,6 +213,9 @@ namespace ASP_Project.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
                         .HasColumnType("text");
 
                     b.Property<int?>("Rating")

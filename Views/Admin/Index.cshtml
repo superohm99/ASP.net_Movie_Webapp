@@ -12,28 +12,51 @@
 
 @{
     ViewData["Title"] = "Admin Page";
+    ViewData["Scripts"] = "~/js/addMovie.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+
 }
 
-<div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-3 card p-3">
-        <h2 class="text-center text-info">Admin</h2>
-        <form asp-action="Addmovie" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-1">
-                <label asp-for="Title" class="control-label">Name Movie</label>
-                <input asp-for="Title" class="form-control" />
-            </div>
-            <div class="mb-1">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-            </div>
+<div class="movie-container">
+    <form asp-action="Addmovie" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div class="movie-title">
+            <label asp-for="Title">Movie Title</label>
+            <input asp-for="Title" type="text" id="movie-title" placeholder="type movie title">
+        </div>
+        <div class="form-group" style="display:none">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" id="imageUrl" type="text" />
+        </div>
+        <div class="preview-image"></div>
+        <div class="movie-image">
+            <label>Movie Image</label>
+            <input type="file" id="movie-image" accept="image/jpeg, image/png, image/jpg">
+        </div>
+        <div class="movie-description">
+            <label asp-for="Description">Movie Description</label>
+            <textarea asp-for="Description" id="movie-description" placeholder="type some description"></textarea>
+        </div>
+        <input type="submit" class="btn btn-success" value="add movie">
 
 
-            <div class="row">
-                <div class="col-4">
-                    <input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
-                </div>
-            </div>
-        </form>
-    </div>
+        @* <div class="form-group">
+        <label asp-for="Title" class="control-label">Name Movie</label>
+        <input asp-for="Title" type="text" required />
+        </div>
+        <div class="form-group" style="display:none">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" id="imageUrl" type="text" />
+        </div>
+
+        <div class="form-group">
+        <label>Add Image</label>
+        <input type="file" id="file" required />
+        </div>
+
+        <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" type="text" required />
+        </div> *@
+    </form>
+
 </div>

@@ -3,8 +3,50 @@
 
 @{
     ViewData["Title"] = "Register";
+    ViewData["Styles"] = "/css/register.css";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+
 }
 
+
+<div class="card">
+    <div class="header">
+        <h2>Sign Up</h2>
+    </div>
+    <form asp-action="Register" asp-controller="Account" method="post" class="register-form">
+        <div class="input-group">
+            <input asp-for="Name" required>
+            <label asp-for="Name">Username</label>
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="input-group">
+            <input asp-for="Email" required>
+            <label asp-for="Email">Email</label>
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="input-group">
+            <input asp-for="Password" required>
+            <label asp-for="Password">Password</label>
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="input-group">
+            <input asp-for="ConfirmPassword" required>
+            <label asp-for="ConfirmPassword">ConfirmPassword</label>
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="input-group">
+            <input asp-for="Address" required>
+            <label asp-for="Address">Address</label>
+            <i class="fas fa-lock"></i>
+        </div>
+        <button type="submit" class="btn btn-secondary">Sign Up</button>
+        <p>Already have an account? <a asp-action="Login" asp-controller="Account">Sign In</a></p>
+    </form>
+</div>
+
+
+
+@* 
 <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-4 card p-3">
         <h2 class="text-center text-info">Register</h2>
@@ -46,10 +88,8 @@
         </form>
     </div>
 </div>
+*@
 
-
-@section Scripts{
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+@section Scripts {
+    <script src="~/js/register.js" asp-append-version="true"></script>
 }

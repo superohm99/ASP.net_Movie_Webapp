@@ -41,14 +41,15 @@ public class AdminController : Controller
         MovieEntity movie = new ()
         {
             Title = model.Title,
-            Description = model.Description, 
+            Description = model.Description,
+            Image = model.Image, 
         };
         var result = await _context.MovieEntities.AddAsync(movie);
         if (result != null)
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
-            return RedirectToAction("test", "admin");
+            return RedirectToAction("test", "admin");  //ถ้าสำเร็จจะ redirect ไปที่ /admin/test
         }
         return RedirectToAction("Index", "admin");
     }
@@ -126,9 +127,9 @@ public class AdminController : Controller
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "admin");
+            return RedirectToAction("Addprogram", "admin");
         }
-        return RedirectToAction("index","admin");
+        return RedirectToAction("Addprogram","admin");
     }
 
     [HttpGet]
@@ -138,6 +139,21 @@ public class AdminController : Controller
         Console.WriteLine(cantons);
         return Json(cantons);
     }
+
+
+     [HttpGet]
+    public async Task<IActionResult> GetMovies()
+    {
+        var movie = await _context.MovieEntities.ToListAsync();
+
+        if (movie != null)
+        {
+            return Json(movie);
+        }
+
+        return RedirectToAction("movies", "admin");
+    }
+
 
 
 }

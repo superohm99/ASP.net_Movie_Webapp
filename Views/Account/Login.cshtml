@@ -3,8 +3,36 @@
 
 @{
     ViewData["Title"]="Login";
+    ViewData["Styles"] = "/css/login.css";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+
 }
 
+<div class="card">
+    <div class="header">
+        <h2>Sign In</h2>
+    </div>
+    <form asp-action="Login" asp-controller="Account" method="post" class="login-form" autocomplete="off">
+        <div class="input-group">
+            <input asp-for="Username" required>
+            <label asp-for="Username">Email</label>
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="input-group">
+            <input asp-for="Password" required>
+            <label asp-for="Password">Password</label>
+            <i class="fas fa-lock"></i>
+        </div>
+        <button type="submit" class="btn btn-secondary">Sign In</button>
+        <p>Don't have an account? <a asp-action="Register" asp-controller="Account">Sign Up</a></p>
+    </form>
+</div>
+
+
+
+
+
+@* 
 <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-3 card p-3">
         <h2 class="text-center text-info">Login</h2>
@@ -37,9 +65,9 @@
     </div>
 </div>
 
-
+*@
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+} 
