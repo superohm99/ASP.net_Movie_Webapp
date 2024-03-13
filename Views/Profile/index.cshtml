@@ -21,10 +21,6 @@
             <div class="user">
                 <img src="@Html.DisplayFor(model => model.Image)" alt="profile-img" />
                 <h2>@Html.DisplayFor(model => model.Name)</h2>
-                <div class="score">
-                    <i class="fa-solid fa-star"></i>
-                    <p>@Html.DisplayFor(model => model.Rating)</p>
-                </div>
                 <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit Profile</a>
             </div>
             <div class="box-container">
@@ -32,7 +28,7 @@
                     <div class="flex">
                         <i class="fa-solid fa-heart"></i>
                         <div>
-                            <span>3</span>
+                            <h4>@ViewBag.numFav</h4>
                             <p>Liked Movies</p>
                         </div>
                     </div>
@@ -43,11 +39,11 @@
                     <div class="flex">
                         <i class="fa-solid fa-users-rectangle"></i>
                         <div>
-                            <span>4</span>
+                            <h4>4</h4>
                             <p>Your Groups</p>
                         </div>
                     </div>
-                    <a asp-action="Groups" class="btn btn-warning">view groups</a>
+                    <a asp-action="Group" class="btn btn-warning">view groups</a>
                 </div>
 
             </div>

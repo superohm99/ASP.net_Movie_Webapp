@@ -16,18 +16,14 @@
             @foreach (var item in ViewBag.likemovie)
             {
                 var movie = item.movie;
-                <div class="box">
-                    <div id="@movie.Id">
-                        <img src="@movie.Image" alt="@movie.Title" />
-                        <p>@movie.Title</p>
+                <div class="box" id="@movie.Id">
+                    <img src="@movie.Image" alt="@movie.Title" />
+                    <div class="detail">
+                        <h3>@movie.Title</h3>
                         <button type="submit" class="remove-button" data-movie-id="@movie.Id">Remove</button>
                     </div>
                 </div>
             }
-        }
-        else
-        {
-            <h3 class="title">No movies liked.</h3>
         }
     </div>
     <a asp-action="Index" class="btn btn-danger back" class="btn">Back</a>
@@ -49,7 +45,7 @@
                 },
                 success: function (response) {
                     // Handle success response here
-                    $("#" + movieid).empty();
+                    $("#" + movieid).remove();
                 },
                 error: function (xhr, status, error) {
                     // Handle error here

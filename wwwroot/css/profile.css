@@ -147,7 +147,8 @@ p {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 1.5rem
+  margin-bottom: 1.5rem;
+  color: white;
 }
 
 .user-group .box-container .box .creator img {
@@ -234,11 +235,25 @@ p {
 }
 
 .user-movie .box-container .box .detail {
+  position: relative;
   gap: 1.5rem;
 }
 
 .user-movie .box-container .box .detail h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+
+.user-movie .box-container .box .detail button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #ffc107;
+}
+
+.user-movie .box-container .box .detail button:hover {
+  opacity: 0.8;
 }
 
 /* another profile */

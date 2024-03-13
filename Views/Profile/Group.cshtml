@@ -1,11 +1,96 @@
-@foreach (var item in ViewBag.groups)
-{
-    <div>
-        <img src="@item.hostuserimage" />
-        <p>@item.movieimage</p>
-        <p>@item.movietitle</p>
-        <button type="submit" class="submit-button">Submit</button>
-    </div>
+@{
+    ViewData["Title"] = "Favorite Movie";
+    ViewData["Styles"] = "~/css/profile.css";
+    ViewData["Scripts"] = "~/js/profile.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<div>sdfdsfsf</div>
+<section class="user-group">
+    <h1 class="heading">Your groups</h1>
+
+    <div class="box-container">
+        @foreach (var item in ViewBag.groups)
+        {
+            <div class="box">
+                <div class="creator">
+                    <img src="@item.hostuserimage" , alt="host-user-image" />
+                    <div class="info">
+                        <h3>@item.hostuser.Name</h3>
+                        <p>@item.movieimage</p>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="https://cdn.majorcineplex.com/uploads/movie/3857/thumb_3857.jpg?220220241321" alt="" />
+                    <span> members</span>
+                </div>
+                <h3 class="title">@item.movietitle</h3>
+                <button type="submit" class="submit-button">Chat</button>
+            </div>
+        }
+        @* <div class="box">
+        <div class="creator">
+        <img src="https://shorturl.at/gBSVY" alt="IMG" />
+        <div class="info">
+        <h3>gwen tennyson</h3>
+        <span>22-02-2024</span>
+        </div>
+        </div>
+        <div class="movie">
+        <img src="https://cdn.majorcineplex.com/uploads/movie/3857/thumb_3857.jpg?220220241321" alt="" />
+        <span>4 members</span>
+        </div>
+        <h3 class="title">Madam Web</h3>
+        <a href="#" class="btn btn-warning">view group</a>
+        </div>
+
+        <div class="box">
+        <div class="creator">
+        <img src="https://shorturl.at/krALX" alt="IMG" />
+        <div class="info">
+        <h3>kevin levin</h3>
+        <span>23-02-2024</span>
+        </div>
+        </div>
+        <div class="movie">
+        <img src="https://cdn.majorcineplex.com/uploads/movie/3971/thumb_3971.jpg?220220241017" alt="" />
+        <span>5 members</span>
+        </div>
+        <h3 class="title">Peenak 4</h3>
+        <a href="#" class="btn btn-warning">view group</a>
+        </div>
+
+        <div class="box">
+        <div class="creator">
+        <img src="https://shorturl.at/clqvR" alt="IMG" />
+        <div class="info">
+        <h3>rook blonko</h3>
+        <span>24-02-2024</span>
+        </div>
+        </div>
+        <div class="movie">
+        <img src="https://cdn.majorcineplex.com/uploads/movie/3679/thumb_3679.jpg?230220241016" alt="IMG" />
+        <span>3 members</span>
+        </div>
+        <h3 class="title">Kung Fu Panda 4</h3>
+        <a href="#" class="btn btn-warning">view group</a>
+        </div>
+
+        <div class="box">
+        <div class="creator">
+        <img src="https://shorturl.at/lsuwB" alt="IMG" />
+        <div class="info">
+        <h3>max tennyson</h3>
+        <span>25-02-2024</span>
+        </div>
+        </div>
+        <div class="movie">
+        <img src="https://cdn.majorcineplex.com/uploads/movie/3894/thumb_3894.jpg?200220240900" alt="IMG" />
+        <span>2 members</span>
+        </div>
+        <h3 class="title">How to have sex</h3>
+        <a href="#" class="btn btn-warning">view group</a>
+        </div> *@
+
+    </div>
+    <a href="/profile" class="btn btn-danger">back</a>
+</section>

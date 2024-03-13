@@ -30,6 +30,8 @@ public class ProfileController : Controller
         }
         else
         {
+            var favs = _dbContext.FavoriteEntities.Where(f => f.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
+            ViewBag.numFav = favs.Count;
             AppUser user = _userManager.FindByIdAsync(userid).Result;
             return View(user);
         }
