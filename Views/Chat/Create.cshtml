@@ -1,4 +1,5 @@
 @using Microsoft.AspNetCore.Identity;
+@using ASP_Project.Models
 @using ASP_Project.ViewModel;
 @model AddchatVM
 @{
@@ -13,68 +14,68 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="mb-1">
                     <label asp-for="Movie" class="control-label">Movie</label>
-                    <select asp-for="Movie" id="movieSelect" class="form-control" >
-                    @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
-                    {
-                    <option value="@i.Id">@i.Title</option>
-                    }
+                    <select asp-for="Movie" id="movieSelect" class="form-control">
+                        @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
+                        {
+                            <option value="@i.Id">@i.Title</option>
+                        }
                     </select>
                 </div>
 
-                 <div class="mb-1">
+                <div class="mb-1">
                     <label asp-for="Cinema" class="control-label">Cinema</label>
-                    <select asp-for="Cinema" id="cinemaSelect" class="form-control" >
-                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                    {
-                    <option value="@i.CinemaEntity.Id">@i.CinemaEntity.Enterprise</option>
-                    } *@
-                    <option>Please select a Movie</option>
+                    <select asp-for="Cinema" id="cinemaSelect" class="form-control">
+                        @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                        {
+                        <option value="@i.CinemaEntity.Id">@i.CinemaEntity.Enterprise</option>
+                        } *@
+                        <option>Please select a Movie</option>
                     </select>
                 </div>
 
                 <div class="mb-1">
                     <label asp-for="County" class="control-label">County</label>
-                    <select asp-for="County" id="countySelect" class="form-control" >
-                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                    {
-                    <option value="@i.PlaceEntity.Id">@i.PlaceEntity.County</option>
-                    } *@
-                    <option>Please select a Cinema</option>
+                    <select asp-for="County" id="countySelect" class="form-control">
+                        @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                        {
+                        <option value="@i.PlaceEntity.Id">@i.PlaceEntity.County</option>
+                        } *@
+                        <option>Please select a Cinema</option>
                     </select>
                 </div>
 
                 <div class="mb-1">
                     <label asp-for="Canton" class="control-label">Canton</label>
-                    <select asp-for="Canton" id="cantonSelect" class="form-control" >
-                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                    {
-                    <option value="@i.PlaceEntity.Id">@i.PlaceEntity.Canton</option>
-                    } *@
-                    <option>Please select a County</option>
+                    <select asp-for="Canton" id="cantonSelect" class="form-control">
+                        @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                        {
+                        <option value="@i.PlaceEntity.Id">@i.PlaceEntity.Canton</option>
+                        } *@
+                        <option>Please select a County</option>
                     </select>
                 </div>
 
                 <div class="mb-1">
                     <label asp-for="Showtime" class="control-label">Showtime</label>
-                    <select asp-for="Showtime" id="showtimeSelect" class="form-control" >
-                    <option>Please select a Canton</option>
+                    <select asp-for="Showtime" id="showtimeSelect" class="form-control">
+                        <option>Please select a Canton</option>
                     </select>
                 </div>
 
-    
+
 
                 <div class="mb-1">
-                <label for="numberSelect">เลือกตัวเลข:</label>
-                <select id="numberSelect" asp-for="MaxNumber">
-                    <option value="">โปรดเลือก</option>
-                </select>
+                    <label for="numberSelect">เลือกตัวเลข:</label>
+                    <select id="numberSelect" asp-for="MaxNumber">
+                        <option value="">โปรดเลือก</option>
+                    </select>
                 </div>
 
 
 
-                    <div class="col-4">
-                        <input type="submit" value="Create Chat" class="btn btn-primary btn-sm float-end" />
-                    </div>
+                <div class="col-4">
+                    <input type="submit" value="Create Chat" class="btn btn-primary btn-sm float-end" />
+                </div>
             </form>
         </div>
     </div>
@@ -86,141 +87,141 @@
     <script>
         const selectElement = document.getElementById('numberSelect');
 
-    // สร้างตัวเลือกตั้งแต่ 2 ถึง 10
+        // สร้างตัวเลือกตั้งแต่ 2 ถึง 10
         for (let i = 2; i <= 10; i++) {
-        // สร้างอ็อปชัน
-        const option = document.createElement('option');
-        // กำหนดค่าและข้อความ
-        option.value = i;
-        option.text = i;
-        // เพิ่มอ็อปชันเข้าไปในเลือก
-        selectElement.appendChild(option);
+            // สร้างอ็อปชัน
+            const option = document.createElement('option');
+            // กำหนดค่าและข้อความ
+            option.value = i;
+            option.text = i;
+            // เพิ่มอ็อปชันเข้าไปในเลือก
+            selectElement.appendChild(option);
         }
 
 
-        $(document).ready(function() {
-    var movieid = $('#movieSelect').val();
-    loadCinemaData(movieid);
-
-
-    $('#movieSelect').change(function() {
-        var movieid = $(this).val();
-        loadCinemaData(movieid);
-    });
-
-  
-    $('#cinemaSelect').change(function() {
-        var cinemaid = $(this).val();
-        var movieid = $('#movieSelect').val();
-        loadPlaceData(cinemaid, movieid);
-    });
-
-    $('#countySelect').change(function() {
-        var countyid = $(this).val();
-        var cinemaid = $('#cinemaSelect').val();
-        var movieid = $('#movieSelect').val();
-        loadCantonData(movieid,cinemaid,countyid);
-        
-    })
-
-    $('#cantonSelect').change(function() {
-        var movieid = $('#movieSelect').val();
-        var cinemaid = $('#cinemaSelect').val();
-        var placeid = $(this).val()
-        console.log("555555");
-        loadShowtimeData(movieid, cinemaid, placeid);
-    })
-    });
-
-function loadCinemaData(movieid) {
-    $.ajax({
-        url: '@Url.Action("Loadmovie", "Chat")',
-        type: 'GET',
-        data: { movieId: movieid },
-        success: function(response) {
-            var cinemaSelect = $('#cinemaSelect');
-            cinemaSelect.empty();
-            $.each(response, function(index, item) {
-                cinemaSelect.append($('<option>').val(item.enterprise_result.id).text(item.enterprise_result.enterprise));
-            });
-            
-            var cinemaid = cinemaSelect.val();
+        $(document).ready(function () {
             var movieid = $('#movieSelect').val();
-            loadPlaceData(cinemaid,movieid);
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
-}
+            loadCinemaData(movieid);
 
-function loadPlaceData(cinemaid,movieid) {
-    $.ajax({
-        url: '@Url.Action("Loadcinema", "Chat")',
-        type: 'GET',
-        data: { cinemaId: cinemaid ,movieId:movieid},
-        success: function(response) {
-            var countySelect = $('#countySelect');
-            countySelect.empty();
-            $.each(response, function(index, item) {
-                countySelect.append($('<option>').val(item.place_result.county).text(item.place_result.county));
+
+            $('#movieSelect').change(function () {
+                var movieid = $(this).val();
+                loadCinemaData(movieid);
             });
-            var movieid = $('#movieSelect').val();
-            var cinemaid = $('#cinemaSelect').val();
-            var placeid = $('#countySelect').val()
-            console.log("77777");
-            loadCantonData(movieid,cinemaid,placeid);
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
-}
 
-function loadCantonData(movieid,cinemaid,placeid) {
-    $.ajax({
-        url: '@Url.Action("Loadcanton", "Chat")',
-        type: 'GET',
-        data: { movieId:movieid,cinemaId:cinemaid,placestr: placeid},
-        success: function(response) {
-            var cantonSelect = $('#cantonSelect');
-            cantonSelect.empty();
-            $.each(response, function(index, item) {
-                cantonSelect.append($('<option>').val(item.place_result.id).text(item.place_result.canton));
+
+            $('#cinemaSelect').change(function () {
+                var cinemaid = $(this).val();
+                var movieid = $('#movieSelect').val();
+                loadPlaceData(cinemaid, movieid);
             });
-            console.log("9999999");
-            var movieid = $('#movieSelect').val();
-            var cinemaid = $('#cinemaSelect').val();
-            var placeid = $('#cantonSelect').val()
-            loadShowtimeData(movieid, cinemaid, placeid);
-        
-        },
-       
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
-}
 
-function loadShowtimeData(movieid, cinemaid, placeid) {
-    $.ajax({
-        url: '@Url.Action("Loadshowtime", "Chat")',
-        type: 'GET',
-        data: { movieId:movieid,cinemaId:cinemaid,placeId: placeid},
-        success: function(response) {
-            var showtimeSelect = $('#showtimeSelect');
-            showtimeSelect.empty();
-            $.each(response, function(index, item) {
-                showtimeSelect.append($('<option>').val(item.id).text(item.showtime));
+            $('#countySelect').change(function () {
+                var countyid = $(this).val();
+                var cinemaid = $('#cinemaSelect').val();
+                var movieid = $('#movieSelect').val();
+                loadCantonData(movieid, cinemaid, countyid);
+
+            })
+
+            $('#cantonSelect').change(function () {
+                var movieid = $('#movieSelect').val();
+                var cinemaid = $('#cinemaSelect').val();
+                var placeid = $(this).val()
+                console.log("555555");
+                loadShowtimeData(movieid, cinemaid, placeid);
+            })
+        });
+
+        function loadCinemaData(movieid) {
+            $.ajax({
+                url: '@Url.Action("Loadmovie", "Chat")',
+                type: 'GET',
+                data: { movieId: movieid },
+                success: function (response) {
+                    var cinemaSelect = $('#cinemaSelect');
+                    cinemaSelect.empty();
+                    $.each(response, function (index, item) {
+                        cinemaSelect.append($('<option>').val(item.enterprise_result.id).text(item.enterprise_result.enterprise));
+                    });
+
+                    var cinemaid = cinemaSelect.val();
+                    var movieid = $('#movieSelect').val();
+                    loadPlaceData(cinemaid, movieid);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
             });
-        },
-
-        
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
         }
-    });
-}
+
+        function loadPlaceData(cinemaid, movieid) {
+            $.ajax({
+                url: '@Url.Action("Loadcinema", "Chat")',
+                type: 'GET',
+                data: { cinemaId: cinemaid, movieId: movieid },
+                success: function (response) {
+                    var countySelect = $('#countySelect');
+                    countySelect.empty();
+                    $.each(response, function (index, item) {
+                        countySelect.append($('<option>').val(item.place_result.county).text(item.place_result.county));
+                    });
+                    var movieid = $('#movieSelect').val();
+                    var cinemaid = $('#cinemaSelect').val();
+                    var placeid = $('#countySelect').val()
+                    console.log("77777");
+                    loadCantonData(movieid, cinemaid, placeid);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        function loadCantonData(movieid, cinemaid, placeid) {
+            $.ajax({
+                url: '@Url.Action("Loadcanton", "Chat")',
+                type: 'GET',
+                data: { movieId: movieid, cinemaId: cinemaid, placestr: placeid },
+                success: function (response) {
+                    var cantonSelect = $('#cantonSelect');
+                    cantonSelect.empty();
+                    $.each(response, function (index, item) {
+                        cantonSelect.append($('<option>').val(item.place_result.id).text(item.place_result.canton));
+                    });
+                    console.log("9999999");
+                    var movieid = $('#movieSelect').val();
+                    var cinemaid = $('#cinemaSelect').val();
+                    var placeid = $('#cantonSelect').val()
+                    loadShowtimeData(movieid, cinemaid, placeid);
+
+                },
+
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        function loadShowtimeData(movieid, cinemaid, placeid) {
+            $.ajax({
+                url: '@Url.Action("Loadshowtime", "Chat")',
+                type: 'GET',
+                data: { movieId: movieid, cinemaId: cinemaid, placeId: placeid },
+                success: function (response) {
+                    var showtimeSelect = $('#showtimeSelect');
+                    showtimeSelect.empty();
+                    $.each(response, function (index, item) {
+                        showtimeSelect.append($('<option>').val(item.id).text(item.showtime));
+                    });
+                },
+
+
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
 
     </script>
 }

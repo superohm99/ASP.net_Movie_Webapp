@@ -9,18 +9,18 @@ using Microsoft.AspNetCore.Authorization;
 
 
 namespace ASP_Project.Controllers;
-[Authorize(Roles = "Admin")]
+// [Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
     private readonly DataContext _context;
     public AdminController(DataContext context)
     {
-          _context = context;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        ViewBag.Enterprise =_context.CinemaEntities.ToList();
+        ViewBag.Enterprise = _context.CinemaEntities.ToList();
         ViewBag.Place = _context.PlaceEntities.ToList();
         return View();
     }
@@ -40,10 +40,10 @@ public class AdminController : Controller
     [HttpPost]
     public async Task<IActionResult> Addmovie(AddmovieVM model)
     {
-        MovieEntity movie = new ()
+        MovieEntity movie = new()
         {
             Title = model.Title,
-            Description = model.Description, 
+            Description = model.Description,
         };
         var result = await _context.MovieEntities.AddAsync(movie);
         if (result != null)
@@ -63,9 +63,9 @@ public class AdminController : Controller
     [HttpPost]
     public async Task<IActionResult> Addlocate(AddlocationVM model)
     {
-        PlaceEntity place = new ()
+        PlaceEntity place = new()
         {
-            County = model.county ,
+            County = model.county,
             Canton = model.canton
         };
         var result = await _context.PlaceEntities.AddAsync(place);
@@ -75,7 +75,7 @@ public class AdminController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction("Addlocate", "admin");
         }
-        return RedirectToAction("Addlocate","admin");
+        return RedirectToAction("Addlocate", "admin");
     }
 
     public IActionResult Addcinema()
@@ -86,7 +86,7 @@ public class AdminController : Controller
     [HttpPost]
     public async Task<IActionResult> Addcinema(AddcinemaVM model)
     {
-        CinemaEntity cinema = new ()
+        CinemaEntity cinema = new()
         {
             Enterprise = model.Enterprise
         };
@@ -97,12 +97,12 @@ public class AdminController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction("Addcinema", "admin");
         }
-        return RedirectToAction("Addcinema","admin");
+        return RedirectToAction("Addcinema", "admin");
     }
 
     public IActionResult Addprogram()
     {
-        ViewBag.movie =_context.MovieEntities.ToList();
+        ViewBag.movie = _context.MovieEntities.ToList();
         ViewBag.place = _context.PlaceEntities.ToList();
         ViewBag.cinema = _context.CinemaEntities.ToList();
         return View();
@@ -114,7 +114,7 @@ public class AdminController : Controller
 
         Console.WriteLine(model.Canton);
         DateTime dateTime = model.Showtime.ToUniversalTime();
-        ProgramMovieEntity program = new ()
+        ProgramMovieEntity program = new()
         {
             MovieId = model.Titlemovie,
             PlaceId = model.Canton,
@@ -130,13 +130,13 @@ public class AdminController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction("index", "admin");
         }
-        return RedirectToAction("index","admin");
+        return RedirectToAction("index", "admin");
     }
 
     [HttpGet]
     public IActionResult Loadcanton(string county)
     {
-        var cantons = _context.PlaceEntities.Where(p => p.County == county).Select(p => new { p.Id, p.Canton}).Distinct().ToList();
+        var cantons = _context.PlaceEntities.Where(p => p.County == county).Select(p => new { p.Id, p.Canton }).Distinct().ToList();
         Console.WriteLine(cantons);
         return Json(cantons);
     }

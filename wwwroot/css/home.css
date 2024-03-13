@@ -1,0 +1,34 @@
+.cards{
+    width: min(100%, var(--max-width-content));
+    margin-inline: auto;
+    padding-inline: .5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 6rem;
+    margin-bottom: 10rem;
+}
+.card{
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+    box-shadow: .4rem .4rem .4rem .4rem rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(230,179,109,1.5);
+}
+
+.card > h2{
+    color: var(--secondary-color);
+    margin-block: 4rem 2rem;
+}
+.card > img{
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    vertical-align: middle;
+}

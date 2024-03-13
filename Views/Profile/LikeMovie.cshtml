@@ -1,19 +1,62 @@
 @model IEnumerable<object>
 
-@if (ViewBag.likemovie != null)
-{
-@foreach (var item in ViewBag.likemovie)
-{
-    var movie = item.movie;
-    <div>
-        <img src="@movie.Image" alt="@movie.Title" />
-        <p>@movie.Title</p> 
+@{
+    ViewData["Title"] = "Favorite Movie";
+    ViewData["Styles"] = "~/css/profile.css";
+    ViewData["Scripts"] = "~/js/profile.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<section class="user-movie">
+    <h1 class="heading">Liked Movies</h1>
+
+    <div class="box-container">
+        @if (ViewBag.likemovie != null && ViewBag.likemovie.Count > 0)
+        {
+            @foreach (var item in ViewBag.likemovie)
+            {
+                var movie = item.movie;
+                <div class="box">
+                    <div id="@movie.Id">
+                        <img src="@movie.Image" alt="@movie.Title" />
+                        <p>@movie.Title</p>
+                        <button type="submit" class="remove-button" data-movie-id="@movie.Id">Remove</button>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3 class="title">No movies liked.</h3>
+        }
     </div>
-}
-}
-else
-{
-    <p>No movies liked.</p>
-}
+    <a asp-action="Index" class="btn btn-danger back" class="btn">Back</a>
+</section>
+
+@section Scripts {
+    <script>
+        //$(document).ready(function() {
 
 
+        $('.remove-button').click(function () {
+            var movieid = $(this).data('movie-id')
+
+            $.ajax({
+                url: '@Url.Action("Dellike", "Profile")',
+                type: 'POST',
+                data: {
+                    movieId: movieid
+                },
+                success: function (response) {
+                    // Handle success response here
+                    $("#" + movieid).empty();
+                },
+                error: function (xhr, status, error) {
+                    // Handle error here
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+        //});
+    </script>
+}

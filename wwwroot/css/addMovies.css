@@ -1,0 +1,373 @@
+.section > nav.sidebar-responsive > ul > li:nth-child(3), aside > nav.sidebar > ul li:nth-child(3){
+    background-color: var(--danger-color);
+}
+
+.movie-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.movie-title, .movie-description, .movie-image{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0 0 2rem;
+}
+
+.movie-title label, .movie-description label, .movie-image label{
+    font-weight: 700;
+}
+
+.movie-title input, .movie-description textarea{
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.movie-title{
+    width: 95%;
+    max-width: 40rem;
+}
+
+.movie-title input{
+    height: 5rem;
+}
+
+.preview-image{
+    background-image: url('https://via.placeholder.com/150');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10rem;
+    margin-left: 2rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.movie-description textarea{
+    resize: none;
+    height: 15rem;
+}
+
+.movie-description{
+    width: 95%;
+    max-width: 60rem;
+}
+
+.add-date-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+    height: 20rem;
+}
+
+.add-date-container > button{
+    font-size: 2rem;
+    border-radius: .5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    width: min-content;
+    height: min-content;
+    transition: .3s;
+}
+
+.add-date-container > button:disabled{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.add-date-container > button:disabled:hover{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.add-date-container > button:hover{
+    background-color: darkgray;
+    color: var(--light-color);
+}
+
+.add-date-container > .new-date{
+    background-color: rgb(157, 52, 255);
+    width: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.add-date-container > .new-date > input{
+    padding: 1rem .5rem;
+    margin-inline: .5rem;
+}
+
+.submit-date-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.submit-date-container > button{
+    font-size: 2rem;
+    border-radius: .5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    width: min-content;
+    height: min-content;
+    transition: .3s;
+}
+
+
+.date-horizontal-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 2rem;
+    /* margin-bottom: 50rem; */
+}
+
+.date-horizontal-wrapper > i{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.date-horizontal{
+    overflow-x: hidden;
+    display: grid;
+    grid-auto-flow:column;
+    grid-auto-columns: calc(100%/6);
+
+    border-radius: 1rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    /* margin-inline: 2rem; */
+    width: 100%;
+}
+
+.date-horizontal.large{
+    grid-auto-columns: calc(100%/5);
+}
+
+.date-horizontal.medium{
+    grid-auto-columns: calc(100%/4);
+}
+
+.date-horizontal.small{
+    grid-auto-columns: calc(100%/3);
+}
+
+.date-horizontal.xsmall{
+    grid-auto-columns: calc(100%/2);
+}
+
+.date-horizontal.xxsmall{
+    grid-auto-columns: calc(100%/1);
+}
+
+.date-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--light-color);
+    padding-block: 2rem;
+
+    position: relative;
+}
+
+.date-container:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.date-container.active{
+    background-color: var(--info-color);
+}
+
+.date-container > p:nth-child(1){
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 600;
+}
+
+.date-container > p:nth-child(2){
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-weight: 500;
+}
+
+.date-container > .ellipsis-container{
+    position: absolute;
+    top: 1rem;
+    right: -1rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.date-container > .ellipsis-container > .ellipsis-content{
+    position: absolute;
+    top: 2.2rem;
+    right: 1.3rem;
+    width: 5rem;
+    background-color:rgb(157, 52, 255);
+    border-radius: 1rem;
+}
+
+.date-container > .ellipsis-container button{
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: .3s;
+    width: 5rem;
+    height: 3rem;
+    background-color: transparent;
+    border: none;
+}
+
+
+.date-container > .ellipsis-container button:hover{
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.date-container  i.fa-ellipsis-vertical{
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cinema-showtime{
+    color: var(--dark-color);
+    width: 95%;
+    background-color: var(--light-color);
+    padding: 4rem;
+    margin-inline: auto;
+    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cinema-container{
+    border: 2px solid var(--dark-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    min-height: 35rem;
+}
+
+
+.cinema-container > .cinema-name{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: block;
+    background-color: dimgray;
+    color: var(--dark-color);
+    padding-block: 1rem;
+    padding-inline: 2rem;
+}
+
+.showtime{
+    display: flex;
+    width: 100%;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.showtime-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    height: 100%;
+    gap: 3rem;
+    flex: 66.67%;
+}
+
+.showtime-container span{
+    padding: 1rem 3rem;
+    background: linear-gradient(90deg, #2f66cd, #4db0db 75%, #5ab6de);
+    font-weight: 600;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.add-showtime-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 33.33%;
+}
+
+.add-showtime-container > .add-showtime-title{
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add-showtime-container > .add-showtime-title button{
+    font-size: 2rem;
+    border-radius: .5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    width: min-content;
+    height: min-content;
+    transition: .3s;
+}
+
+.add-showtime-container > .add-showtime-title > button:hover{
+    background-color: darkgray;
+    color: var(--light-color);
+}
+
+.add-showtime-container > .add-showtime-title > button:disabled{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.add-showtime-input-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:rgb(157, 52, 255);
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.add-showtime-input-container > .add-showtime-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add-showtime-input-container > .add-showtime-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.add-showtime-input-container > .add-showtime-submit > button{
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: .5rem;
+    cursor: pointer;
+    width: min-content;
+    height: min-content;
+    transition: .3s;
+}

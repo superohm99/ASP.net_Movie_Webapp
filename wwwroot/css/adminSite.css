@@ -1,0 +1,132 @@
+body{
+    overflow-y: hidden !important;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas:
+    "header header"
+    "sidebar main";
+    height: 100vh;
+    position: relative;
+    transition: 300ms;
+}
+
+header{
+    grid-area: header;
+    width: 100%;
+    height: 5rem;
+    background-color: var(--primary-color);
+}
+
+header > nav.header, header > nav.header > ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+header > nav.header > ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 1.5rem;
+}
+
+header > nav.header > ul > li i.fa-bars{
+    cursor: pointer;
+}
+
+ul > li > a{
+    width: 100%;
+    height: 100%;
+}
+
+aside{
+    grid-area: sidebar;
+    width: 25rem;
+    background-color: var(--secondary-color);
+}
+
+aside > nav.sidebar {
+    height: 100%;
+}
+
+.section > nav.sidebar-responsive, aside > nav.sidebar > ul{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.section > nav.sidebar-responsive{
+    margin-top: 4rem;
+}
+
+.section > nav.sidebar-responsive > ul > li, aside > nav.sidebar > ul > li{
+    padding: 2rem 1.5rem;
+}
+
+.section > nav.sidebar-responsive > ul > li:hover, aside > nav.sidebar > ul > li:hover{
+    background-color: var(--light-color);
+}
+
+.section > nav.sidebar-responsive > ul > li:hover > a, aside > nav.sidebar > ul > li:hover > a{
+    color: var(--dark-color);
+}
+
+
+
+
+ aside > nav.sidebar > ul > li > a > span{
+    margin-inline: 2rem;
+}
+
+.section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25rem;
+    height: 100%;
+    background-color: var(--info-color);
+    transform: translateX(-25rem);
+    transition: transform 0.5s ease;
+}
+
+.section.active{
+    transform: translateX(0);
+}
+
+.section > nav.sidebar-responsive > .close-menu > i.fa-times{
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+
+main{
+    grid-area: main;
+    background-color: var(--dark-color);
+    overflow-y: auto;
+}
+
+@media (max-width: 768px){
+
+}
+
+@media (max-width: 640px){
+    .wrapper{
+        grid-template-columns: 5rem 1fr;
+    }
+    aside > nav.sidebar > ul > li > a > span{
+        display: none;
+    }
+}
+
+@media (max-width: 480px){
+
+}
