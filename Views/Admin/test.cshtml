@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "List of Movies";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
 <div class="row">
@@ -16,7 +18,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td class="align-middle">
-                    @Html.DisplayFor(modelItem => item.Rating)
+                    @item.Title
                 </td>
               
             </tr>

@@ -14,7 +14,6 @@ namespace ASP_Project.Data
 
         }
 
-
         public DbSet<CinemaEntity> CinemaEntities {get;set;}
         public DbSet<PlaceEntity> PlaceEntities {get; set;}
         public DbSet<MovieEntity> MovieEntities {get;set;}

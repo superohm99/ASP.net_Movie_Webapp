@@ -1,5 +1,6 @@
 @using Microsoft.AspNetCore.Identity;
 @using ASP_Project.ViewModel;
+
 @model FilterchatVM
 @{
     ViewData["Title"] = "Join Page";
@@ -14,8 +15,8 @@
                 <div class="mb-1">
                     <label asp-for="movieid" class="control-label">Movie</label>
                     <select asp-for="movieid" id="movieSelect" class="form-control" >
-                    @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
-                    {
+                        @foreach (var i in (IEnumerable<ASP_Project.Models.MovieEntity>)ViewBag.movie)
+                        {
                     <option value="@i.Id">@i.Title</option>
                     }
                     </select>

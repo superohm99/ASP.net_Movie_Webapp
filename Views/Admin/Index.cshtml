@@ -1,5 +1,5 @@
-@model AddmovieVM
 @using ASP_Project.ViewModel;
+@model AddmovieVM
 @using ASP_Project.Data;
 
 @using System;
@@ -12,9 +12,11 @@
 
 @{
     ViewData["Title"] = "Admin Page";
+    @* ViewData["Styles"] = "~/css/addMovies.css"; *@
+    @* ViewData["Scripts"] = "~/js/addMovies.js"; *@
 }
 
-<div class="row d-flex align-items-center justify-content-center">
+@* <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-3 card p-3">
         <h2 class="text-center text-info">Admin</h2>
         <form asp-action="Addmovie" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
@@ -36,4 +38,26 @@
             </div>
         </form>
     </div>
+</div> *@
+
+
+<div class="main-container">
+    <form asp-action="Addmovie" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div class="form-group">
+            <label asp-for="Title" class="control-label">Name Movie</label>
+            <input asp-for="Title"  type="text"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" type="text" />
+        </div>
+        <div class="form-group">
+            <label>Add Image</label>
+            <input type="file" />
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" type="text" />
+        </div>
+    </form>
+
 </div>

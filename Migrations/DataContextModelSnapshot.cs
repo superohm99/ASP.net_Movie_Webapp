@@ -215,6 +215,9 @@ namespace ASP_Project.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
                     b.Property<int?>("Rating")
                         .HasColumnType("integer");
 

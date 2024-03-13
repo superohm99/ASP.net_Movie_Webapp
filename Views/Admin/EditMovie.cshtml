@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Add Movies";
+    ViewData["Styles"] = "~/css/editMovie.css";
+    ViewData["Scripts"] = "~/js/editMovie.js";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model MovieEntity
+
+
+<div class="movie-container">
+    <form asp-action="EditMovie" asp-controller="Admin" method="post" enctype="multipart/form-data">
+        <div class="movie-title">
+            <label>Movie Title</label>
+            <input type="text" asp-for="Title" value="@Model.Title">
+        </div>
+        <div class="preview-image" style="background-image: url('@Model.Image')"></div>
+        <div class="display-src">
+            <label>Movie Image Source</label>
+            <input type="text" asp-for="Image" class="movie-image-text" id="movie-image-text" value="@Model.Image" />
+        </div>
+        <div class="movie-image">
+            <label>Movie Image</label>
+            <input type="file" id="file" name="file" />
+        </div>
+        <div class="movie-description">
+            <label>Movie Description</label>
+            <textarea asp-for="Description" placeholder="type some description">@Model.Description</textarea>
+        </div>
+        <div class="movie-update-btn">
+            <input class="update-btn" type="submit" value="Update" id="update-movie">
+        </div>
+    </form>
+
+
+    <div class="date-select-container">
+        <i class="fa-solid fa-chevron-left"></i>
+        <div class="date-slider">
+            <div class="date-container"></div>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+    <div class="cinema-showtime"></div>
+
+</div>

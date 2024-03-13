@@ -1,0 +1,72 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.add-movie{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background-color: var(--info-color);
+    padding-inline: 1rem;
+}
+
+.main-container > .info{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+
+    display: grid;
+    grid-template-columns: 5rem 1fr 1fr 10rem 10rem;
+    place-items: center;
+
+    width: 100%;
+    background-color: var(--info-color);
+
+}
+
+.main-container > .info > img{
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
+
+.section > nav.sidebar-responsive > ul > li:nth-child(3), aside > nav.sidebar > ul li:nth-child(3){
+    background-color: var(--danger-color);
+}
+
+a.edit-movie-btn, a.delete-movie-btn{
+    display: inline-block;
+    text-align: center;
+    width: 70%;
+
+}
+
+a.edit-movie-btn{
+    background-color: var(--warning-color);
+    color: var(--dark-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+
+a.edit-movie-btn:hover{
+    background-color: var(--light-color);
+}
+
+a.delete-movie-btn{
+    background-color: var(--danger-color);
+    color: var(--light-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+
+a.delete-movie-btn:hover{
+    background-color: var(--light-color);
+    color: var(--danger-color);
+}

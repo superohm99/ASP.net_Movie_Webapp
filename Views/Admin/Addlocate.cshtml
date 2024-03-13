@@ -11,28 +11,46 @@
 
 
 @{
-    ViewData["Title"] = "Admin Page";
+    ViewData["Title"] = "Add locate Page";
+    ViewData["Styles"] = "~/css/addLocate.css";
+    ViewData["Scripts"] = "~/js/addLocate.js";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-3 card p-3">
-        <h2 class="text-center text-info">Admin</h2>
-        <form asp-action="Addlocate" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-1">
-                <label asp-for="county" class="control-label">จังหวัด</label>
-                <input asp-for="county" class="form-control" />
-            </div>
-            <div class="mb-1">
-                <label asp-for="canton" class="control-label">เขต</label>
-                <input asp-for="canton" class="form-control" />
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
-                </div>
-            </div>
-        </form>
-    </div>
+<div class="main-container">
+    <form asp-action="Addlocate" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div class="form-detail">
+            <label asp-for="county" class="control-label">จังหวัด</label>
+            <input asp-for="county" class="form-control" />
+        </div>
+        <div class="form-detail">
+            <label asp-for="canton" class="control-label">เขต/อำเภอ</label>
+            <input asp-for="canton" class="form-control" />
+        </div>
+        <input type="submit" value="Add" class="btn btn-success" />
+    </form>
 </div>
+
+
+@* <div class="row d-flex align-items-center justify-content-center">
+<div class="col-md-3 card p-3">
+<h2 class="text-center text-info">Admin</h2>
+<form asp-action="Addlocate" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-1">
+<label asp-for="county" class="control-label">จังหวัด</label>
+<input asp-for="county" class="form-control" />
+</div>
+<div class="mb-1">
+<label asp-for="canton" class="control-label">เขต/อำเภอ</label>
+<input asp-for="canton" class="form-control" />
+</div>
+
+<div class="row">
+<div class="col-4">
+<input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
+</div>
+</div>
+</form>
+</div>
+</div> *@

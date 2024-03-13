@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {}
+    "D:\\Non-System\\Uni\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {
+    "D:\\Non-System\\Uni\\ASP.net_Movie_Webapp\\ASP_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+        "projectUniqueName": "D:\\Non-System\\Uni\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
         "projectName": "ASP_Project",
-        "projectPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
-        "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Legion\\Documents\\WEBAPP\\ASP.net_Movie_Webapp\\obj\\",
+        "projectPath": "D:\\Non-System\\Uni\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+        "packagesPath": "C:\\Users\\Ponda\\.nuget\\packages\\",
+        "outputPath": "D:\\Non-System\\Uni\\ASP.net_Movie_Webapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ponda\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://nuget.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {

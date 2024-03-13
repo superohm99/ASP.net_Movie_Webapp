@@ -11,24 +11,39 @@
 
 
 @{
-    ViewData["Title"] = "Admin Page";
+    ViewData["Title"] = "Add locate Page";
+    ViewData["Styles"] = "~/css/addLocate.css";
+    ViewData["Scripts"] = "~/js/addLocate.js";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-3 card p-3">
-        <h2 class="text-center text-info">Admin</h2>
-        <form asp-action="Addcinema" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-1">
-                <label asp-for="Enterprise" class="control-label">Enterprise</label>
-                <input asp-for="Enterprise" class="form-control" />
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
-                </div>
-            </div>
-        </form>
-    </div>
+<div class="main-container">
+    <form asp-action="Addcinema" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div class="form-detail">
+            <label asp-for="Enterprise" class="control-label">Enterprise</label>
+            <input asp-for="Enterprise" class="form-control" />
+        </div>
+        <input type="submit" value="Add" class="btn btn-success" />
+    </form>
 </div>
+
+
+
+@* <div class="row d-flex align-items-center justify-content-center">
+<div class="col-md-3 card p-3">
+<h2 class="text-center text-info">Admin</h2>
+<form asp-action="Addcinema" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-1">
+<label asp-for="Enterprise" class="control-label">Enterprise</label>
+<input asp-for="Enterprise" class="form-control" />
+</div>
+
+<div class="row">
+<div class="col-4">
+<input type="submit" value="Add" class="btn btn-primary btn-sm float-end" />
+</div>
+</div>
+</form>
+</div>
+</div> *@
