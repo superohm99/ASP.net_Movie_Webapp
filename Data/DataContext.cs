@@ -23,5 +23,7 @@ namespace ASP_Project.Data
         public DbSet<ChatRecordEntity> ChatRecordEntities {get;set;}
         public DbSet<ProgramMovieEntity> ProgramMovieEntities {get;set;}
         public DbSet<MessageRecordEntity> MessageRecordEntities {get;set;}
+        public DbSet<RequestEntity> RequestEntities {get; set;}
+        public DbSet<FavoriteEntity> FavoriteEntities {get;set;}
     }
 }

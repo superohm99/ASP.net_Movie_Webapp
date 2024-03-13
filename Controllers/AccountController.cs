@@ -1,9 +1,11 @@
 using ASP_Project.Models;
 using ASP_Project.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_Project.Controllers;
+   
     public class AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager) : Controller
     {
     
@@ -30,7 +32,7 @@ namespace ASP_Project.Controllers;
         }
         public IActionResult Register(string? returnUrl = null)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["ReturnUrl"] = returnUrl; 
             return View();
         }
         
@@ -53,7 +55,7 @@ namespace ASP_Project.Controllers;
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
-
+                    await userManager.AddToRoleAsync(user, "User");
                     return RedirectToAction(returnUrl);
                 }
                 foreach (var error in result.Errors)

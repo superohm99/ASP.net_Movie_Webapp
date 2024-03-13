@@ -6,8 +6,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using ASP_Project.ViewModel;
+using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace ASP_Project.Controllers;
+
 public class ProfileController : Controller
 {
     private readonly UserManager<AppUser> _userManager;
@@ -73,30 +77,104 @@ public class ProfileController : Controller
         return RedirectToAction("edit","profile");
     }
 
-    // [HttpPost]
-    // public async Task<IActionResult> Edit()
-    // {
-    //     IdentityResult x = await _userManager.UpdateAsync()
-    // }
-
-
-
-    // public IActionResult GetUserByUsername()
-    // {
-    //     return View();
-    // }
-
-    // public async Task<IActionResult> Users()
-    // {
-    //     var users = await _dbContext.Users.ToListAsync();
+    public IActionResult Requests()
+    {
+        var result = new List<object>();
+        var  chatrecords = _dbContext.ChatRecordEntities.Where(p => p.AppUserId == _userManager.GetUserId(HttpContext.User)).Select(c => c.Id).ToList();
         
-    //     return View(users);
-    // }
+        foreach (var chat in chatrecords)
+        {
+            var req = _dbContext.RequestEntities.Where(p => p.ChatRecordId == chat).FirstOrDefault();
+            
+            if (req != null)
+            {
+                var user_select = _userManager.FindByIdAsync(req.AppUserId).Result;
+                result.Add(new {req, user_select});
+            }
+        }
 
-    // public async Task<IActionResult> Oneuser()
-    // {
-    //     //  var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-    //     var users = await _userManager.FindByEmailAsync("gg@gmail.com");
-    //     return View(users);
-    // }
+        ViewBag.Result = result;
+        return View();
+    }
+
+
+    public IActionResult Submitquest()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Requests(int ohmreqIdreal,int ohmreqId, string ohmuserId)
+    {
+            if (ohmuserId == null)
+            {
+                Console.WriteLine("sdfsd5fsd");
+                return RedirectToAction("privary", "home");
+            }
+            else
+            {
+                Console.WriteLine("chatrecordid "+ohmreqId);
+                Console.WriteLine("userid "+ohmuserId);
+                var chatid = await _dbContext.ChatRecordEntities.Where(p => p.Id == ohmreqId).Select(c => c.ChatId).FirstOrDefaultAsync();
+                if (chatid == null)
+                {
+                    Console.WriteLine("xzv,mzn");
+                }
+                ChatRecordEntity chatrecord = new()
+                {
+                    Status = false,
+                    ChatId = chatid,
+                    AppUserId = ohmuserId
+                };
+                Console.WriteLine("asfafafa :" + chatid);
+                var result_record = await _dbContext.ChatRecordEntities.AddAsync(chatrecord);
+                if (result_record != null)
+                {
+                    var chat = await _dbContext.ChatEntities.Where(p => p.Id == chatid).FirstOrDefaultAsync();
+                    if (chat != null)
+                    {
+                        chat.remainNumber++;
+                        _dbContext.Update(chat);
+                        var req = await _dbContext.RequestEntities.Where(p => p.Id == ohmreqIdreal).FirstOrDefaultAsync();
+                        _dbContext.RequestEntities.Remove(req);
+                        await _dbContext.SaveChangesAsync();
+                        return RedirectToAction("index", "profile");
+                    }
+                }
+            
+            return RedirectToAction("index", "home");
+            }
+    }
+
+    public IActionResult LikeMovie()
+    {
+        var favors = _dbContext.FavoriteEntities.Where(p => p.AppUserId ==  _userManager.GetUserId(HttpContext.User)).ToList();
+        var res = new List<object>();
+        foreach (var favor in favors)
+        {
+            var movie = _dbContext.MovieEntities.Where(p => p.Id == favor.MovieId).Select(c => new {c.Image,c.Title}).FirstOrDefault();
+            res.Add(new {movie});
+        }
+        ViewBag.likemovie = res;
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> LikeMovie(int movieid)
+    {
+        Console.WriteLine("fuckyou :"+movieid);
+        FavoriteEntity favor = new()
+        {
+            AppUserId = _userManager.GetUserId(HttpContext.User),
+            MovieId = movieid
+        };
+        var result = await _dbContext.FavoriteEntities.AddAsync(favor);
+        if (result != null)
+        {
+            // Console.WriteLine(dateTime);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction("LikeMovie", "profile");
+        }
+        return View();
+    }
 }

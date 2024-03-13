@@ -19,8 +19,6 @@
                 </tr>
             </thead>
             <tbody>
-                <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 @foreach (var item in result)
                 {
                     var chat = item.chat;
@@ -31,13 +29,16 @@
                         <td>@item.image_user</td>
                             <div class="mb-1">
                                
+                               <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="chatrecordid" value="@item.chatrecordid" />
                                 <input type="hidden" asp-for="chatid" value="@chat.Id" />
                                 <button type="submit" class="form-control">Your Button Text</button>
-                                <span asp-validation-for="chatid" class="text-danger"></span>
+                                <span asp-validation-for="chatrecordid" class="text-danger"></span>
+                                 </form>
                             </div>
                     </tr>
                 }
-                </form>
             </tbody>
         </table>
     }

@@ -43,15 +43,41 @@ public class ChatController : Controller
         var result = new List<object>();
         foreach (var program in programs)
         {
-            var chat = await _context.ChatEntities.Where(p => p.ProgramMovieEntityId == program).Select(c => new {c.Id,c.remainNumber,c.maxNumber}).FirstOrDefaultAsync();
-            if (chat != null)
-            {
-                var userid = await _context.ChatRecordEntities.Where(p => p.ChatId == chat.Id).Select(c => c.AppUserId).FirstOrDefaultAsync();
+            var chats = await _context.ChatEntities
+        .Where(p => p.ProgramMovieEntityId == program)
+        .Select(c => new { c.Id, c.remainNumber, c.maxNumber })
+        .Distinct()
+        .ToListAsync();
+
+        foreach (var chat in chats)
+        {
+                var userid = await _context.ChatRecordEntities
+                    .Where(p => p.ChatId == chat.Id)
+                    .Select(c => c.AppUserId)
+                    .FirstOrDefaultAsync();
+
+                var chatrecordid = await _context.ChatRecordEntities
+                    .Where(p => p.ChatId == chat.Id && p.Status == true)
+                    .Select(c => c.Id)
+                    .FirstOrDefaultAsync();
+
                 AppUser user = await _userManager.FindByIdAsync(userid);
                 var image_user = user.Image;
-                // var image_user = await _context.
-                result.Add(new { chat,image_user });
-            }
+
+                result.Add(new { chat, image_user, chatrecordid });
+                }
+            
+            // var chat = await _context.ChatEntities.Where(p => p.ProgramMovieEntityId == program).Select(c => new {c.Id,c.remainNumber,c.maxNumber}).FirstOrDefaultAsync();
+            // if (chat != null)
+            // {
+            //     var userid = await _context.ChatRecordEntities.Where(p => p.ChatId == chat.Id).Select(c => c.AppUserId).FirstOrDefaultAsync();
+            //     var chatrecordid = await _context.ChatRecordEntities.Where(p => p.ChatId == chat.Id && p.Status == true).Select(c => c.Id).FirstOrDefaultAsync();
+            //     AppUser user = await _userManager.FindByIdAsync(userid);
+            //     var image_user = user.Image;
+            //     // var image_user = await _context.
+            //     result.Add(new { chat,image_user,chatrecordid });
+            // }
+            
         }
             // ส่งค่า result ไปที่ View ชื่อ "Filter" โดยส่งผ่าน ViewBag
         ViewBag.Result = result;
@@ -62,7 +88,7 @@ public class ChatController : Controller
     [HttpPost]
     public async Task<IActionResult> Joinchat(JoinchatVM model)
     {
-        Console.WriteLine("as45fs5af"+model.chatid);
+        // Console.WriteLine("as45fs5af"+model.chatid);
         if (_userManager.GetUserId(HttpContext.User) == null)
         {
             return RedirectToAction("login","account");
@@ -71,27 +97,36 @@ public class ChatController : Controller
         {
             return RedirectToAction("join","chat");
         }
-        ChatRecordEntity chatrecord = new()
+        RequestEntity request = new()
         {
             Status = false,
-            ChatId = model.chatid,
-            AppUserId = _userManager.GetUserId(HttpContext.User)
+            AppUserId = _userManager.GetUserId(HttpContext.User),
+            ChatRecordId = model.chatrecordid
         };
-        var result_record = await _context.ChatRecordEntities.AddAsync(chatrecord);
-        if (result_record != null)
-        {
-            var chat = _context.ChatEntities.Where(p => p.Id == model.chatid).FirstOrDefault();
-            if (chat != null)
-            {
-            chat.remainNumber++;
-            _context.Update(chat);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("index", "profile");
-            }
-        }
+        var result_record = await _context.RequestEntities.AddAsync(request);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("index", "profile");
+        // ChatRecordEntity chatrecord = new()
+        // {
+        //     Status = false,
+        //     ChatId = model.chatid,
+        //     AppUserId = _userManager.GetUserId(HttpContext.User)
+        // };
+        // var result_record = await _context.ChatRecordEntities.AddAsync(chatrecord);
+        // if (result_record != null)
+        // {
+        //     var chat = _context.ChatEntities.Where(p => p.Id == model.chatid).FirstOrDefault();
+        //     if (chat != null)
+        //     {
+        //     chat.remainNumber++;
+        //     _context.Update(chat);
+        //     await _context.SaveChangesAsync();
+        //     return RedirectToAction("index", "profile");
+        //     }
+        // }
 
 
-        return View("join","chat");
+        // return View("join","chat");
     }
 
 

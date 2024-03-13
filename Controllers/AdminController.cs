@@ -4,10 +4,12 @@ using ASP_Project.ViewModel;
 using ASP_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 
 
 
 namespace ASP_Project.Controllers;
+[Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
     private readonly DataContext _context;
