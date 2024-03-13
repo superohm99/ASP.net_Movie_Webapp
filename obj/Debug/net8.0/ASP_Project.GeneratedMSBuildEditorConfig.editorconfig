@@ -9,147 +9,147 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASP_Project
 build_property.RootNamespace = ASP_Project
-build_property.ProjectDir = C:\Users\User PC\Desktop\KMITL\D2\Semester 2\Web Dev\Project\ASP.net_Movie_Webapp V1.1\
+build_property.ProjectDir = C:\Users\User PC\Desktop\KMITL\D2\Semester 2\Web Dev\Project\ASP.net_Movie_Webapp V1.3\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User PC\Desktop\KMITL\D2\Semester 2\Web Dev\Project\ASP.net_Movie_Webapp V1.1
+build_property.MSBuildProjectDirectory = C:\Users\User PC\Desktop\KMITL\D2\Semester 2\Web Dev\Project\ASP.net_Movie_Webapp V1.3
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Account/Login.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Account/Register.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/Addcinema.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/Addcinema.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkY2luZW1hLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/Addlocate.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/Addlocate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkbG9jYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/Addprogram.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/Addprogram.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkcHJvZ3JhbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/Edit.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/Index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/list.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/list.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cbGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Admin/test.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Admin/test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cdGVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Chat/Create.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Chat/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Chat/Filterjoin.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Chat/Filterjoin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxGaWx0ZXJqb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Chat/index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Chat/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Chat/Join.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Chat/Join.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxKb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Home/Index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Home/Privacy.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Home/Showmovie.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Home/Showmovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93bW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/Edit.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/Group.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/Group.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxHcm91cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/LikeMovie.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/LikeMovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxMaWtlTW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/Requests.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/Requests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZXF1ZXN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Profile/Submitquest.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Profile/Submitquest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxTdWJtaXRxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Report/index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Report/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Report/report.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Report/report.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XHJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Role/Create.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Role/Index.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/Error.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/_BaseLayout.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/_BaseLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CYXNlTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/_UserLayout.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/_UserLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/_ViewImports.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/_ViewStart.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.1/Views/Shared/_Layout.cshtml]
+[C:/Users/User PC/Desktop/KMITL/D2/Semester 2/Web Dev/Project/ASP.net_Movie_Webapp V1.3/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-d9rqvnerjl

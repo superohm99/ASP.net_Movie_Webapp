@@ -7,11 +7,21 @@ body {
   margin-bottom: 2rem;
 }
 
+
 .header-title {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 0.2rem solid var(--light-color);
   text-transform: capitalize;
+}
+
+.col-md-12 {
+  position: relative;
+}
+
+.col-md-12 .btn.btn-warning {
+  position: absolute;
+  right: 0;
 }
 
 .user-profile {

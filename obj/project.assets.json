@@ -4111,11 +4111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.1\\ASP_Project.csproj",
+      "projectUniqueName": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.3\\ASP_Project.csproj",
       "projectName": "ASP_Project",
-      "projectPath": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.1\\ASP_Project.csproj",
+      "projectPath": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.3\\ASP_Project.csproj",
       "packagesPath": "C:\\Users\\User PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.1\\obj\\",
+      "outputPath": "C:\\Users\\User PC\\Desktop\\KMITL\\D2\\Semester 2\\Web Dev\\Project\\ASP.net_Movie_Webapp V1.3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
