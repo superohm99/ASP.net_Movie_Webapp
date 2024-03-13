@@ -180,6 +180,30 @@ namespace ASP_Project.Migrations
                     b.ToTable("CinemaEntities");
                 });
 
+            modelBuilder.Entity("ASP_Project.Models.FavoriteEntity", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("FavoriteEntities");
+                });
+
             modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
                 {
                     b.Property<int?>("Id")
@@ -310,6 +334,33 @@ namespace ASP_Project.Migrations
                     b.HasIndex("AppUserId");
 
                     b.ToTable("ReportEntities");
+                });
+
+            modelBuilder.Entity("ASP_Project.Models.RequestEntity", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ChatRecordId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ChatRecordId");
+
+                    b.ToTable("RequestEntities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -472,6 +523,23 @@ namespace ASP_Project.Migrations
                     b.Navigation("ChatEntity");
                 });
 
+            modelBuilder.Entity("ASP_Project.Models.FavoriteEntity", b =>
+                {
+                    b.HasOne("ASP_Project.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASP_Project.Models.MovieEntity", "MovieEntity")
+                        .WithMany()
+                        .HasForeignKey("MovieId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("MovieEntity");
+                });
+
             modelBuilder.Entity("ASP_Project.Models.MessageRecordEntity", b =>
                 {
                     b.HasOne("ASP_Project.Models.ChatRecordEntity", "ChatRecordEntity")
@@ -513,6 +581,23 @@ namespace ASP_Project.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("ASP_Project.Models.RequestEntity", b =>
+                {
+                    b.HasOne("ASP_Project.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASP_Project.Models.ChatRecordEntity", "ChatRecordEntity")
+                        .WithMany()
+                        .HasForeignKey("ChatRecordId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("ChatRecordEntity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

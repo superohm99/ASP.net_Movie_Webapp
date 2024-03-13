@@ -1,0 +1,19 @@
+@model IEnumerable<object>
+
+@if (ViewBag.likemovie != null)
+{
+@foreach (var item in ViewBag.likemovie)
+{
+    var movie = item.movie;
+    <div>
+        <img src="@movie.Image" alt="@movie.Title" />
+        <p>@movie.Title</p> 
+    </div>
+}
+}
+else
+{
+    <p>No movies liked.</p>
+}
+
+

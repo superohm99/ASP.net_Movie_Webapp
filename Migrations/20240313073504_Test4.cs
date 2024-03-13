@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASP_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class test : Migration
+    public partial class Test4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,7 +78,8 @@ namespace ASP_Project.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Rating = table.Column<int>(type: "integer", nullable: true)
+                    Rating = table.Column<int>(type: "integer", nullable: true),
+                    Image = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -229,6 +230,31 @@ namespace ASP_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FavoriteEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AppUserId = table.Column<string>(type: "text", nullable: false),
+                    MovieId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FavoriteEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FavoriteEntities_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FavoriteEntities_MovieEntities_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "MovieEntities",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProgramMovieEntities",
                 columns: table => new
                 {
@@ -268,6 +294,8 @@ namespace ASP_Project.Migrations
                     startAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     endAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     duration = table.Column<TimeSpan>(type: "interval", nullable: true),
+                    maxNumber = table.Column<int>(type: "integer", nullable: false),
+                    remainNumber = table.Column<int>(type: "integer", nullable: false),
                     ProgramMovieEntityId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -328,6 +356,32 @@ namespace ASP_Project.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RequestEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Status = table.Column<bool>(type: "boolean", nullable: false),
+                    AppUserId = table.Column<string>(type: "text", nullable: false),
+                    ChatRecordId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RequestEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RequestEntities_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RequestEntities_ChatRecordEntities_ChatRecordId",
+                        column: x => x.ChatRecordId,
+                        principalTable: "ChatRecordEntities",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -381,6 +435,16 @@ namespace ASP_Project.Migrations
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FavoriteEntities_AppUserId",
+                table: "FavoriteEntities",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FavoriteEntities_MovieId",
+                table: "FavoriteEntities",
+                column: "MovieId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MessageRecordEntities_ChatRecordEntityId",
                 table: "MessageRecordEntities",
                 column: "ChatRecordEntityId");
@@ -404,6 +468,16 @@ namespace ASP_Project.Migrations
                 name: "IX_ReportEntities_AppUserId",
                 table: "ReportEntities",
                 column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RequestEntities_AppUserId",
+                table: "RequestEntities",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RequestEntities_ChatRecordId",
+                table: "RequestEntities",
+                column: "ChatRecordId");
         }
 
         /// <inheritdoc />
@@ -425,10 +499,16 @@ namespace ASP_Project.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "FavoriteEntities");
+
+            migrationBuilder.DropTable(
                 name: "MessageRecordEntities");
 
             migrationBuilder.DropTable(
                 name: "ReportEntities");
+
+            migrationBuilder.DropTable(
+                name: "RequestEntities");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
