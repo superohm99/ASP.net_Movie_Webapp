@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\adminSite.css"
     },
     {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\chat.css",
+      "PackagePath": "staticwebassets\\css\\chat.css"
+    },
+    {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\createRoom.css",
       "PackagePath": "staticwebassets\\css\\createRoom.css"
     },

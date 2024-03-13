@@ -436,3 +436,6 @@ D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\obj\Debug\net8.0\refint\ASP_Pro
 D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\obj\Debug\net8.0\ASP_Project.pdb
 D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\obj\Debug\net8.0\ASP_Project.genruntimeconfig.cache
 D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\obj\Debug\net8.0\ref\ASP_Project.dll
+D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Non-System\Uni\latestASP\ASP.net_Movie_Webapp\bin\Debug\net8.0\Microsoft.Extensions.Features.dll

@@ -95,7 +95,7 @@ public class ChatController : Controller
         }
         if (_context.ChatRecordEntities.Any(p => p.ChatId == model.chatid && p.AppUserId == _userManager.GetUserId(HttpContext.User)))
         {
-            return RedirectToAction("join","chat");
+            return RedirectToAction("Chatroom","chat");
         }
         RequestEntity request = new()
         {
@@ -105,7 +105,7 @@ public class ChatController : Controller
         };
         var result_record = await _context.RequestEntities.AddAsync(request);
         await _context.SaveChangesAsync();
-        return RedirectToAction("index", "profile");
+        return RedirectToAction("Chatroom", "Chat");
         // ChatRecordEntity chatrecord = new()
         // {
         //     Status = false,
@@ -172,7 +172,7 @@ public class ChatController : Controller
         {
             // Console.WriteLine(dateTime);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "profile");
+            return RedirectToAction("Chatroom", "Chat");
         }
 
         return RedirectToAction("Index","Chat");
@@ -264,9 +264,15 @@ public class ChatController : Controller
         var programs = _context.ProgramMovieEntities.Where(p => p.MovieId == movieId && p.CinemaId == cinemaId && p.PlaceId == placeId).Select(p => new{p.Id, p.Showtime}).ToList();
         return Json(programs);
     }
-
-
-  
-  
+      
+    [HttpPost]
+    public async Task<IActionResult> ChatRoom(int? chatID)
+    {
+        ViewBag.chatID = chatID;
+        var messages = await _context.MessageRecordEntities
+                                .Where(p => p.ChatRecordEntity.Id == chatID)
+                                .ToListAsync();
+        return View(messages);
+    }
 
 }

@@ -1,11 +1,27 @@
-@foreach (var item in ViewBag.groups)
-{
-    <div>
-        <img src="@item.hostuserimage" />
-        <p>@item.movieimage</p>
-        <p>@item.movietitle</p>
-        <button type="submit" class="submit-button">Submit</button>
-    </div>
-}
+<!DOCTYPE html>
+<html lang="en">
 
-<div>sdfdsfsf</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    @foreach (var item in ViewBag.groups)
+    {
+        <div>
+
+            <img src="@item.hostuserimage" />
+            <p>@item.movieimage</p>
+            <p>@item.movietitle</p>
+            <form asp-controller="Chat" asp-action="ChatRoom" method="post" asp-route-returnurl='@ViewData["ReturnUrl"]'>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="chatID" value="@item.chatId" />
+                <input type="submit" />
+            </form>
+        </div>
+    }
+</body>
+
+</html>

@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -25,10 +26,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
     .AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
 
 
-
+builder.Services.AddSingleton<DataSignalR>();
 var app = builder.Build();
-
-
 
 
 // Configure the HTTP request pipeline.
@@ -40,7 +39,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -49,6 +47,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 // app.UseSession();
+
+app.UseEndpoints(endpoints => {
+    endpoints.MapHub<ChatHub>("/chatting");
+});
 
 app.MapControllerRoute(
     name: "default",

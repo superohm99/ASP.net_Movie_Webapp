@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9HE9m3SdK5yZeZjfg7dqMm0jvXR5/08vA3a5g3XSGGo=",
+  "Hash": "XrvvG4LSLw7CaGg6CKvhJZeK8amKqqz4pbYPLoT23Xg=",
   "Source": "ASP_Project",
   "BasePath": "_content/ASP_Project",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\adminSite.css"
+    },
+    {
+      "Identity": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\chat.css",
+      "SourceId": "ASP_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\",
+      "BasePath": "_content/ASP_Project",
+      "RelativePath": "css/chat.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\chat.css"
     },
     {
       "Identity": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\createRoom.css",
