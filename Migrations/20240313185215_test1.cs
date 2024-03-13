@@ -5,7 +5,7 @@
 namespace ASP_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class Testing : Migration
+    public partial class test1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

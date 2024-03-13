@@ -1,0 +1,116 @@
+* {
+    font-size: 62.5%;
+    --primary-color: #1e293b;
+    --secondary-color: #ffb703;
+    --light-color: #f4f4f4;
+    --dark-color: #333;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+
+    --max-width-content: 90rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+h1 {
+    font-size: 5rem;
+    /* padding: 20px; */
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.boxes-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(25% - 15px);
+    margin-top: 20px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    margin-right: 15px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    /* Hover effect */
+}
+
+/* .profile {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-name {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+} */
+
+h2 {
+    font-size: 2.7rem;
+    margin-top: 0;
+    color: var(--dark-color);
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-left: 2px;
+}
+
+.form-control,
+.sent-request-button {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-control {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.form-control:hover {
+    background-color: #d59b08;
+}
+
+.sent-request-button {
+    background-color: #c8c8c8;
+    color: #fff;
+    display: none;
+    /* Initially hidden */
+}

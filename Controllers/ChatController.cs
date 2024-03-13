@@ -28,6 +28,25 @@ public class ChatController : Controller
         return View();
     }
 
+public async Task<IActionResult> getMovies()
+    {
+        var movies = await _context.MovieEntities.ToListAsync();
+        return Json(movies);
+    }
+
+    public async Task<IActionResult> getMovieByID(int? id)
+    {
+        var movie = await _context.MovieEntities.Where(p => p.Id == id).ToListAsync();
+        return Json(movie);
+    }
+
+    public async Task<IActionResult> SelectedMovie(int? id)
+    {
+        var programMovieEntities = await _context.ProgramMovieEntities.Where(p => p.MovieId == id).ToListAsync();
+        ViewBag.programMovieEntities = programMovieEntities;
+        return View();
+    }
+    
     public IActionResult Filterjoin()
     {
         return View();

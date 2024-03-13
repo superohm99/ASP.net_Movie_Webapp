@@ -3,50 +3,53 @@
 
 @{
     var result = ViewBag.Result as List<dynamic>;
+    ViewData["Title"] = "Available Room";
+    ViewData["Styles"] = "~/css/filterjoin.css";
+    ViewData["Scripts"] = "~/js/filterjoin.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
 
 
-    @if (result != null)
-    {
-        <table>
-            <thead>
-                <tr>
-                    <th>Chat ID</th>
-                    <th>RemainNUM</th>
-                    <th>MaxNUM</th>
-                    <th>ImageUser</th>
-                </tr>
-            </thead>
-            <tbody>
-                <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+@if (result != null)
+{
+    <table>
+        <thead>
+            @* <tr>
+        <th>Chat ID</th>
+        <th>RemainNUM</th>
+        <th>MaxNUM</th>
+        <th>ImageUser</th>
+        </tr> *@
+        </thead>
+        <tbody>
+            <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 @foreach (var item in result)
                 {
                     var chat = item.chat;
-                    <tr>
-                        <td>@chat.Id</td>
-                        <td>@chat.remainNumber</td>
-                        <td>@chat.maxNumber</td>
-                        <td>@item.image_user</td>
-                            <div class="mb-1">
-                               
-                               <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                    <div class="box">
+                        <h2>Room @chat.Id</h2>
+                        <h3>Room Members: @chat.remainNumber/@chat.maxNumber</h3>
+
+                        <div class="mb-1">
+
+                            <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <input type="hidden" asp-for="chatrecordid" value="@item.chatrecordid" />
                                 <input type="hidden" asp-for="chatid" value="@chat.Id" />
-                                <button type="submit" class="form-control">Your Button Text</button>
+                                <button type="submit" class="form-control">Join</button>
                                 <span asp-validation-for="chatrecordid" class="text-danger"></span>
-                                 </form>
-                            </div>
-                    </tr>
+                            </form>
+                        </div>
+                    </div>
                 }
-                </form>
-            </tbody>
+            </form>
+        </tbody>
 
-        </table>
-    }
-    else
-    {
-        <p>No chat results found.</p>
-    }
+    </table>
+}
+else
+{
+    <p>No chat results found.</p>
+}
