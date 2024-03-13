@@ -3,37 +3,40 @@
 
 @{
     ViewData["Title"] = "Profile Page";
-    @* ViewData["Styles"] = "~/css/profile.css";
-ViewData["Scripts"] = "~/js/profile.js";
-Layout = "~/Views/Shared/_BaseLayout.cshtml"; *@
+    ViewData["Styles"] = "~/css/requests.css";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<table>
-    <thead>
-        <tr>
-            <th>Request ID</th>
-            <th>status</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.Result)
-        {
-            <tr id="@item.req.Id">
-                <td>@item.req.Id</td>
-                <td>@item.req.Status</td>
-                <td>@item.user_select.Name</td>
 
-                <div class="mb-1" id="@item.req.ChatRecordId">
-                    <button type="submit" class="submit-button" data-req-iid="@item.req.Id"
-                        data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Submit</button>
-                    @* <span asp-validation-for="chatrecordid" class="text-danger"></span> *@
-                </div>
-
+<div class="container">
+    <table class="table">
+        <thead class="thread-dark">
+            <tr>
+                <th scope="col">Request ID</th>
+                <th scope="col">status</th>
+                <th scope="col">Name</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Result)
+            {
+
+                <tr id="@item.req.Id">
+                    <td scope="row">@item.req.Id</td>
+                    <td>@item.req.Status</td>
+                    <td>@item.user_select.Name</td>
+
+                    <div class="mb-1" id="@item.req.ChatRecordId">
+                        <button type="submit" class="submit-button" data-req-iid="@item.req.Id"
+                            data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Submit</button>
+                        @* <span asp-validation-for="chatrecordid" class="text-danger"></span> *@
+                    </div>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 
 @section Scripts {
     <script>
