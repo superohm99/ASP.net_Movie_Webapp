@@ -409,6 +409,7 @@
     border-radius: 10px;
     color: rgb(0, 0, 0, 0.9);
     background-color: orange;
+    
 }
 
 .display-container #size {
@@ -422,6 +423,7 @@
 .select-size-section-button-container {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    cursor: pointer;
 }
 
 .select-size-section-button-container button {
@@ -534,6 +536,7 @@
 
 .slides img {
     width: 200px;
+    cursor: pointer;
 }
 
 .button-container {
@@ -542,6 +545,7 @@
     transform: translateY(-50%);
     width: 100%;
     text-align: center;
+    
 }
 
 .button-container button {
