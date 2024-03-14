@@ -175,6 +175,19 @@ public class AdminController : Controller
         return RedirectToAction("movies", "admin");
     }
 
+    public async Task<IActionResult> GetMovie()
+    {
+
+        var userId = _userManager.GetUserId(HttpContext.User);
+        var movie = await _context.MovieEntities.Select(m => new { m.Id, m.Title, m.Description, m.Image, userLikeState = _context.FavoriteEntities.Any(f => f.MovieId == m.Id && f.AppUserId == userId) }).ToListAsync();
+
+        if (movie != null)
+        {
+            return Json(movie);
+        }
+
+        return RedirectToAction("movies", "admin");
+    }
  public async Task<IActionResult> Reports()
     {
         var gets = await _context.ReportEntities.ToListAsync();

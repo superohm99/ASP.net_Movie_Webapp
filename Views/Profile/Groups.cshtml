@@ -1,7 +1,6 @@
 @{
     ViewData["Title"] = "Group room";
     ViewData["Styles"] = "~/css/groups.css";
-    @* ViewData["Scripts"] = "~/js/createRoom.js"; *@
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
     <h2>View Groups</h2>
@@ -11,13 +10,14 @@
         <div class="group">
 
             <img src=@item.movieimage />
-            <p>ChatID: @item.chatId</p>
-            <p>@item.movietitle</p>
+            <p>Room: @item.chatId</p>
+            <p>Movie: @item.movietitle</p>
             <form asp-controller="Chat" asp-action="ChatRoom" method="post" asp-route-returnurl='@ViewData["ReturnUrl"]'>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" name="chatID" value="@item.chatId" />
-                <input type="submit" />
+                <input type="submit" value="Join" class="btn btn-success" />
             </form>
         </div>
     }
     </section>
+    <a href="/profile" class="btn btn-danger back-btn">Back</a>

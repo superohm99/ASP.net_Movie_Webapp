@@ -35,6 +35,14 @@ public class ProfileController : Controller
             ViewBag.numFav = favs.Count;
             ViewBag.groupNum = chatrecords.Count;
             AppUser user = _userManager.FindByIdAsync(userid).Result;
+            if (user.Image != null)
+            {
+                ViewBag.userImage = user.Image;
+            }
+            else
+            {
+                ViewBag.userImage = "https://www.w3schools.com/howto/img_avatar.png";
+            }
             return View(user);
         }
     }
@@ -53,7 +61,13 @@ public class ProfileController : Controller
         ViewBag.ig = user.IG;
         ViewBag.name = user.Name;
         ViewBag.email = user.Email;
-        ViewBag.Image = user.Image;
+        if (user.Image != null)
+        {
+            ViewBag.image = user.Image;
+        }
+        else{
+            ViewBag.image = "https://www.w3schools.com/howto/img_avatar.png";
+        }
         return View();
     }
 
@@ -184,11 +198,12 @@ public class ProfileController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> LikeMovie(int movieid)
+    public async Task<IActionResult> LikeMovie(int? movieid)
     {
         if (_dbContext.FavoriteEntities.Any(p => p.MovieId == movieid && p.AppUserId == _userManager.GetUserId(HttpContext.User)))
         {
-            return RedirectToAction("Showmovie", "home"); ;
+            return Json("Fail");
+            // return RedirectToAction("Showmovie", "home"); ;
         }
         FavoriteEntity favor = new()
         {
@@ -200,9 +215,23 @@ public class ProfileController : Controller
         {
             // Console.WriteLine(dateTime);
             await _dbContext.SaveChangesAsync();
-            return RedirectToAction("LikeMovie", "profile");
+            return Json("Success");
+            // return RedirectToAction("LikeMovie", "profile");
         }
-        return View();
+        return Json("Fail");
+        // return View();
+    }
+
+    public async Task<IActionResult> getFavorite()
+    {
+        var favors = _dbContext.FavoriteEntities.Where(p => p.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
+        var res = new List<object>();
+        foreach (var favor in favors)
+        {
+            var movie = _dbContext.MovieEntities.Where(p => p.Id == favor.MovieId).Select(c => new { c.Id, c.Image, c.Title }).FirstOrDefault();
+            res.Add(movie);
+        }
+        return Json(res);
     }
 
     public async Task<IActionResult> Dellike(int movieId)
@@ -306,4 +335,11 @@ public IActionResult Groups()
 
     //     return View();
     // }
+
+    [HttpPost]
+    public IActionResult GetUser()
+    {
+        var user = _userManager.FindByIdAsync(_userManager.GetUserId(HttpContext.User)).Result;
+        return Json(new {user.Id,user.Image});
+    }
 }

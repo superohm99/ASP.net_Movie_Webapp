@@ -8,81 +8,75 @@
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<div class="text-center">
-    <div class="row d-flex align-items-center justify-content-center">
-        <div class="col-md-3 card p-3">
-            <h2 class="text-center text-info">Join Chat</h2>
-            <form asp-action="Filterjoin" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="gallery-wrap">
-                    <div class="gallery">
-                        <div class="slides">
-                            @* Render images dynamically here *@
-                        </div>
-                        <div class="button-container">
-                            <button id="backBtn" type="button">&lt;</button>
-                            <button id="nextBtn" type="button">&gt;</button>
-                        </div>
-                    </div>
-                    <div class="mb-1">
-                        <label asp-for="movieid" class="control-label">Movie</label>
-                        <select asp-for="movieid" id="movieSelect" class="form-control">
-                            @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
-                            {
-                                <option value="@i.Id">@i.Title</option>
-                            }
-                        </select>
-                    </div>
+<section>
+    <h2 class="text-center text-info">Join Chat</h2>
+    <form asp-action="Filterjoin" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="gallery-wrap">
+            <div class="gallery">
+                <div class="slides">
+                    @* Render images dynamically here *@
+                </div>
+                <div class="button-container">
+                    <button id="backBtn" type="button">&lt;</button>
+                    <button id="nextBtn" type="button">&gt;</button>
+                </div>
+            </div>
+            <div class="mb-1">
+                <label asp-for="movieid" class="control-label">Movie</label>
+                <select asp-for="movieid" id="movieSelect" class="form-control">
+                    @foreach (var i in (IEnumerable<MovieEntity>)ViewBag.movie)
+                    {
+                        <option value="@i.Id">@i.Title</option>
+                    }
+                </select>
+            </div>
 
-                    <div class="mb-1">
-                        <label asp-for="cinemaid" class="control-label">Cinema</label>
-                        <select asp-for="cinemaid" id="cinemaSelect" class="form-control">
-                            @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                            {
-                            <option value="@i.CinemaEntity.Id">@i.CinemaEntity.Enterprise</option>
-                            } *@
-                            <option>Please select a Movie</option>
-                        </select>
-                    </div>
+            <div class="mb-1">
+                <label asp-for="cinemaid" class="control-label">Cinema</label>
+                <select asp-for="cinemaid" id="cinemaSelect" class="form-control">
+                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                    {
+                    <option value="@i.CinemaEntity.Id">@i.CinemaEntity.Enterprise</option>
+                    } *@
+                    <option>Please select a Movie</option>
+                </select>
+            </div>
 
-                    <div class="mb-1">
-                        <label class="control-label">County</label>
-                        <select id="countySelect" class="form-control">
-                            @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                            {
-                            <option value="@i.PlaceEntity.Id">@i.PlaceEntity.County</option>
-                            } *@
-                            <option>Please select a Cinema</option>
-                        </select>
-                    </div>
+            <div class="mb-1">
+                <label class="control-label">County</label>
+                <select id="countySelect" class="form-control">
+                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                    {
+                    <option value="@i.PlaceEntity.Id">@i.PlaceEntity.County</option>
+                    } *@
+                    <option>Please select a Cinema</option>
+                </select>
+            </div>
 
-                    <div class="mb-1">
-                        <label asp-for="placeid" class="control-label">Canton</label>
-                        <select asp-for="placeid" id="cantonSelect" class="form-control">
-                            @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
-                            {
-                            <option value="@i.PlaceEntity.Id">@i.PlaceEntity.Canton</option>
-                            } *@
-                            <option>Please select a County</option>
-                        </select>
-                    </div>
+            <div class="mb-1">
+                <label asp-for="placeid" class="control-label">Canton</label>
+                <select asp-for="placeid" id="cantonSelect" class="form-control">
+                    @* @foreach (var i in (IEnumerable<ProgramMovieEntity>)ViewBag.program)
+                    {
+                    <option value="@i.PlaceEntity.Id">@i.PlaceEntity.Canton</option>
+                    } *@
+                    <option>Please select a County</option>
+                </select>
+            </div>
 
-                    <div class="mb-1">
-                        <label asp-for="showtime" class="control-label">Showtime</label>
-                        <select asp-for="showtime" id="showtimeSelect" class="form-control">
-                            <option>Please select a Canton</option>
-                        </select>
-                    </div>
+            <div class="mb-1">
+                <label asp-for="showtime" class="control-label">Showtime</label>
+                <select asp-for="showtime" id="showtimeSelect" class="form-control">
+                    <option>Please select a Canton</option>
+                </select>
+            </div>
 
-                    <div class="col-4">
-                        <input type="submit" value="Filter" class="btn btn-primary btn-sm float-end" />
-                    </div>
-            </form>
-        </div>
-    </div>
-
-</div>
-
+            <div class="col-4">
+                <input type="submit" value="Filter" class="btn btn-primary btn-sm float-end" />
+            </div>
+    </form>
+</section>
 
 @section Scripts {
     <script>

@@ -2,6 +2,7 @@ body {
   overflow-y: auto !important;
 }
 
+
 .heading {
   border-bottom: 0.2rem solid var(--light-color);
   margin-bottom: 2rem;
@@ -287,7 +288,7 @@ p {
   color: var(--light-color);
 }
 
-.receipts{
+.request-btn{
   position: absolute;
   top: 17%;
   right: 5%;
@@ -296,6 +297,33 @@ p {
 span{
   font-size: 2rem;
   color: var(--light-color);
+}
+
+.btn{
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+
+
+.box p{
+  color: var(--light-color);
+}
+
+
+section{
+  min-height: 50rem;
+  position: relative;
+}
+
+.groups-btn, .back-btn{
+  position: absolute;
+  bottom: 0;
+}
+
+.groups-btn{
+  right: 5%;
 }
 
 @media (max-width: 480px) {

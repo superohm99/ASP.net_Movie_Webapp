@@ -16,14 +16,6 @@
   font-size: 62.5%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--gray);
-  display: flex;
-  justify-content: center;
-}
-
 main{
   width: 100% !important;
 }
@@ -41,7 +33,7 @@ main{
 }
 
 .chat-box .chat .header-chat {
-  background-color: var(--black);
+  background-color: var(--light-color);
   height: 5rem;
   box-shadow: 0px 3px 2px rgba(0,0,0,0.1);
   display: flex;
@@ -53,20 +45,21 @@ main{
 }
 
 .chat-box .chat .header-chat p {
-  color: var(--white);
   font-size: 1.75rem;
   text-transform: uppercase;
   margin: 0;
+  color: var(--dark-color);
+
 }
 
 .chat-box .chat .header-chat i {
-  color: var(--white);
+  color: var(--dark-color);
   font-size: 1.5rem;
 }
 
 .chat-box .chat .message-chat {
   padding: 2rem 2.5rem;
-  background-color: var(--white);
+  background-color: var(--dark-color);
   height: 30rem;
   overflow-y: auto;
 }
@@ -75,12 +68,14 @@ main{
   display:flex;
   align-items: center;
   margin-bottom: 8px;
+
 }
 
 .chat-box .chat .message-chat .message .text {
   font-size: 1.6rem;
   margin: 0 1rem;
-  background-color: var(--light-gray);
+  background-color: var(--info-color);
+
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -96,12 +91,15 @@ main{
 
 .chat-box .chat .footer-chat input {
   width: 80%;
-  height: 50%;
+  height: 85%;
   border: none;
-  padding: 0.5rem;
-  margin: 1rem;
-  font-size: 1rem;
+  outline: none;
+  padding: 1rem;
+  /* margin: 1rem; */
+  font-size: 1.6rem;
 }
+
+
 
 .chat-box .chat .footer-chat i {
   font-size: 1.5rem;
@@ -120,3 +118,4 @@ main{
 .clickable {
   cursor: pointer;
 }
+

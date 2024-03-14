@@ -26,7 +26,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
     }
     )
     .AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
-builder.Services.AddHostedService<BgService>();
+// builder.Services.AddHostedService<BgService>();
 
 builder.Services.AddSingleton<DataSignalR>();
 var app = builder.Build();

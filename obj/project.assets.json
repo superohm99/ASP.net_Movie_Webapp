@@ -4226,11 +4226,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+      "projectUniqueName": "D:\\Non-System\\Learning\\testdocker\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
       "projectName": "ASP_Project",
-      "projectPath": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
+      "projectPath": "D:\\Non-System\\Learning\\testdocker\\ASP.net_Movie_Webapp\\ASP_Project.csproj",
       "packagesPath": "C:\\Users\\Ponda\\.nuget\\packages\\",
-      "outputPath": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\obj\\",
+      "outputPath": "D:\\Non-System\\Learning\\testdocker\\ASP.net_Movie_Webapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ponda\\AppData\\Roaming\\NuGet\\NuGet.Config",

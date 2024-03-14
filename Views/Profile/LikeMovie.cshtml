@@ -20,7 +20,7 @@
                     <div id="@movie.Id">
                         <img src="@movie.Image" alt="@movie.Title" />
                         <p>@movie.Title</p>
-                        <button type="submit" class="remove-button" data-movie-id="@movie.Id">Remove</button>
+                        <button type="submit" class="btn remove-button btn-danger" data-movie-id="@movie.Id">Remove</button>
                     </div>
                 </div>
             }
@@ -57,6 +57,32 @@
                 }
             });
         });
-        //});
+
+
+    @* const postDislike = async (movieId) => {
+        try{
+            const response = await fetch(`https://localhost:7290/profile/dellike?movieId=${movieId}`, { 
+                method: 'POST'
+            });
+            const data = await response.json();
+            if (response.ok) {
+                document.getElementById(movieId).remove();
+            } else {
+                console.error(data);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+        
+    };
+
+    const removeButtons = document.querySelectorAll('.remove-button');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const movieId = button.dataset.movieId;
+            postDislike(movieId);
+        });
+    }); *@
+    
     </script>
 }

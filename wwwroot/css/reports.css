@@ -44,6 +44,6 @@
     border-radius: 50%;
 }
 
-.section > nav.sidebar-responsive > ul > li:nth-child(4), aside > nav.sidebar > ul li:nth-child(4){
+.section > nav.sidebar-responsive > ul > li:nth-child(3), aside > nav.sidebar > ul li:nth-child(3){
     background-color: var(--danger-color);
 }

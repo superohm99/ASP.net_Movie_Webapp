@@ -9,20 +9,9 @@
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-
-
+<section>
 @if (result != null)
 {
-    <table>
-        <thead>
-            @* <tr>
-        <th>Chat ID</th>
-        <th>RemainNUM</th>
-        <th>MaxNUM</th>
-        <th>ImageUser</th>
-        </tr> *@
-        </thead>
-        <tbody>
             <form asp-action="Joinchat" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 @foreach (var item in result)
@@ -45,11 +34,9 @@
                     </div>
                 }
             </form>
-        </tbody>
-
-    </table>
 }
 else
 {
     <p>No chat results found.</p>
 }
+</section>

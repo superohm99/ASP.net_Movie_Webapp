@@ -14,12 +14,12 @@
     </div>
     <form asp-action="Login" asp-controller="Account" method="post" class="login-form" autocomplete="off">
         <div class="input-group">
-            <input asp-for="Username" required>
+            <input type="email" asp-for="Username" placeholder="Email" required>
             <label asp-for="Username">Email</label>
             <i class="fas fa-user"></i>
         </div>
         <div class="input-group">
-            <input asp-for="Password" required>
+            <input type="password" asp-for="Password" required>
             <label asp-for="Password">Password</label>
             <i class="fas fa-lock"></i>
         </div>

@@ -91,3 +91,25 @@ preview.addEventListener('click', (e) => {
 document.querySelector('.caret-down > i.fa-caret-down').addEventListener('click', function () {
     document.querySelector('.navlist-responsive').classList.toggle('show');
 });
+
+
+const profileImage = document.querySelector('.profile  img');
+
+const getUser = async () => {
+    try {
+        const response = await fetch('https://localhost:7290/profile/getuser', {
+            method: 'POST' });
+        const user = await response.json();
+        console.log(user);
+        if(user.image){
+            profileImage.src = user.image;
+        }
+        else{
+            profileImage.src = 'https://www.w3schools.com/howto/img_avatar.png';
+        }
+    } catch (err) {
+        console.error('Error:', err);
+    }
+};
+
+getUser();

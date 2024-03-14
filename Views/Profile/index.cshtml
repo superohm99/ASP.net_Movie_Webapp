@@ -9,7 +9,7 @@
   <h1 class="header-title">your profile</h1>
   <div class="info">
     <div class="user">
-      <img src=@Model.Image alt="user image" />
+      <img src="@ViewBag.userImage" alt="user image" />
       <h2>@Model.Name</h2>
       <a href="/profile/edit" class="btn btn-warning">update profile</a>
     </div>
@@ -40,5 +40,5 @@
     </div>
   </div>
   <button class="btn btn-danger back" id="back">Back</button>
-  <a asp-action="Requests" class="btn btn-warning reciepts">reciepts</a>
+  <a asp-action="Requests" class="btn btn-primary request-btn"><span>View Requests Group</span></a>
 </section>

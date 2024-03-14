@@ -16,3 +16,6 @@
     text-decoration: none;
 }
 
+.section > nav.sidebar-responsive > ul > li:nth-child(1), aside > nav.sidebar > ul li:nth-child(1){
+    background-color: var(--danger-color);
+}

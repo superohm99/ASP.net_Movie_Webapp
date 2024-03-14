@@ -35,7 +35,7 @@
     object-fit: cover;
 }
 
-.section > nav.sidebar-responsive > ul > li:nth-child(3), aside > nav.sidebar > ul li:nth-child(3){
+.section > nav.sidebar-responsive > ul > li:nth-child(2), aside > nav.sidebar > ul li:nth-child(2){
     background-color: var(--danger-color);
 }
 
