@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    @foreach (var item in ViewBag.groups)
+@{
+    ViewData["Title"] = "Group room";
+    ViewData["Styles"] = "~/css/groups.css";
+    @* ViewData["Scripts"] = "~/js/createRoom.js"; *@
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+    <h2>View Groups</h2>
+    <section>
+        @foreach (var item in ViewBag.groups)
     {
-        <div>
+        <div class="group">
 
-            <img src="@item.hostuserimage" />
-            <p>@item.movieimage</p>
+            <img src=@item.movieimage />
+            <p>ChatID: @item.chatId</p>
             <p>@item.movietitle</p>
             <form asp-controller="Chat" asp-action="ChatRoom" method="post" asp-route-returnurl='@ViewData["ReturnUrl"]'>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -22,6 +20,4 @@
             </form>
         </div>
     }
-</body>
-
-</html>
+    </section>

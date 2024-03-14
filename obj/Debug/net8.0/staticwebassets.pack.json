@@ -29,8 +29,20 @@
       "PackagePath": "staticwebassets\\css\\editMovie.css"
     },
     {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\filterJoin.css",
+      "PackagePath": "staticwebassets\\css\\filterJoin.css"
+    },
+    {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\groups.css",
+      "PackagePath": "staticwebassets\\css\\groups.css"
+    },
+    {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\joinRoom.css",
+      "PackagePath": "staticwebassets\\css\\joinRoom.css"
     },
     {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\login.css",
@@ -59,6 +71,10 @@
     {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\reports.css",
       "PackagePath": "staticwebassets\\css\\reports.css"
+    },
+    {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\requests.css",
+      "PackagePath": "staticwebassets\\css\\requests.css"
     },
     {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\css\\site.css",
@@ -97,6 +113,10 @@
       "PackagePath": "staticwebassets\\js\\home.js"
     },
     {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\js\\joinRoom.js",
+      "PackagePath": "staticwebassets\\js\\joinRoom.js"
+    },
+    {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\js\\movies.js",
       "PackagePath": "staticwebassets\\js\\movies.js"
     },
@@ -119,6 +139,10 @@
     {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\js\\test.js",
+      "PackagePath": "staticwebassets\\js\\test.js"
     },
     {
       "Id": "D:\\Non-System\\Uni\\latestASP\\ASP.net_Movie_Webapp\\wwwroot\\js\\userSite.js",

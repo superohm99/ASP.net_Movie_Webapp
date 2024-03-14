@@ -78,7 +78,7 @@ main{
 }
 
 .chat-box .chat .message-chat .message .text {
-  font-size: 0.75rem;
+  font-size: 1.6rem;
   margin: 0 1rem;
   background-color: var(--light-gray);
   padding: 0.5rem;

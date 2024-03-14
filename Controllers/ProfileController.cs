@@ -30,6 +30,10 @@ public class ProfileController : Controller
         }
         else
         {
+            var favs = _dbContext.FavoriteEntities.Where(f => f.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
+            var chatrecords = _dbContext.ChatRecordEntities.Where(p => p.AppUserId == _userManager.GetUserId(HttpContext.User)).ToList();
+            ViewBag.numFav = favs.Count;
+            ViewBag.groupNum = chatrecords.Count;
             AppUser user = _userManager.FindByIdAsync(userid).Result;
             return View(user);
         }
@@ -109,7 +113,20 @@ public class ProfileController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public async Task<IActionResult> Cancelreq(string userid, int chatrecordid)
+    {
+        var req = _dbContext.RequestEntities.Where(r => r.AppUserId == userid && r.ChatRecordEntity.Id == chatrecordid).FirstOrDefault();
+        if (req != null)
+        {
+            _dbContext.RequestEntities.Remove(req);
+            _dbContext.SaveChanges();
+            Console.WriteLine("Success Cancel");
+            return RedirectToAction("LikeMovie", "profile");
+        }
 
+        return RedirectToAction("likemovie","profile");
+    }
     [HttpPost]
     public async Task<IActionResult> Requests(int ohmreqIdreal, int ohmreqId, string ohmuserId)
     {

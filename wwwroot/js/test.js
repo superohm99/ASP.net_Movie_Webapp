@@ -1,6 +1,5 @@
 const movieContainer = document.querySelector('.movie-container');
 const movieSlider = document.querySelector('.movie-slider');
-const cinemaContainer = document.querySelector('.cinema-container');
 const getMovies = async () => {
   const response = await fetch('https://localhost:7290/admin/getmovies');
   const movies = await response.json();

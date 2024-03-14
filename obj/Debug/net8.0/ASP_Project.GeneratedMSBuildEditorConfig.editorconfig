@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Non-System/Uni/latestASP/ASP.net_Movie_Webapp/Views/Chat/createRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxjcmVhdGVSb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Non-System/Uni/latestASP/ASP.net_Movie_Webapp/Views/Chat/Filterjoin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxGaWx0ZXJqb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Non-System/Uni/latestASP/ASP.net_Movie_Webapp/Views/Chat/Join.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxKb2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Non-System/Uni/latestASP/ASP.net_Movie_Webapp/Views/Chat/test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFx0ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Non-System/Uni/latestASP/ASP.net_Movie_Webapp/Views/Home/Index.cshtml]

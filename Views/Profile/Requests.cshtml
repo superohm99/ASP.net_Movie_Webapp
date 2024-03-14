@@ -1,32 +1,40 @@
-@* @using ASP_Project.ViewModel;
-@model AddrequestVM *@
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["Styles"] = "~/css/profile.css";
+    ViewData["Scripts"] = "~/js/profile.js";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
 
-<table>
-    <thead>
-        <tr>
-            <th>Request ID</th>
-            <th>status</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
+<section class="user-profile">
+    <h1 class="header-title">your profile</h1>
+    <div class="info">
         @foreach (var item in ViewBag.Result)
         {
+
             <tr id="@item.req.Id">
-                <td>@item.req.Id</td>
-                <td>@item.req.Status</td>
-                <td>@item.user_select.Name</td>
+                <h2 scope="row">@item.req.Id</h2>
+                <h2>@item.user_select.Name</h2>
 
                 <div class="mb-1" id="@item.req.ChatRecordId">
                     <button type="submit" class="submit-button" data-req-iid="@item.req.Id"
                         data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Submit</button>
+                    
                     @* <span asp-validation-for="chatrecordid" class="text-danger"></span> *@
                 </div>
 
+                <div class="mb-1" id="@item.user_select.Name">
+                    <button type="submit" class="cancel-button" data-req-iid="@item.user_select.Name"
+                        data-req-id="@item.req.ChatRecordId" data-user-id="@item.user_select.Id">Cancel</button>
+                    
+                    @* <span asp-validation-for="chatrecordid" class="text-danger"></span> *@
+                </div>
             </tr>
         }
-    </tbody>
-</table>
+    </div>
+    <button class="btn btn-danger back" id="back">Back</button>
+    <a asp-action="Request" class="btn btn-warning reciepts">reciepts</a>
+</section>
+
 
 @section Scripts {
     <script>
@@ -47,6 +55,35 @@
                     ohmreqIdreal: reqiid,
                     ohmreqId: reqid,
                     ohmuserId: userid
+                },
+                success: function (response) {
+                    // Handle success response here
+                    $("#" + reqiid).empty();
+                    $("#" + reqid).empty();
+
+                },
+                error: function (xhr, status, error) {
+                    // Handle error here
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+
+
+
+        $('.cancel-button').click(function () {
+            var reqiid = $(this).data('req-iid')
+            var reqid = $(this).data('req-id');
+            var userid = $(this).data('user-id');
+
+            console.log("sdfsdf" + userid);
+
+            $.ajax({
+                url: '@Url.Action("Cancelreq", "Profile")',
+                type: 'POST',
+                data: {
+                    userid: userid,
+                    chatrecordid: reqid
                 },
                 success: function (response) {
                     // Handle success response here

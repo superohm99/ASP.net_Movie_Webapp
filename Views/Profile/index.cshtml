@@ -1,60 +1,44 @@
-@using Microsoft.AspNetCore.Identity;
-@model ASP_Project.Models.AppUser
 @{
-    ViewData["Title"] = "Profile Page";
-    ViewData["Styles"] = "~/css/profile.css";
-    ViewData["Scripts"] = "~/js/profile.js";
-    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+  ViewData["Title"] = "Profile";
+  ViewData["Styles"] = "~/css/profile.css";
+  ViewData["Scripts"] = "~/js/profile.js";
+  Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
+<section class="user-profile">
+  <h1 class="header-title">your profile</h1>
+  <div class="info">
+    <div class="user">
+      <img src=@Model.Image alt="user image" />
+      <h2>@Model.Name</h2>
+      <a href="/profile/edit" class="btn btn-warning">update profile</a>
+    </div>
 
-<head>
-    <title>@ViewData["Title"]</title>
-</head>
-
-<body>
-    <section class="user-profile">
-        <h1 class="header-title">Profile</h1>
-        <div class="info">
-            <div class="user">
-                <img src="@Html.DisplayFor(model => model.Image)" alt="profile-img" />
-                <h2>@Html.DisplayFor(model => model.Name)</h2>
-                <div class="score">
-                    <i class="fa-solid fa-star"></i>
-                    <p>@Html.DisplayFor(model => model.Rating)</p>
-                </div>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit Profile</a>
-            </div>
-            <div class="box-container">
-                <div class="box">
-                    <div class="flex">
-                        <i class="fa-solid fa-heart"></i>
-                        <div>
-                            <span>3</span>
-                            <p>Liked Movies</p>
-                        </div>
-                    </div>
-                    <a asp-action="LikeMovie" class="btn btn-warning">view movies</a>
-                </div>
-
-                <div class="box">
-                    <div class="flex">
-                        <i class="fa-solid fa-users-rectangle"></i>
-                        <div>
-                            <span>4</span>
-                            <p>Your Groups</p>
-                        </div>
-                    </div>
-                    <a asp-action="Groups" class="btn btn-warning">view groups</a>
-                </div>
-
-            </div>
+    <div class="box-container">
+      <div class="box">
+        <div class="flex">
+          <i class="fa-solid fa-heart"></i>
+          <div>
+            <span>@ViewBag.numFav</span>
+            <p>movies liked</p>
+          </div>
         </div>
+        <a href="/profile/LikeMovie" class="btn btn-warning">view movies</a>
+      </div>
 
-        <button class="btn btn-danger back" id="back" asp-controller="Home" asp-action="Index">Back</button>
-    </section>
-</body>
+      <div class="box">
+        <div class="flex">
+          <i class="fa-solid fa-users-rectangle"></i>
+          <div>
+            <span>@ViewBag.groupNum</span>
+            <p>groups</p>
+          </div>
+        </div>
+        <a href="/profile/groups" class="btn btn-warning">view groups</a>
+      </div>
 
-</html>
+    </div>
+  </div>
+  <button class="btn btn-danger back" id="back">Back</button>
+  <a asp-action="Requests" class="btn btn-warning reciepts">reciepts</a>
+</section>

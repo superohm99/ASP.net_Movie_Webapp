@@ -1,3 +1,6 @@
+
+
+
 const isLogged = document.querySelector('input[type="hidden"]').value;
 
 const cards = document.querySelector('.cards');
@@ -18,10 +21,12 @@ const getAllMovies = async () => {
 
             // @Model in asp.net core
             const heart = document.createElement('i');
-            heart.classList.add('fas', 'fa-heart');
+            heart.classList.add('fas', 'fa-heart', 'submit-btn');
+            heart.setAttribute('data-movie-id', movie.id);
             heart.addEventListener('click', () => {
                 heart.classList.toggle('active');
                 // do something with movie like add to favorites
+                // postLike(movie.id);
             });
             console.log(isLogged);
             if (isLogged !== 'value') {
@@ -38,3 +43,38 @@ const getAllMovies = async () => {
 };
 
 getAllMovies();
+
+
+
+// const postLike = async (movieId) => {
+//     try {
+//         const response = await fetch(`https://localhost:7290/admin/like/${movieId}`, {
+//             method: 'POST',
+//         });
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (err) {
+//         console.error('Error:', err);
+//     }
+// }
+
+
+$('.submit-button').click(function() {
+    var movieid= $(this).data('movie-id')
+    
+    $.ajax({
+        url: '@Url.Action("Dellike", "Profile")',
+        type: 'POST',
+        data: {
+            movieId: movieid
+        },
+        success: function(response) {
+            // Handle success response here
+            $("#" + movieid).empty();
+        },
+        error: function(xhr, status, error) {
+            // Handle error here
+            console.error(xhr.responseText);
+        }
+    });
+});
